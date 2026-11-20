@@ -1,77 +1,105 @@
 import { expect, test } from "@playwright/test";
 
-const button = (page, name) => page.getByRole("button", { name, exact: true });
+const button = (page, name) => page.getByRole("button", { name });
 
-test("Dibs: start, lock in, reveal three rents, and edit via keyboard", async ({ page }, info) => {
-  const response = await page.goto("/dibs");
-  if (response?.status() === 404) {
-    const legacy = await page.goto("/");
-    expect(legacy?.ok(), "Legacy Dibs home should load").toBe(true);
-    info.annotations.push({ type: "legacy", description: "Dibs lives at / on this build" });
-  }
-
-  const start = button(page, "Start");
-  const lockIn = button(page, "Lock in");
-  // SSR renders Start before TanStack finishes loading the client-side route bundle.
+async function open(page, path) {
+  const response = await page.goto(path);
+  expect(response?.ok(), `${path} should load`).toBe(true);
   await page.waitForLoadState("networkidle");
-  await tabAndActivate(page, start);
-  await tabAndActivate(page, lockIn);
+}
 
-  await expect(page.getByRole("heading", { name: /here.s the fair split/i })).toBeVisible();
-  const rents = page.getByRole("list", { name: "Rooms and rents" }).getByRole("button");
-  await expect(rents).toHaveCount(3);
-  for (const rent of await rents.all()) {
-    await expect(rent).toHaveAccessibleName(/£\d[\d,]*\.\d{2} per week/i);
-    await expect(rent.getByText(/^£\d[\d,]*\.\d{2}$/)).toBeVisible();
-  }
-
-  const path = info.outputPath("dibs-reveal.jpg");
-  await page.screenshot({ path, quality: 70, animations: "disabled" });
-  await info.attach("Dibs reveal", { path, contentType: "image/jpeg" });
-
-  await tabAndActivate(page, button(page, "Edit answers"));
-  await expect(lockIn).toBeVisible();
-});
-
-test("Runway: open a Can I say yes? preview and Skip it via keyboard", async ({ page }) => {
-  const response = await page.goto("/");
-  expect(response?.ok()).toBe(true);
-  await page.waitForLoadState("networkidle");
-  const title = page.getByText(/^Can I say yes\?$/i).first();
-  try {
-    await title.waitFor({ state: "visible", timeout: 4000 });
-  } catch (error) {
-    if (error.name !== "TimeoutError") throw error;
-    test.skip(true, "This build does not have a visible Can I say yes? section");
-  }
-
-  // The chips live just after the section's label; avoid binding to preset expense names.
-  const chips = title.locator("xpath=ancestor::*[.//button][1]").getByRole("button");
-  const chip = chips.first();
-  await expect(chip, "Can I say yes? should offer a keyboard-operable chip").toBeVisible();
-  const skip = button(page, "Skip it");
-  await expect(skip).toBeHidden();
-  await tabAndActivate(page, chip);
+async function expectPreview(page, timeout = 5000) {
+  await expect(page.locator("[data-verdict]")).toBeVisible({ timeout });
   await expect(
-    skip,
-    "Opening a chip should show the preview with its Skip it action",
-  ).toBeVisible();
-  await tabAndActivate(page, skip);
-  await expect(skip).toBeHidden();
+    page.getByRole("heading", { level: 3 }).and(page.locator("#preview-heading")),
+  ).toBeFocused();
+  await expect(page.getByTestId("reply-text")).toBeVisible();
+  await expect(page.getByTestId("reply-text")).not.toBeEmpty();
+  test.info().annotations.push({
+    type: "a11y-finding",
+    description:
+      "PlanPreviewCard.tsx:128-145: axe definition-list (1 node) and dlitem (6 nodes), serious; nested div separates dt/dd from dl.",
+  });
+}
+
+test("Runway: chip opens a preview and Skip it dismisses it via keyboard", async ({ page }) => {
+  await open(page, "/");
+  await expect(page.getByTestId("safe-per-day")).toBeVisible();
+  const chip = button(page, /winter ball.*£55/i);
+  await expect(page.locator("[data-verdict]")).toBeHidden();
+  await tabAndActivate(page, chip);
+  await expectPreview(page);
+  await tabAndActivate(page, button(page, /^skip it$/i), "Space");
+  await expect(page.locator("[data-verdict]")).toBeHidden();
   await expect(chip).toBeVisible();
 });
 
-async function tabAndActivate(page, target) {
-  await expect(target).toBeVisible();
+test("Runway: example invite reaches an AI or on-device preview via keyboard", async ({ page }) => {
+  await open(page, "/");
+  await tabAndActivate(page, button(page, /try an example/i));
+  await tabAndActivate(page, button(page, /^read it$/i));
+  const deadline = Date.now() + 12000;
+  await tabAndActivate(page, button(page, /looks right,? preview it/i), "Enter", 12000);
+  await expectPreview(page, Math.max(1, deadline - Date.now()));
+  const source = await page
+    .getByRole("form", { name: "Check what we read" })
+    .getByRole("status")
+    .innerText();
+  test.info().annotations.push({ type: "invite-source", description: source });
+  console.log(`${test.info().project.name} invite source: ${source}`);
+});
+
+test("Dibs: Start, Lock in, reveal and holding-deposit hand-off via keyboard", async ({ page }) => {
+  await open(page, "/dibs");
+  await tabAndActivate(page, button(page, /^start$/i));
+  await annotateLostFocus(page, "Start");
+  const handoff = button(page, /preview £95\.00 in til loan day/i).or(
+    page.getByRole("link", { name: /preview £95\.00 in til loan day/i }),
+  );
+  const lockIn = button(page, /^lock in$/i);
+  const ready = button(
+    page,
+    /^(i.?m .*,? ready|i.?m ready|ready|reveal(?: the (?:split|results))?)$/i,
+  );
+  let locks = 0;
+  for (let step = 0; step < 8; step++) {
+    await expect(handoff.or(lockIn).or(ready).first()).toBeVisible();
+    if (await handoff.isVisible()) break;
+    if (await lockIn.isVisible()) {
+      await tabAndActivate(page, lockIn);
+      await annotateLostFocus(page, "Lock in");
+      locks++;
+    } else {
+      await tabAndActivate(page, ready);
+    }
+  }
+  expect(locks, "At least one housemate must lock in answers").toBeGreaterThan(0);
+  await expect(page.getByRole("heading", { name: /here.s the fair split|reveal/i })).toBeVisible();
+  await expect(page.getByText(/signing for this house\?/i)).toBeVisible();
+  await tabAndActivate(page, handoff);
+  await expect(page).toHaveURL(/\/(?:\?.*)?$/);
+  await expectPreview(page);
+});
+
+async function annotateLostFocus(page, step) {
+  if (await page.evaluate(() => document.activeElement === document.body)) {
+    test.info().annotations.push({
+      type: "a11y-finding",
+      description: `DibsApp.tsx:33-36: after ${step}, focus falls to body; go() scrolls but does not focus the new screen heading or announce it.`,
+    });
+  }
+}
+
+async function tabAndActivate(page, target, key = "Enter", timeout = 5000) {
+  await expect(target).toBeVisible({ timeout });
+  await expect(target).toBeEnabled();
   const maxTabs =
-    (await page.locator("button, a[href], input, select, textarea, [tabindex]").count()) + 5;
-  for (
-    let i = 0;
-    i < maxTabs && !(await target.evaluate((el) => el === document.activeElement));
-    i++
-  ) {
+    (await page.locator("button, a[href], input, select, textarea, summary, [tabindex]").count()) +
+    5;
+  for (let i = 0; i < maxTabs; i++) {
+    if (await target.evaluate((el) => el === document.activeElement)) break;
     await page.keyboard.press("Tab");
   }
   await expect(target, "The control should receive focus using Tab alone").toBeFocused();
-  await page.keyboard.press("Enter");
+  await page.keyboard.press(key);
 }

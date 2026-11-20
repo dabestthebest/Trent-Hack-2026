@@ -1,59 +1,228 @@
 # Accessibility and mobile audit
 
-**20 November 2026 · Chromium · 375 × 812 and 1280 × 900**
+**20 November 2026 · Til Loan Day rebuild `2a124c3` · Chromium · 375 × 812 and 1280 × 900**
 
-Audited the [published app](https://dibs-fair-rooms.lovable.app) and local Vite at
-`http://localhost:8080` on `521a6ea`. Both builds still served Dibs at `/`; `/dibs` returned
-the 404 page, and there was no Runway UI to exercise. This is a baseline for those builds,
-not an audit of the upcoming Til Loan Day screens.
+Audited local Vite at `http://localhost:8080`: Runway (`/`), Dibs (`/dibs`) and
+`/selftest`. The rebuilt routes load, all requested keyboard flows complete, and selftest
+reports **25/25 PASS**. A passing suite is **not an accessibility all-clear**: axe is an
+inventory, and the findings below include problems in states beyond the initial route.
 
-| Target    | Passed | Failed | Skipped |
-| --------- | -----: | -----: | ------: |
-| Published |      6 |      2 |       2 |
-| Local     |      6 |      2 |       2 |
+## Scope and method
 
-On each target, the two failures were the `/dibs` route checks (HTTP 404 and a matching
-browser console resource error). The two skips were Runway, one per viewport. On the legacy
-home route, Tab and Enter completed Start → Lock in → three revealed rents (£95.00, £104.00,
-£131.00) → Edit answers at both sizes on both targets.
+From the repo root, installed and restarted the rebuilt app:
+
+```sh
+bun install && bun run dev -- --port 8080
+```
+
+From `e2e/`, with Node activated (`source /home/ubuntu/.nvm/nvm.sh` in this environment):
+
+```sh
+npm ci
+npx playwright install chromium
+npx playwright test --list
+BASE_URL=http://localhost:8080 npx playwright test --workers=2
+```
+
+Observed installation: `added 5 packages`, `found 0 vulnerabilities`; Chromium installed.
+Discovery: `Total: 12 tests in 2 files`. Final local suite output:
+
+```text
+12 passed (14.9s)
+```
+
+| Target            | Passed | Failed | Skipped |
+| ----------------- | -----: | -----: | ------: |
+| Local rebuild     |     12 |      0 |       0 |
+| Published rebuild |     12 |      0 |       0 |
+
+The suite uses Tab and Enter/Space, never mouse clicks, for:
+
+- Runway: Winter ball chip → preview → Skip it.
+- Invite: Try an example → Read it → Looks right, preview it → preview within 12s.
+  **The local run hit the on-device fallback**, not a successful AI response.
+- Dibs: Start → Lock in → reveal → Preview £95.00 in Til Loan Day → Runway preview.
+
+Each route audit records HTTP status, console/page errors, document width, axe violations,
+and initial-state Tab reachability/computed focus-ring changes. Additional browser probes
+scanned expanded Your numbers, the invite draft, the Runway preview and the Dibs reveal.
+Settled scans waited for finite animations; Dibs also waited for the flip timer and populated
+rent accessible names. See [raw inventory](A11Y-V2-RAW.json) for rules, impacts, node counts,
+selectors, example nodes, labels and focus observations. Repeated calendar labels and transient
+animation scans have been trimmed from that file.
 
 ## Route measurements
 
-Axe counts are **rule counts per scan**, not counts of elements. Both viewports and targets
-had the same counts. Each scanned document fit the viewport (375/375 and 1280/1280 CSS px
-for scroll width/inner width). Every visible enabled control inventoried on the initial
-screens was reached by Tab and had a computed focus outline or changed box shadow. This
-does not measure focus-indicator contrast or clipping. No browser errors were recorded on
-`/` or `/selftest`.
+Counts below are **axe violation rules per initial-route scan**, not affected elements.
+Both viewports had the same results. All documents fit their viewport (375/375 and
+1280/1280 CSS px). No browser errors were recorded.
 
-| Page                             | HTTP | Critical | Serious | Moderate | Minor | Initial tab stops checked, published / local (each viewport) |
-| -------------------------------- | ---: | -------: | ------: | -------: | ----: | -----------------------------------------------------------: |
-| `/` (legacy Dibs)                |  200 |        0 |       1 |        0 |     0 |                                                        7 / 5 |
-| `/dibs` (404 template, not Dibs) |  404 |        0 |       1 |        2 |     0 |                                                        3 / 1 |
-| `/selftest`                      |  200 |        0 |       0 |        2 |     0 |                                                        3 / 1 |
+| Route        | HTTP | Critical | Serious | Moderate | Minor | Initial controls checked, each viewport |
+| ------------ | ---: | -------: | ------: | -------: | ----: | --------------------------------------: |
+| `/` Runway   |  200 |        0 |       0 |        0 |     0 |                                      16 |
+| `/dibs` Dibs |  200 |        0 |       0 |        0 |     0 |                                      10 |
+| `/selftest`  |  200 |        0 |       0 |        0 |     0 |                                       5 |
+
+Every inventoried visible, enabled control was reached by Tab and showed a changed computed
+outline or box shadow. This does not establish indicator contrast, clipping or visibility
+under the sticky header. Flow tests annotate observed Dibs focus loss and preview-list findings
+rather than hiding them behind a passing functional result.
+
+## Findings
+
+| Surface                | Impact / evidence                                                                                                                                                                                                                             | Source                                                                                                                                                                                                               |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dibs screen changes    | **Keyboard/screen-reader orientation issue:** focus becomes `<body>` after both Start and Lock in, at both sizes. No populated live region announces the new screen. Tab can still reach the next action.                                     | `src/components/dibs/DibsApp.tsx:33–36` (`go`)                                                                                                                                                                       |
+| Runway preview metrics | **Serious:** axe `definition-list` (1 node, `dl`) and `dlitem` (6 nodes, e.g. `dl > div > div > dt`) at both sizes, including after animation settles. Extra nested wrappers break the permitted `dl`/`dt`/`dd` structure.                    | `src/components/money/PlanPreviewCard.tsx:128–145`                                                                                                                                                                   |
+| Dibs reveal cards      | **Serious axe finding, naming review required:** `label-content-name-mismatch` on all 3 room buttons at both sizes; persists after reveal settles. Example: `.flip-card:nth-child(1) > .flip-inner.is-flipped`.                               | `src/components/dibs/RevealScreen.tsx:118–187`, especially accessible names at `123–126`                                                                                                                             |
+| Preview announcement   | **Enhancement / assistive-technology verification needed, not a demonstrated WCAG failure:** verdict has no dedicated live summary. Focus does move to `#preview-heading` (verified in all three flows); actual spoken output was not tested. | `src/components/money/PlanPreviewCard.tsx:68–73,104–111`; `src/components/money/SayYes.tsx`                                                                                                                          |
+| Contrast inventory     | **Unresolved manual checks, not confirmed contrast failures:** axe cannot resolve some gradients, pseudo-elements, transformed cards and short text. See counts below.                                                                        | `src/components/money/DayCalendar.tsx:180–189`, `src/components/money/styles.ts:9–22`, `src/components/shell/AppShell.tsx:12–30,65–95`, `src/components/dibs/RevealScreen.tsx:128–187`, `src/routes/selftest.tsx:56` |
+
+### Contrast follow-up
+
+No settled-state `color-contrast` violations were found. Incomplete contrast **node counts**
+are listed below; these are not pass/fail counts. The raw JSON retains example selectors
+and axe's explanation for each group.
+
+| State                                               | Mobile incomplete nodes | Desktop incomplete nodes |
+| --------------------------------------------------- | ----------------------: | -----------------------: |
+| Runway initial                                      |                       9 |                        9 |
+| Dibs initial                                        |                       1 |                        2 |
+| Selftest initial                                    |                       3 |                        3 |
+| Settled Runway chip preview + Your numbers expanded |                      17 |                       19 |
+| Settled Dibs reveal                                 |                      20 |                       21 |
+
+An immediate preview scan reported 22 contrast nodes during its entrance animation. A
+follow-up after animations completed removed that contrast violation; do not interpret it
+as a settled palette failure. Hatched calendar backgrounds and nav pseudo-elements still
+need manual contrast measurement. Focus-indicator contrast was not measured.
+
+### Semantics, labels and announcements
+
+- **Landmarks/headings:** `src/components/shell/AppShell.tsx:35–129` supplies a skip link,
+  banner, named Tools navigation, `main#main` and footer. Initial H1s are Your runway,
+  Who gets the big room?, and Engine selftest. No landmark/heading axe violations were found.
+- **Calendar is not color-only:** `DayCalendar.tsx:162–164` gives each day `role="img"`
+  and an accessible date/balance/status label. `src/components/money/copy.ts:144–160`
+  maps own money, overdraft and exhausted states to text, adding bills, Today and plan changes.
+  Observed example: “Mon 4 Jan: −£2.00, in your overdraft”. Hatching, a legend and exhausted
+  crosses supplement color. The exhausted label mapping was inspected in code, not exercised
+  in the screenshot scenario.
+- **Paste box:** `src/components/money/InviteReader.tsx:135–147,196–242` associates Group
+  chat message with the textarea and wraps draft inputs in What, Cost (£), When labels.
+  The draft source uses `role="status"`; the local text was “Read on your phone (AI
+  unavailable). Check it.” Its actual announcement in a screen reader remains untested.
+- **Your numbers:** `src/components/money/YourNumbers.tsx:43–91,190–254,416–464` exposes
+  expanded/controls state and labelled balance, overdraft, spend, date and bill fields.
+  `src/components/money/fields.tsx:40–76` associates visible labels, hints/errors via
+  `aria-describedby`, and `aria-invalid` on errors. No unlabelled fields were found in the
+  expanded inventory; validation error interactions were not comprehensively exercised.
+- **Preview/actions:** the preview is a named article; its H3 receives focus. Copy success
+  has a polite region (`PlanPreviewCard.tsx:211–213`), and added/skipped notices use
+  `role="status"` in `SayYes.tsx`. Closing the preview focuses the Can I say yes? heading
+  (`src/components/money/RunwayPage.tsx:99–102`).
 
 ## Suggested app changes for Claude
 
-| Page              | Element                         | Impact                                                                                                    | WCAG rule                                        | Suggested fix with file path                                                                                                                                         |
-| ----------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/dibs`           | Route                           | **Blocked:** direct links reach a 404 on both builds; the Dibs audit cannot cover the new route yet.      | Not a WCAG finding (route availability)          | Add the Dibs route in `src/routes/dibs.tsx` when moving Runway into `src/routes/index.tsx`; verify the published URL directly.                                       |
-| `/` (legacy Dibs) | Start button                    | **Serious** (`color-contrast`): 4.44:1, below axe's 4.5:1 threshold for the rendered text.                | 1.4.3 Contrast (Minimum), AA                     | Adjust the primary/foreground color pair in `src/styles.css` for the Start button in `src/components/dibs/HouseScreen.tsx`; recheck normal, hover, and focus states. |
-| `/dibs` (404)     | Go home link                    | **Serious** (`color-contrast`): 4.44:1, below 4.5:1.                                                      | 1.4.3 Contrast (Minimum), AA                     | Use the corrected color pair from `src/styles.css` on the recovery link in `src/routes/__root.tsx`.                                                                  |
-| `/selftest`       | Results and heading             | **Moderate** (`landmark-one-main`, `region`): no main landmark for assistive-technology users to jump to. | Axe best practice; not a standalone WCAG failure | Wrap the heading, summary and results table in `<main>` in `src/routes/selftest.tsx`.                                                                                |
-| `/dibs` (404)     | Error content and recovery link | **Moderate** (`landmark-one-main`, `region`): recovery content has no main landmark.                      | Axe best practice; not a standalone WCAG failure | Use `<main>` as the 404 content wrapper in `NotFoundComponent` in `src/routes/__root.tsx`.                                                                           |
+Top five, in priority order. These are app-side suggestions; this branch changes only tests
+and documentation.
 
-**Cold-load observation:** Initial keyboard runs on both targets reached Start, but the
-first Enter sometimes did nothing while the client route script was still loading. The
-flow checks now wait for client assets to settle and pass. In `src/components/dibs/HouseScreen.tsx`,
-consider exposing Start as enabled only once its handler is ready, with a clear loading state.
+1. **Restore Dibs focus after screen changes.** In
+   `src/components/dibs/DibsApp.tsx:33–36`, focus the newly rendered screen's H1 after
+   React commits, using a heading ref and `tabIndex={-1}` (or a screen wrapper/ref lookup).
+   Apply to Start, Lock in, Edit and restart transitions; retain the privacy screen's
+   deliberate ready-control focus. Verify meaningful reading order and scroll position.
+2. **Repair preview definition-list structure.** In
+   `src/components/money/PlanPreviewCard.tsx:128–145`, make each direct `dl > div` group
+   contain its `dt` and `dd` directly. Move the visual flex layout to CSS/grid, or place
+   value/change content together inside one `dd`. Re-run axe on the open preview: both
+   `definition-list` and `dlitem` should disappear.
+3. **Align reveal-card names with visible labels.** In
+   `src/components/dibs/RevealScreen.tsx:118–187`, prefer `aria-labelledby` referencing
+   the visible room/person/rent labels, with extra comparison instructions in
+   `aria-describedby`. Hide decorative avatar initials and the inactive flip face from
+   assistive technology as appropriate. Check the exact rendered accessible names before
+   and after the flip, then re-run `label-content-name-mismatch` on all three cards.
+4. **Consider a dedicated preview verdict announcement.** In
+   `src/components/money/PlanPreviewCard.tsx` / `src/components/money/SayYes.tsx`, consider
+   an already-mounted, visually hidden `role="status"` or polite `aria-live` summary updated
+   with the verdict text. Keep the useful focus hand-off, but test with a screen reader to
+   avoid announcing the same verdict twice. This is a recommendation, not a proven failure.
+5. **Resolve manual contrast checks.** Measure text and focus rings against the actual
+   hatched calendar pixels (`DayCalendar.tsx`, `money/styles.ts`) and nav pseudo-element
+   backgrounds (`shell/AppShell.tsx`). Include Dibs transformed cards and selftest badges.
+   If necessary, give text an opaque backing or adjust foreground/background tokens in
+   `src/styles.css`; preserve the non-color status cues. Record ratios rather than treating
+   axe's incomplete result as a pass.
 
-## Screenshots and scope
+## Published app
 
-Published app at 375 × 812: [Start and its contrast](a11y-screens/published-start-mobile.jpg),
-[`/dibs` returning 404](a11y-screens/published-dibs-404-mobile.jpg),
-[`/selftest` results](a11y-screens/published-selftest-mobile.jpg), and
-[the Dibs reveal reached by keyboard](a11y-screens/published-reveal-mobile.jpg).
+**Verified 20 November 2026** at the new [published URL](https://til-loan-day.lovable.app).
+From `e2e/`, with Node activated, ran the full suite at both 375 × 812 and 1280 × 900:
 
-The audit did not exercise screen readers, native mobile browsers, the Dibs pass-the-phone
-or challenge flows, or Runway. Axe scans the initial route, not every state in each flow.
-See [the suite README](../e2e/README.md) for commands and full JSON results.
+```sh
+BASE_URL=https://til-loan-day.lovable.app npx playwright test --workers=2
+```
+
+Observed output:
+
+```text
+mobile-375x812 invite source: Read by AI. Check it before we run it.
+desktop-1280x900 invite source: Read by AI. Check it before we run it.
+12 passed (18.1s)
+```
+
+Direct HTTP checks returned 200 for all three routes. Home title:
+`Til Loan Day: make your money last till loan day`; `/dibs` title:
+`Dibs: fair rooms and rent | Til Loan Day`; `/selftest` title: `Selftest · Til Loan Day`.
+The browser route test asserted **25/25 PASS** on `/selftest` in both viewports, and the
+Dibs keyboard flow reached the £95 Runway hand-off preview in both.
+
+**Difference from local:** the published invite used **AI**, not the local on-device
+fallback, in both viewports; both previews arrived within the 12s budget. Initial route
+scans again recorded zero axe violation rules, no browser errors and no horizontal overflow.
+Initial controls checked were 18 / 12 / 7 for Runway / Dibs / selftest (local: 16 / 10 / 5),
+with none missed by Tab or lacking a changed computed ring. Dibs focus-loss annotations were
+also observed on the published flow. The detailed dynamic-state axe findings and screenshots above remain
+local evidence; the published run did not repeat those supplemental scans or a visual audit.
+
+The former URL, `https://dibs-fair-rooms.lovable.app`, now returns **HTTP 404**, title
+`Project not found`. The suite config, README and publish-wait utility now default to
+`https://til-loan-day.lovable.app`. Invite-source text is logged and retained as a test
+annotation so subsequent runs distinguish AI from the fallback.
+
+## Screenshots and untested scope
+
+Fresh **local** mobile evidence, captured at a 375px viewport (element crops are narrower),
+JPEG quality 55; every image was opened and checked for the intended state. Each is under
+80KB. These are not published-app screenshots.
+
+### Runway initial and chip preview
+
+![Runway showing £5.42 safe per day and plan chips](a11y-screens/runway-mobile.jpg)
+
+![Winter ball preview with overdraft verdict, reply and actions](a11y-screens/runway-preview-mobile.jpg)
+
+### Invite draft and calendar
+
+![On-device invite draft with What, Cost, When and preview confirmation](a11y-screens/invite-draft-mobile.jpg)
+
+![Calendar with Winter ball preview, own-money and hatched overdraft days](a11y-screens/calendar-mobile.jpg)
+
+### Dibs reveal and holding-deposit hand-off
+
+![Dibs revealed rents of £95, £104 and £131 with verification checks](a11y-screens/dibs-reveal-mobile.jpg)
+
+![Runway preview for the £95 holding deposit opened from Dibs](a11y-screens/dibs-handoff-preview-mobile.jpg)
+
+### Selftest
+
+![Engine selftest showing 25/25 PASS](a11y-screens/selftest-mobile.jpg)
+
+Not tested: screen-reader speech, native mobile browsers, exhaustive AI error cases, clipboard
+and WhatsApp delivery, exhaustive validation/error cases, Dibs pass-the-phone and challenge
+flows, all preview verdicts, or every dynamic control's focus indicator. Some decorative emoji
+render as missing-glyph boxes in this local Chromium environment; no cross-platform conclusion
+was drawn. Manual contrast and focus-indicator visibility checks remain outstanding.
+
+See [the suite README](../e2e/README.md) for setup, BASE_URL and trace/report commands.

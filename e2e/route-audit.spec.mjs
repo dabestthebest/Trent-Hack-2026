@@ -2,11 +2,12 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const routes = [
-  { path: "/", label: "home" },
+  { path: "/", label: "runway" },
   { path: "/dibs", label: "dibs" },
   { path: "/selftest", label: "selftest" },
 ];
-const controls = 'button, a[href], input, [role="button"], [role="link"]';
+const controls =
+  'button, a[href], input, textarea, select, summary, [role="button"], [role="link"]';
 
 for (const { path, label } of routes) {
   test(`${path} route audit`, async ({ page }, info) => {
@@ -19,6 +20,12 @@ for (const { path, label } of routes) {
     const response = await page.goto(path);
     await page.waitForLoadState("load");
     await page.evaluate(() => document.fonts.ready.then(() => {}));
+    if (path === "/") {
+      await expect.soft(page.getByTestId("safe-per-day")).toBeVisible();
+    }
+    if (path === "/selftest") {
+      await expect.soft(page.getByTestId("selftest-total")).toHaveText("25/25 PASS");
+    }
     const heading = await page.locator("h1").allTextContents();
     const status = response?.status();
     expect.soft(response?.ok(), `HTTP ${status} for ${path}: ${heading.join(", ")}`).toBe(true);

@@ -7,7 +7,7 @@ export default defineConfig({
     ["json", { outputFile: process.env.PLAYWRIGHT_JSON_OUTPUT_FILE || "test-results/audit.json" }],
   ],
   use: {
-    baseURL: process.env.BASE_URL || "https://dibs-fair-rooms.lovable.app",
+    baseURL: process.env.BASE_URL || "https://til-loan-day.lovable.app",
     trace: "retain-on-failure",
   },
   projects: [
