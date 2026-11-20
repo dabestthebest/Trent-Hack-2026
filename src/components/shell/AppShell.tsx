@@ -3,6 +3,7 @@ import { useEffect, type ReactNode } from "react";
 
 import { Victory } from "@/components/fun/Victory";
 import { XpBadge } from "@/components/fun/XpBadge";
+import { useDibsLock } from "@/lib/dibs/lock";
 
 import { LoanDayMark } from "./LoanDayMark";
 
@@ -34,6 +35,7 @@ function TabLabel({ children }: { children: string }) {
 }
 
 export function AppShell({ children }: { children: ReactNode }) {
+  const dibsLocked = useDibsLock();
   // The selftest tables need more room than the phone-first column; every other page stays narrow.
   const wide = useRouterState({ select: (s) => s.location.pathname === "/selftest" });
   const column = `mx-auto w-full px-4 ${wide ? "max-w-5xl" : "max-w-xl"}`;
@@ -72,16 +74,25 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
         <div className={`${column} flex min-h-14 items-stretch justify-between gap-2 sm:gap-3`}>
           <div className="flex min-w-0 flex-col justify-center py-2">
-            <Link
-              to="/"
-              activeOptions={{ exact: true }}
-              className="-mx-1 inline-flex items-center gap-2 self-start rounded-lg px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <LoanDayMark className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />
-              <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary max-[419px]:sr-only sm:text-xl">
-                til loan day
+            {dibsLocked ? (
+              <span className="-mx-1 inline-flex items-center gap-2 self-start px-1 py-0.5">
+                <LoanDayMark className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />
+                <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary max-[419px]:sr-only sm:text-xl">
+                  til loan day
+                </span>
               </span>
-            </Link>
+            ) : (
+              <Link
+                to="/"
+                activeOptions={{ exact: true }}
+                className="-mx-1 inline-flex items-center gap-2 self-start rounded-lg px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <LoanDayMark className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />
+                <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary max-[419px]:sr-only sm:text-xl">
+                  til loan day
+                </span>
+              </Link>
+            )}
             <p className="mt-0.5 hidden pl-10 text-xs text-muted-foreground sm:block">
               Make your money last till loan day.
             </p>
@@ -91,18 +102,29 @@ export function AppShell({ children }: { children: ReactNode }) {
             <nav aria-label="Tools" className="flex shrink-0 items-stretch">
               <ul className="flex items-stretch gap-0.5 pt-1.5">
                 <li className="flex">
-                  <Link
-                    to="/"
-                    activeOptions={{ exact: true }}
-                    className={TAB_BASE}
-                    activeProps={TAB_ACTIVE}
-                    inactiveProps={TAB_INACTIVE}
-                  >
-                    <TabLabel>Runway</TabLabel>
-                    <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
-                      daily spend
+                  {dibsLocked ? (
+                    <span
+                      aria-disabled="true"
+                      title="Locked during Dibs"
+                      className={`${TAB_BASE} cursor-not-allowed text-muted-foreground opacity-60`}
+                    >
+                      <TabLabel>🔒 Runway</TabLabel>
+                      <span className="sr-only">, locked during Dibs</span>
                     </span>
-                  </Link>
+                  ) : (
+                    <Link
+                      to="/"
+                      activeOptions={{ exact: true }}
+                      className={TAB_BASE}
+                      activeProps={TAB_ACTIVE}
+                      inactiveProps={TAB_INACTIVE}
+                    >
+                      <TabLabel>Runway</TabLabel>
+                      <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
+                        daily spend
+                      </span>
+                    </Link>
+                  )}
                 </li>
                 <li className="flex">
                   <Link

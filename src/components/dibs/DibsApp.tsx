@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import { solveFairSplit } from "@/lib/dibs/fairSplit";
+import { setDibsLock } from "@/lib/dibs/lock";
 import { useFun } from "@/lib/fun/store";
 import { initialHousemates, toSplitInput, type Housemate, type Mode } from "@/lib/dibs/housemates";
 
@@ -30,6 +31,13 @@ export function DibsApp() {
     () => (step.kind === "result" ? solveFairSplit(toSplitInput(people)) : null),
     [step, people],
   );
+  // Pass-the-phone: lock the Runway so housemates can't peek at your balance. Not cleared on
+  // unmount on purpose; coming back to Dibs starts at the house screen, which unlocks it.
+  const passing = humanSeats.length > 1 && step.kind !== "house";
+  useEffect(() => {
+    setDibsLock(passing);
+  }, [passing]);
+
   const { complete } = useFun();
   useEffect(() => {
     if (result?.feasible) complete("fair-split");
@@ -128,6 +136,20 @@ export function DibsApp() {
           <span className="sr-only">, back to the house</span>
         </button>
       </div>
+      {passing ? (
+        <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-border bg-secondary/60 px-3 py-2 text-sm">
+          <span>
+            <span aria-hidden="true">🔒 </span>Runway locked while you pass the phone round.
+          </span>
+          <button
+            type="button"
+            onClick={() => go({ kind: "house" })}
+            className="min-h-10 rounded-lg border border-border bg-card px-3 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            End Dibs &amp; unlock
+          </button>
+        </div>
+      ) : null}
       {screen}
     </div>
   );

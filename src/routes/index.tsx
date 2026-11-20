@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { RunwayPage } from "@/components/money/RunwayPage";
+import { useDibsLock } from "@/lib/dibs/lock";
 
 const TITLE = "Til Loan Day: make your money last till loan day";
 const DESCRIPTION =
@@ -20,5 +21,28 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: DESCRIPTION },
     ],
   }),
-  component: RunwayPage,
+  component: RunwayRoute,
 });
+
+function RunwayRoute() {
+  if (useDibsLock()) {
+    return (
+      <section className="space-y-3 rounded-2xl border border-border bg-card p-6 text-center shadow-sm">
+        <p className="text-4xl" aria-hidden="true">
+          🔒
+        </p>
+        <h1 className="font-display text-2xl font-bold">Runway locked during Dibs</h1>
+        <p className="text-muted-foreground">
+          Housemates are passing the phone round, so your balance and bills are hidden.
+        </p>
+        <Link
+          to="/dibs"
+          className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 font-semibold text-primary-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50"
+        >
+          Back to Dibs
+        </Link>
+      </section>
+    );
+  }
+  return <RunwayPage />;
+}
