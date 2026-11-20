@@ -12,6 +12,8 @@ import type { Plan, PlanPreview, RunwayInput, RunwayResult } from "@/lib/money/t
 
 import { DayCalendar } from "./DayCalendar";
 import { scrollIntoViewGently } from "./dom";
+import { Habits } from "./Habits";
+import { Ious } from "./Ious";
 import { MoneyIn } from "./MoneyIn";
 import { planKey, toPlan, type ActivePlan } from "./plans";
 import { RunwayHero } from "./RunwayHero";
@@ -230,8 +232,10 @@ export function RunwayPage() {
         </>
       ) : null}
 
+      <Habits />
       <MoneyIn />
       <Subscriptions />
+      <Ious />
 
       <YourNumbers
         today={today}
