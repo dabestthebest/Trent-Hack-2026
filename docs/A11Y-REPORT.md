@@ -145,13 +145,34 @@ tabs/radios (their intended navigation uses arrows). Selftest now asserts **28/2
 reflecting three new acceptance cases. Both local invite tests used the on-device fallback.
 
 The first line of main's README gives `Live: https://til-loan-day.lovable.app`.
-Its title matched Til Loan Day, but the published run still served the earlier UI:
+Its title matched Til Loan Day, but the initial published run still served the earlier UI:
 **8 failed, 10 passed (45.2s)**. In each viewport the three new-feature tests failed because
 the January rent chip, bill preset and payment radio were absent; selftest failed with
 `Expected: "28/28 PASS"`, `Received: "25/25 PASS"`. Both published invites used AI.
-This is a pending feature deployment, not a published v3 pass. No missing-feature skips
+That deployment lag was resolved on the subsequent run below. No missing-feature skips
 were added. An initial concurrent run shared Playwright's output directory and produced
 artifact errors; those results were discarded and the runs above used separate directories.
+
+**Published v3 verified at 17:42 UTC:** the first selftest poll at 17:41:59 UTC showed
+**28/28 PASS**. Ran the complete suite with a separate output directory:
+
+```sh
+BASE_URL=https://til-loan-day.lovable.app PLAYWRIGHT_JSON_OUTPUT_FILE=/home/ubuntu/published-v3-republished.json npx playwright test --workers=2 --output=test-results/published-v3-republished
+```
+
+```text
+mobile-375x812 invite source: Read by AI. Check it before we run it.
+desktop-1280x900 invite source: Read by AI. Check it before we run it.
+18 passed (41.6s)
+```
+
+All new keyboard flows and 28/28 selftest assertions passed at both viewports. Unlike
+local fallback parsing, published invites used AI. The mobile new-state scans again
+recorded the serious contrast, definition-list/dlitem and accessible-name findings
+described below; this functional pass is not an accessibility all-clear. Initial route
+scans recorded 2 / 1 / 1 serious rules on Runway / Dibs / selftest at both sizes and no
+critical rules. Published new-state axe JSON is attached to the Playwright report;
+the persisted compact inventory below remains the local run. No visual audit was added.
 
 ### New-state mobile axe inventory
 
