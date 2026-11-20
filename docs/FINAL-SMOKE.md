@@ -155,3 +155,44 @@ Both require **4.5:1**; darken the foreground or adjust the background.
 
 `#ba451c` on `#f7e9dc` is **4.46:1**, below 4.5:1 for both the 14px bold
 heading and the 17px normal link. Adjust foreground/background contrast.
+
+## Final K (batch 5)
+
+Live mobile run: **2026-11-20 18:25:12–18:25:21 UTC**, viewport **375×812**,
+target `https://til-loan-day.lovable.app`. This is a separate batch; the results
+above describe the earlier final-smoke run, not a rerun of those checks.
+
+Exact command (repository root, Node 24.22.2):
+
+```sh
+npx --prefix e2e playwright test --config e2e/final-k.config.mjs --workers=1
+```
+
+```text
+4 passed (9.1s)
+```
+
+| Check | 375×812 | Evidence / failure |
+| --- | --- | --- |
+| 1. Everyday spending predictor | [PASS](smoke/k-predictor-375x812.png) | Typed habits, pressed Predict; received “AI's prediction” and ≈ £51.70 a week · £7.39 a day. |
+| 2. Small IOUs demos and Friendly nudge | [PASS](smoke/k-ious-375x812.png) | Both exact demo descriptions visible; Friendly nudge href starts `https://wa.me/?text=Hey%20Sam!`. |
+| 3. Privacy banner | [PASS](smoke/k-privacy-375x812.png) | Visible banner contains “Nothing is saved in the cloud”. |
+| 4. Friends section | [PASS](smoke/k-friends-375x812.png) | Visible “👯 Friends” section heading. |
+
+The live rendered page now contains both the privacy banner and Friends section.
+The banner reads “🔒 Your money stays on this device. Nothing is saved in the
+cloud. AI features only see what you ask them to read.” Confirmed this in the
+captured page text and inspected the full-page screenshot. All four checks
+passed without selector changes or weakened assertions. No real functional
+failures remain in this batch.
+
+**Console errors / uncaught exceptions:** none in any of the four tests.
+**Horizontal scroll:** none; initial and final document scrollWidth/clientWidth
+were **375/375** in every test, including after the AI response. Axe was not
+requested or run for this batch. Screenshots are full-page and correspond to
+this run. Structured results, timestamps, dimensions, failure messages and
+rendered page-text evidence: [final-k-results.json](../e2e/final-k-results.json).
+
+The predictor allows either a successful AI prediction or the explicit “add
+your habits by hand” fallback within 30 seconds; this run exercised the AI
+success path. Offline fallback was not separately forced or verified.
