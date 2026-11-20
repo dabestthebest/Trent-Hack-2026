@@ -1,0 +1,21 @@
+
+Running 16 tests using 2 workers
+
+  ✓   1 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 01-home (3.5s)
+  ✓   2 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 01-home (3.6s)
+  ✓   3 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 02-shift (4.3s)
+  ✓   4 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 02-shift (4.3s)
+  ✓   5 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 03-parent (4.5s)
+  ✓   6 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 03-parent (4.8s)
+  ✓   7 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 04-bills (2.2s)
+  ✓   8 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 04-bills (2.5s)
+  ✓   9 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 05-dibs (2.7s)
+  ✓  10 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 05-dibs (2.6s)
+  ✓  11 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 06-blog (2.2s)
+  ✓  12 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 06-blog (2.5s)
+  ✓  13 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 07-selftest (2.6s)
+  ✓  14 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 07-selftest (2.8s)
+  ✓  15 [mobile-375x812] › e2e/final-smoke.spec.mjs:78:3 › 08-page-health (7.4s)
+  ✓  16 [desktop-1280x900] › e2e/final-smoke.spec.mjs:78:3 › 08-page-health (6.8s)
+
+  16 passed (30.7s)
