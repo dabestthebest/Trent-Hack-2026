@@ -155,3 +155,47 @@ Both require **4.5:1**; darken the foreground or adjust the background.
 
 `#ba451c` on `#f7e9dc` is **4.46:1**, below 4.5:1 for both the 14px bold
 heading and the 17px normal link. Adjust foreground/background contrast.
+
+## Final K (batch 5)
+
+Live mobile run: **2026-11-20 18:21:28–18:21:50 UTC**, viewport **375×812**,
+target `https://til-loan-day.lovable.app`. This is a separate batch; the results
+above describe the earlier final-smoke run, not a rerun of those checks.
+
+Exact command (repository root, Node 24.22.2):
+
+```sh
+npx --prefix e2e playwright test --config e2e/final-k.config.mjs --workers=1
+```
+
+```text
+2 failed
+2 passed (23.3s)
+```
+
+| Check | 375×812 | Evidence / failure |
+| --- | --- | --- |
+| 1. Everyday spending predictor | [PASS](smoke/k-predictor-375x812.png) | Typed habits, pressed Predict; received “AI's prediction” and ≈ £51.70 a week · £7.39 a day. |
+| 2. Small IOUs demos and Friendly nudge | [PASS](smoke/k-ious-375x812.png) | Both exact demo descriptions visible; Friendly nudge href starts `https://wa.me/?text=Hey%20Sam!`. |
+| 3. Privacy banner | [FAIL — pending publication](smoke/k-privacy-375x812.png) | Expected text containing “Nothing is saved in the cloud”; element not found. Scheduled to ship around 18:45, after this run. |
+| 4. Friends section | [FAIL — pending publication](smoke/k-friends-375x812.png) | Expected Friends section heading; element not found. Scheduled to ship around 18:45, after this run. |
+
+Inspected the live DOM/accessibility snapshot and full-page screenshot after
+the failures. Neither requested privacy text nor Friends appears in the rendered
+page. Existing copy instead says “Your money numbers aren't saved; only your XP
+is, on this device” in the footer and “Nothing is saved or sent unless you tap a
+message button” in Small IOUs. These are **not** accepted as substitutes for the
+requested banner. No selector corrections or weakened assertions were needed.
+The two missing surfaces are pending release, not diagnosed as app regressions;
+their selectors still require validation after publication.
+
+**Console errors / uncaught exceptions:** none in any of the four tests.
+**Horizontal scroll:** none; initial and final document scrollWidth/clientWidth
+were **375/375** in every test, including after the AI response. Axe was not
+requested or run for this batch. Screenshots are full-page and correspond to
+this run. Structured results, timestamps, dimensions, failure messages and
+rendered page-text evidence: [final-k-results.json](../e2e/final-k-results.json).
+
+The predictor allows either a successful AI prediction or the explicit “add
+your habits by hand” fallback within 30 seconds; this run exercised the AI
+success path. Offline fallback was not separately forced or verified.
