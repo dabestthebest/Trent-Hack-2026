@@ -9,6 +9,7 @@ import { MADE_IT_HINT, QUEST_HINTS, progressLine, questProgress } from "@/lib/fu
 import { cn } from "@/lib/utils";
 
 import { CoinMascot } from "./CoinMascot";
+import { RankLadder } from "./RankLadder";
 
 function Row({
   emoji,
@@ -194,6 +195,8 @@ export function DailyQuests({ className }: { className?: string | undefined }) {
       <div className="mt-2">
         <QuestList />
       </div>
+
+      <RankLadder xp={fun.xp} className="mt-4 border-t border-border pt-4" />
     </section>
   );
 }

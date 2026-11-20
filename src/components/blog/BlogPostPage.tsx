@@ -3,6 +3,7 @@ import { formatDay } from "@/lib/money/dates";
 
 import { BackToBlog } from "./BackToBlog";
 import { CtaCard } from "./CtaCard";
+import { HouseAd } from "./HouseAd";
 import { isoYear } from "./inline";
 import { PostBody } from "./PostBody";
 import { PostCard } from "./PostCard";
@@ -46,6 +47,8 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
 
         <CtaCard cta={post.cta} />
       </article>
+
+      <HouseAd seed={post.slug} />
 
       {others.length > 0 ? (
         <section aria-labelledby="keep-reading" className="space-y-3">

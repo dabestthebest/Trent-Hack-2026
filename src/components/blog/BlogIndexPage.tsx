@@ -1,5 +1,6 @@
 import { posts } from "@/content/blog";
 
+import { HouseAd } from "./HouseAd";
 import { PostCard } from "./PostCard";
 
 /** Newest first; posts with the same date keep their authored order. */
@@ -29,9 +30,10 @@ export function BlogIndexPage() {
       </header>
 
       <ul className="space-y-3">
-        {list.map((post) => (
-          <li key={post.slug}>
+        {list.map((post, i) => (
+          <li key={post.slug} className="space-y-3">
             <PostCard post={post} />
+            {i === 0 ? <HouseAd seed="blog-index" /> : null}
           </li>
         ))}
       </ul>
