@@ -1,0 +1,713 @@
+{
+  "commit": "29a9af0",
+  "baseURL": "http://localhost:8080",
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "states": [
+    {
+      "state": "upfront-rent-preview",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(6) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.px-3.py-2\\.5 > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["dl"],
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:137:9\">",
+              "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Safe to spend</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£5.42 a day</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Overdraft from</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">3 days sooner</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Day before loan day</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£1140.00</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "parent-help-expanded",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.px-3.py-2\\.5 > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["dl"],
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:137:9\">",
+              "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Safe to spend</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£5.42 a day</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Overdraft from</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">3 days sooner</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Day before loan day</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£1140.00</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "parent-help-mum",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["dl"],
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:137:9\">",
+              "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Safe to spend</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£5.42 a day</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Overdraft from</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">3 days sooner</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Day before loan day</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£1140.00</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "parent-help-copied",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["dl"],
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:137:9\">",
+              "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Safe to spend</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£5.42 a day</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Overdraft from</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">3 days sooner</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Day before loan day</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£1140.00</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "rent-bill-preset",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .py-2\\.5.bg-background\\/60.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "tuition-bill-preset",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+20 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".py-2\\.5.bg-background\\/60.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .py-2\\.5.bg-background\\/60.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "dibs-upfront-rent",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".-mx-2 > span"],
+              "html": "<span data-tsd-source=\"/src/components/money/AskParent.tsx:78:7\">Ask a parent to help</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.42 (foreground color: #ba451c, background color: #e4ede3, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(1) > .flip-inner.is-flipped.text-left"
+              ],
+              "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Box room: You, £95.0...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 0m...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.text-left"
+              ],
+              "html": "<button type=\"button\" aria-disabled=\"false\" aria-label=\"Middle room: Sam, £1...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 18...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.text-left"
+              ],
+              "html": "<button type=\"button\" aria-disabled=\"false\" aria-label=\"Big double: Alex, £1...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 36...\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "dibs-upfront-handoff",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"],
+              "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\" data-tsd-source=\"/src/components/fun/PennyTip.tsx:51:11\">Penny's tip</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+25 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".bg-background\\/60.px-3.py-2\\.5:nth-child(6) > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+15 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.px-3.py-2\\.5 > .items-end.text-right.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+              ],
+              "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\" data-tsd-source=\"/src/components/fun/DailyQuests.tsx:54:9\">+50 XP</span>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["dl"],
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:137:9\">",
+              "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+            }
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Safe to spend</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£5.42 a day</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Overdraft from</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">31 days sooner</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:141:17\">Day before loan day</dt>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            },
+            {
+              "target": [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"],
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:142:17\">−£1140.00</dd>",
+              "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [".group"],
+              "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" data-tsd-source=\"/src/components/fun/...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+              "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -122,6 +122,69 @@ need manual contrast measurement. Focus-indicator contrast was not measured.
   `role="status"` in `SayYes.tsx`. Closing the preview focuses the Can I say yes? heading
   (`src/components/money/RunwayPage.tsx:99–102`).
 
+## Final features / e2e v3 — 20 November, 17:40 UTC
+
+This section supersedes the earlier run summaries for the final feature build. The prior
+screenshots and v2 inventory remain historical evidence, not screenshots of this build.
+Polled origin/main every 60 seconds; parent-help and upfront-rent code landed in
+`29a9af0` at 17:38 UTC. Restarted Vite after `bun install` on that code.
+
+From `e2e/`, with Node activated:
+
+```sh
+BASE_URL=http://localhost:8080 PLAYWRIGHT_JSON_OUTPUT_FILE=/home/ubuntu/local-v3-final.json npx playwright test --workers=2 --output=test-results/local-v3
+BASE_URL=https://til-loan-day.lovable.app PLAYWRIGHT_JSON_OUTPUT_FILE=/home/ubuntu/published-v3-final.json npx playwright test --workers=2 --output=test-results/published-v3
+```
+
+Observed local result: **18 passed (35.3s)**. Both viewports completed the January rent
+chip → exhausted-overdraft text → parent help → Mum → WhatsApp/SMS/email links → Copy →
+Copied! flow, both bill presets, and Dibs → Pay rent upfront → £1,140 → Runway preview.
+All interactive steps used keyboard input. The payment selector is a roving radio group,
+so ArrowRight selects upfront rent. The initial Tab inventory excludes unselected roving
+tabs/radios (their intended navigation uses arrows). Selftest now asserts **28/28 PASS**,
+reflecting three new acceptance cases. Both local invite tests used the on-device fallback.
+
+The first line of main's README gives `Live: https://til-loan-day.lovable.app`.
+Its title matched Til Loan Day, but the published run still served the earlier UI:
+**8 failed, 10 passed (45.2s)**. In each viewport the three new-feature tests failed because
+the January rent chip, bill preset and payment radio were absent; selftest failed with
+`Expected: "28/28 PASS"`, `Received: "25/25 PASS"`. Both published invites used AI.
+This is a pending feature deployment, not a published v3 pass. No missing-feature skips
+were added. An initial concurrent run shared Playwright's output directory and produced
+artifact errors; those results were discarded and the runs above used separate directories.
+
+### New-state mobile axe inventory
+
+Each state attaches full serious/critical axe violation JSON and annotates rule, impact,
+node count and selectors. [Persisted compact inventory](A11Y-V3-RAW.json) retains every
+affected node's selector, HTML and failure summary. No critical findings were recorded.
+These are full-page scans, so shared-shell findings also appear in the feature states.
+
+| State                                       | Serious rules and node counts                                                |
+| ------------------------------------------- | ---------------------------------------------------------------------------- |
+| Upfront rent preview                        | color-contrast 6; definition-list 1; dlitem 6; label-content-name-mismatch 1 |
+| Parent help expanded / Mum / Copied! (each) | color-contrast 5; definition-list 1; dlitem 6; label-content-name-mismatch 1 |
+| Rent / tuition bill preset (each)           | color-contrast 7; label-content-name-mismatch 1                              |
+| Dibs upfront rent                           | color-contrast 1; label-content-name-mismatch 4                              |
+| Dibs upfront hand-off                       | color-contrast 5; definition-list 1; dlitem 6; label-content-name-mismatch 1 |
+
+Examples and responsible code:
+
+- `div[role="note"] > p` and quest XP chips: contrast failures in
+  `src/components/fun/PennyTip.tsx:51–53` and `src/components/fun/DailyQuests.tsx:57`.
+- `.-mx-2 > span`: parent-help toggle contrast in
+  `src/components/money/AskParent.tsx:73` (Dibs state).
+- `.group`: XP badge visible-name mismatch in `src/components/fun/XpBadge.tsx:21–39`.
+- `dl` and nested `dt`/`dd`: existing serious structure issues persist in
+  `src/components/money/PlanPreviewCard.tsx:136–153`.
+- `.flip-card:nth-child(1) > .flip-inner.is-flipped` (and cards 2/3): existing
+  label-content-name mismatch persists in `src/components/dibs/RevealScreen.tsx`.
+
+Scans wait for fonts and finite animations. Quest completion changes the number of pending
+XP badges, explaining the contrast count variation. Actual screen-reader announcements,
+OS sharing apps, clipboard contents, clipboard denial/error paths and visual appearance of
+the new surfaces were not checked. No new screenshots were requested or captured.
+
 ## Suggested app changes for Claude
 
 Top five, in priority order. These are app-side suggestions; this branch changes only tests
@@ -155,7 +218,19 @@ and documentation.
    `src/styles.css`; preserve the non-color status cues. Record ratios rather than treating
    axe's incomplete result as a pass.
 
-## Published app
+Additional serious findings from the final-feature build:
+
+6. **Fix new small-text contrast.** In `src/components/fun/PennyTip.tsx:51–53`,
+   `src/components/fun/DailyQuests.tsx:57` and `src/components/money/AskParent.tsx:73`,
+   replace the failing primary-on-tinted-background pair with a darker text token or opaque
+   backing achieving at least 4.5:1. Recheck the pending XP badges, Penny label and Dibs
+   parent-help toggle; node failure summaries and measured ratios are in the v3 inventory.
+7. **Include the visible XP badge wording in its accessible name.** In
+   `src/components/fun/XpBadge.tsx:21–39`, include the literal visible `Lv` wording alongside
+   level/XP details, or label from the displayed badge and put expanded context in a
+   description. Re-run `label-content-name-mismatch` at both responsive sizes.
+
+## Published app (v2 verification, before final-feature republish)
 
 **Verified 20 November 2026** at the new [published URL](https://til-loan-day.lovable.app).
 From `e2e/`, with Node activated, ran the full suite at both 375 × 812 and 1280 × 900:

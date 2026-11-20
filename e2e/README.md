@@ -19,7 +19,8 @@ then run `BASE_URL=http://localhost:8080 npm test` from this folder. Use the por
   inventory, not a zero-violations gate. Non-OK routes, horizontal page scroll, browser
   console errors and uncaught exceptions, and failed keyboard checks fail the route audit.
 - The Tab check covers visible, enabled buttons, links, inputs, textareas, selects and
-  disclosure summaries in the initial page state.
+  disclosure summaries in the initial page state. Unselected roving tabs/radios are
+  excluded from Tab-stop expectations; those widgets use arrow keys.
   It checks for a changed CSS outline or box shadow; visual review is still needed for
   the indicator's contrast, clipping, and placement.
 - Keyboard flows use Tab and Enter/Space only: Runway chip → preview → Skip it,
@@ -27,7 +28,12 @@ then run `BASE_URL=http://localhost:8080 npm test` from this folder. Use the por
   and Dibs Start → Lock in → reveal → £95 holding-deposit preview on Runway.
   Dibs handles additional housemates' ready/Lock in screens if required by the default flow.
   There are no legacy-route fallbacks or missing-feature skips. The `/selftest` audit
-  requires `data-testid="selftest-total"` to read `25/25 PASS`.
+  requires `data-testid="selftest-total"` to read `28/28 PASS` after the final feature rebuild.
+- `new-features.spec.mjs` covers January upfront rent, parent-help sharing and Copy,
+  rent/tuition bill presets, and the £1,140 Dibs hand-off using the keyboard (including
+  ArrowRight for the payment radio group). Each new mobile state attaches serious/critical
+  axe findings as JSON and records rule/node/selectors in annotations. Findings are an
+  inventory, not a zero-violations gate. See [v3 raw findings](../docs/A11Y-V3-RAW.json).
 - Look in `test-results/` for the JSON report (including axe and keyboard data), viewport
   screenshots and retained traces. Open a trace with `npx playwright show-trace <trace.zip>`.
 
