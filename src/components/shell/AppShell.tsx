@@ -59,6 +59,16 @@ export function AppShell({ children }: { children: ReactNode }) {
         Skip to content
       </a>
 
+      {/* Privacy banner: honest about the one exception (AI features read what you send them). */}
+      <p
+        role="note"
+        className="bg-foreground px-4 py-1.5 text-center text-xs font-medium leading-snug text-background"
+      >
+        <span aria-hidden="true">🔒 </span>
+        Your money stays on this device. Nothing is saved in the cloud. AI features only see what
+        you ask them to read.
+      </p>
+
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
         <div className={`${column} flex min-h-14 items-stretch justify-between gap-2 sm:gap-3`}>
           <div className="flex min-w-0 flex-col justify-center py-2">

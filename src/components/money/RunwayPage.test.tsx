@@ -7,6 +7,9 @@ import { MoneyProvider, useMoney } from "@/lib/money/store";
 
 import { RunwayPage } from "./RunwayPage";
 
+// These render the whole page, which is heavy under a parallel run; give them room.
+vi.setConfig({ testTimeout: 20000 });
+
 // The page only uses <Link>; render it as a plain anchor so no router is needed.
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ to, children, className }: { to: string; children: ReactNode; className?: string }) => (

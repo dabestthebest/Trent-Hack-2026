@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { DailyQuests } from "@/components/fun/DailyQuests";
+import { Friends } from "@/components/fun/Friends";
 import { PennyAI } from "@/components/fun/PennyAI";
 import { PennyTip } from "@/components/fun/PennyTip";
 import { pounds } from "@/lib/dibs/format";
@@ -247,6 +248,7 @@ export function RunwayPage() {
       />
 
       <DailyQuests />
+      <Friends />
 
       <ToolsCard />
     </div>
