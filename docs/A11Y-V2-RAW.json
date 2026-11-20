@@ -1,0 +1,2064 @@
+{
+  "baseURL": "http://localhost:8080",
+  "states": [
+    {
+      "project": "mobile-375x812",
+      "path": "/",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 96,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 9,
+          "examples": [
+            {
+              "selector": [".leading-relaxed.items-start.gap-2 > p > span"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<span data-tsd-source=\"/src/components/money/RunwayHero.tsx:120:11\">Estimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date.</span>"
+            },
+            {
+              "selector": [
+                ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+              ],
+              "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span class=\"text-sm font-semibold leading-none tabular-nums rounded-sm bg-card/80 px-1 py-0.5\" data-tsd-source=\"/src/components/money/DayCalendar.tsx:180:7\">4</span>"
+            }
+          ],
+          "selectors": [
+            [".leading-relaxed.items-start.gap-2 > p > span"],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/dibs",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Who gets the big room?"
+        },
+        {
+          "level": "H2",
+          "text": "3 bedrooms"
+        },
+        {
+          "level": "H2",
+          "text": "How Dibs is fair"
+        },
+        {
+          "level": "H2",
+          "text": "Who's in?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [],
+      "liveRegions": [],
+      "preview": null,
+      "calendar": [],
+      "violations": [],
+      "contrastPassed": 45,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 1,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .grid > .text-center.col-start-1.row-start-1"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"col-start-1 row-start-1 text-center\" data-tsd-source=\"/src/components/shell/AppShell.tsx:28:7\">Dibs</span>"
+            }
+          ],
+          "selectors": [[".after\\:opacity-100 > .grid > .text-center.col-start-1.row-start-1"]]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/selftest",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Engine selftest"
+        },
+        {
+          "level": "H2",
+          "text": "Til Loan Day runway"
+        },
+        {
+          "level": "H2",
+          "text": "Dibs fair split"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [],
+      "liveRegions": [],
+      "preview": null,
+      "calendar": [],
+      "violations": [],
+      "contrastPassed": 190,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 3,
+          "examples": [
+            {
+              "selector": [
+                ".text-2xl > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\" data-tsd-source=\"/src/routes/selftest.tsx:56:7\">✓</span>"
+            },
+            {
+              "selector": [
+                "section[aria-labelledby=\"selftest-runway\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\" data-tsd-source=\"/src/routes/selftest.tsx:56:7\">✓</span>"
+            }
+          ],
+          "selectors": [
+            [
+              ".text-2xl > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ],
+            [
+              "section[aria-labelledby=\"selftest-runway\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ],
+            [
+              "section[aria-labelledby=\"selftest-dibs\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/",
+      "state": "numbers expanded",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H3",
+          "text": "Bills before loan day"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Balance now"],
+          "ariaLabel": null,
+          "describedBy": "_r_3_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Arranged overdraft"],
+          "ariaLabel": null,
+          "describedBy": "_r_4_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Usual spend per day"],
+          "ariaLabel": null,
+          "describedBy": "_r_5_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Loan day"],
+          "ariaLabel": null,
+          "describedBy": "_r_6_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["How much"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Date"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 116,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 18,
+          "examples": [
+            {
+              "selector": [".whitespace-nowrap"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+              "html": "<span class=\"whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary sm:text-xl\" data-tsd-source=\"/src/components/shell/AppShell.tsx:56:15\">til loan day</span>"
+            },
+            {
+              "selector": [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+              "html": "<span class=\"col-start-1 row-start-1 text-center\" data-tsd-source=\"/src/components/shell/AppShell.tsx:28:7\">Runway</span>"
+            }
+          ],
+          "selectors": [
+            [".whitespace-nowrap"],
+            [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+            [".leading-relaxed.items-start.px-1 > p > span"],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(29) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(30) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(31) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(32) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(33) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(34) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(35) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/",
+      "state": "invite read with numbers expanded",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H3",
+          "text": "Bills before loan day"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Cost (£)"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["When"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Balance now"],
+          "ariaLabel": null,
+          "describedBy": "_r_3_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Arranged overdraft"],
+          "ariaLabel": null,
+          "describedBy": "_r_4_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Usual spend per day"],
+          "ariaLabel": null,
+          "describedBy": "_r_5_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Loan day"],
+          "ariaLabel": null,
+          "describedBy": "_r_6_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["How much"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Date"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": "Read on your phone (AI unavailable). Check it."
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 133,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 10,
+          "examples": [
+            {
+              "selector": [".leading-relaxed.items-start.px-1 > p > span"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<span data-tsd-source=\"/src/components/money/RunwayHero.tsx:120:11\">Estimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date.</span>"
+            },
+            {
+              "selector": [
+                "section[aria-labelledby=\"say-yes-heading\"] > div:nth-child(1) > .mt-0\\.5"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<p class=\"mt-0.5 text-muted-foreground\" data-tsd-source=\"/src/components/money/SayYes.tsx:73:9\">Tap a plan to see what it does before you commit.</p>"
+            }
+          ],
+          "selectors": [
+            [".leading-relaxed.items-start.px-1 > p > span"],
+            ["section[aria-labelledby=\"say-yes-heading\"] > div:nth-child(1) > .mt-0\\.5"],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 99,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 9,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"hidden text-[11px] font-normal text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:76:19\">daily spend</span>"
+            },
+            {
+              "selector": [
+                ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+              ],
+              "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+              "html": "<span class=\"text-sm font-semibold leading-none tabular-nums rounded-sm bg-card/80 px-1 py-0.5\" data-tsd-source=\"/src/components/money/DayCalendar.tsx:180:7\">4</span>"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/dibs",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Who gets the big room?"
+        },
+        {
+          "level": "H2",
+          "text": "3 bedrooms"
+        },
+        {
+          "level": "H2",
+          "text": "How Dibs is fair"
+        },
+        {
+          "level": "H2",
+          "text": "Who's in?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [],
+      "liveRegions": [],
+      "preview": null,
+      "calendar": [],
+      "violations": [],
+      "contrastPassed": 47,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 2,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .grid > .text-center.col-start-1.row-start-1"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"col-start-1 row-start-1 text-center\" data-tsd-source=\"/src/components/shell/AppShell.tsx:28:7\">Dibs</span>"
+            },
+            {
+              "selector": [".after\\:opacity-100 > .text-\\[11px\\].hidden.sm\\:block"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"hidden text-[11px] font-normal text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:89:19\">rent split</span>"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .grid > .text-center.col-start-1.row-start-1"],
+            [".after\\:opacity-100 > .text-\\[11px\\].hidden.sm\\:block"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/selftest",
+      "state": "initial",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Engine selftest"
+        },
+        {
+          "level": "H2",
+          "text": "Til Loan Day runway"
+        },
+        {
+          "level": "H2",
+          "text": "Dibs fair split"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [],
+      "liveRegions": [],
+      "preview": null,
+      "calendar": [],
+      "violations": [],
+      "contrastPassed": 193,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 3,
+          "examples": [
+            {
+              "selector": [
+                ".text-2xl > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\" data-tsd-source=\"/src/routes/selftest.tsx:56:7\">✓</span>"
+            },
+            {
+              "selector": [
+                "section[aria-labelledby=\"selftest-runway\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span aria-hidden=\"true\" data-tsd-source=\"/src/routes/selftest.tsx:56:7\">✓</span>"
+            }
+          ],
+          "selectors": [
+            [
+              ".text-2xl > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ],
+            [
+              "section[aria-labelledby=\"selftest-runway\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ],
+            [
+              "section[aria-labelledby=\"selftest-dibs\"] > .flex-wrap.items-center[data-tsd-source=\"/src/routes/selftest.tsx:104:7\"] > .px-3.py-1.text-base > span[data-tsd-source=\"/src/routes/selftest.tsx:56:7\"][aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/",
+      "state": "numbers expanded",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H3",
+          "text": "Bills before loan day"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Balance now"],
+          "ariaLabel": null,
+          "describedBy": "_r_3_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Arranged overdraft"],
+          "ariaLabel": null,
+          "describedBy": "_r_4_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Usual spend per day"],
+          "ariaLabel": null,
+          "describedBy": "_r_5_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Loan day"],
+          "ariaLabel": null,
+          "describedBy": "_r_6_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["How much"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Date"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 109,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 28,
+          "examples": [
+            {
+              "selector": [".whitespace-nowrap"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+              "html": "<span class=\"whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary sm:text-xl\" data-tsd-source=\"/src/components/shell/AppShell.tsx:56:15\">til loan day</span>"
+            },
+            {
+              "selector": [".pl-10"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+              "html": "<p class=\"mt-0.5 hidden pl-10 text-xs text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:60:13\">Make your money last till loan day.</p>"
+            }
+          ],
+          "selectors": [
+            [".whitespace-nowrap"],
+            [".pl-10"],
+            [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+            [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+            [".after\\:opacity-0 > .grid > .col-start-1.row-start-1.text-center"],
+            [".after\\:opacity-0 > .font-normal.hidden.sm\\:block"],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(22) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(23) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(24) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(25) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(26) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(27) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(28) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(29) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(30) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(31) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(32) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(33) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(34) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-success-soft.text-success-strong[data-status=\"own\"]:nth-child(35) > .leading-none.tabular-nums.text-sm"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/",
+      "state": "invite read with numbers expanded",
+      "headings": [
+        {
+          "level": "H1",
+          "text": "Your runway"
+        },
+        {
+          "level": "H2",
+          "text": "Can I say yes?"
+        },
+        {
+          "level": "H3",
+          "text": "Got an invite? Paste it."
+        },
+        {
+          "level": "H2",
+          "text": "Day by day"
+        },
+        {
+          "level": "H2",
+          "text": "Your numbers"
+        },
+        {
+          "level": "H3",
+          "text": "Bills before loan day"
+        },
+        {
+          "level": "H2",
+          "text": "🏠 Signing for next year's house?"
+        }
+      ],
+      "landmarks": [
+        {
+          "tag": "HEADER",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "NAV",
+          "role": null,
+          "label": "Tools"
+        },
+        {
+          "tag": "MAIN",
+          "role": null,
+          "label": null
+        },
+        {
+          "tag": "FOOTER",
+          "role": null,
+          "label": null
+        }
+      ],
+      "fields": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "labels": ["Group chat message"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Cost (£)"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["When"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Balance now"],
+          "ariaLabel": null,
+          "describedBy": "_r_3_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Arranged overdraft"],
+          "ariaLabel": null,
+          "describedBy": "_r_4_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["Usual spend per day"],
+          "ariaLabel": null,
+          "describedBy": "_r_5_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Loan day"],
+          "ariaLabel": null,
+          "describedBy": "_r_6_-hint",
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["What"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "labels": ["How much"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "labels": ["Date"],
+          "ariaLabel": null,
+          "describedBy": null,
+          "invalid": null
+        }
+      ],
+      "liveRegions": [
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": "Read on your phone (AI unavailable). Check it."
+        },
+        {
+          "tag": "P",
+          "role": "status",
+          "live": null,
+          "text": ""
+        },
+        {
+          "tag": "P",
+          "role": null,
+          "live": "polite",
+          "text": ""
+        }
+      ],
+      "preview": null,
+      "calendar": [
+        {
+          "status": "own",
+          "role": "img",
+          "label": "Fri 20 Nov: £343.50, your own money. Today",
+          "text": "20NovToday"
+        },
+        {
+          "status": "overdraft",
+          "role": "img",
+          "label": "Mon 4 Jan: −£2.00, in your overdraft",
+          "text": "4"
+        }
+      ],
+      "violations": [],
+      "contrastPassed": 134,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 12,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"hidden text-[11px] font-normal text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:76:19\">daily spend</span>"
+            },
+            {
+              "selector": [".leading-relaxed.items-start.px-1 > p > span"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<span data-tsd-source=\"/src/components/money/RunwayHero.tsx:120:11\">Estimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date.</span>"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+            [".leading-relaxed.items-start.px-1 > p > span"],
+            [".hover\\:text-primary"],
+            ["#say-yes-heading"],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/",
+      "state": "settled chip preview with numbers expanded",
+      "violations": [
+        {
+          "rule": "definition-list",
+          "impact": "serious",
+          "nodeCount": 1,
+          "examples": [
+            {
+              "selector": ["dl"],
+              "summary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div",
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:128:9\">"
+            }
+          ],
+          "selectors": [["dl"]]
+        },
+        {
+          "rule": "dlitem",
+          "impact": "serious",
+          "nodeCount": 6,
+          "examples": [
+            {
+              "selector": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element",
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:132:17\">Safe to spend</dt>"
+            },
+            {
+              "selector": [
+                ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > .text-right"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element",
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:133:17\">−£1.06 a day</dd>"
+            }
+          ],
+          "selectors": [
+            [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > .text-right"],
+            [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > .text-right"],
+            [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > .text-right"]
+          ]
+        }
+      ],
+      "contrastPassed": 139,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 17,
+          "examples": [
+            {
+              "selector": [
+                ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(42) > .rounded-sm.bg-card\\/80.py-0\\.5"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"text-sm font-semibold leading-none tabular-nums rounded-sm bg-card/80 px-1 py-0.5\" data-tsd-source=\"/src/components/money/DayCalendar.tsx:180:7\">27</span>"
+            },
+            {
+              "selector": [
+                ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(43) > .rounded-sm.bg-card\\/80.py-0\\.5"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+              "html": "<span class=\"text-sm font-semibold leading-none tabular-nums rounded-sm bg-card/80 px-1 py-0.5\" data-tsd-source=\"/src/components/money/DayCalendar.tsx:180:7\">28</span>"
+            }
+          ],
+          "selectors": [
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(42) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(43) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(44) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(45) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(46) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(47) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(47) > .text-\\[10px\\].leading-none.font-semibold"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(48) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(49) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/",
+      "state": "settled chip preview with numbers expanded",
+      "violations": [
+        {
+          "rule": "definition-list",
+          "impact": "serious",
+          "nodeCount": 1,
+          "examples": [
+            {
+              "selector": ["dl"],
+              "summary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div",
+              "html": "<dl class=\"divide-y divide-border\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:128:9\">"
+            }
+          ],
+          "selectors": [["dl"]]
+        },
+        {
+          "rule": "dlitem",
+          "impact": "serious",
+          "nodeCount": 6,
+          "examples": [
+            {
+              "selector": [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element",
+              "html": "<dt class=\"text-sm text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:132:17\">Safe to spend</dt>"
+            },
+            {
+              "selector": [
+                ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > .text-right"
+              ],
+              "summary": "Fix any of the following:\n  Description list item does not have a <dl> parent element",
+              "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\" data-tsd-source=\"/src/components/money/PlanPreviewCard.tsx:133:17\">−£1.06 a day</dd>"
+            }
+          ],
+          "selectors": [
+            [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > .text-right"],
+            [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > .text-right"],
+            [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"],
+            [".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > .text-right"]
+          ]
+        }
+      ],
+      "contrastPassed": 140,
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 19,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"hidden text-[11px] font-normal text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:76:19\">daily spend</span>"
+            },
+            {
+              "selector": ["#_r_1_-text"],
+              "summary": "Fix any of the following:\n  Element has no value; test color contrast with a value entered",
+              "html": "<textarea id=\"_r_1_-text\" rows=\"3\" maxlength=\"1000\" placeholder=\"winter ball tickets ...\" class=\"w-full resize-none r...\" data-tsd-source=\"/src/components/mone...\">"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .font-normal.hidden.sm\\:block"],
+            ["#_r_1_-text"],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(42) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(43) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(44) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(45) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(46) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(47) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(47) > .text-\\[10px\\].leading-none.font-semibold"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(48) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(49) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(50) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(51) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(52) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(53) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(54) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(55) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [
+              ".bg-\\[color\\:oklch\\(0\\.92_0\\.085_85\\)\\].bg-\\[image\\:repeating-linear-gradient\\(135deg\\,oklch\\(0\\.68_0\\.14_68\\/0\\.55\\)_0_2px\\,transparent_2px_7px\\)\\][data-status=\"overdraft\"]:nth-child(56) > .rounded-sm.bg-card\\/80.py-0\\.5"
+            ],
+            [".px-px"]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/dibs",
+      "state": "settled reveal after flip timer and transitions",
+      "violations": [
+        {
+          "rule": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodeCount": 3,
+          "examples": [
+            {
+              "selector": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(1) > .flip-inner.is-flipped.h-full"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+              "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Box room: You, £95.0...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 0m...\">"
+            },
+            {
+              "selector": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+              "html": "<button type=\"button\" aria-disabled=\"false\" aria-label=\"Middle room: Sam, £1...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 18...\">"
+            }
+          ],
+          "selectors": [
+            [".flip-card.h-52.sm\\:h-56:nth-child(1) > .flip-inner.is-flipped.h-full"],
+            [".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full"],
+            [".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full"]
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 20,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"col-start-1 row-start-1 text-center\" data-tsd-source=\"/src/components/shell/AppShell.tsx:28:7\">Dibs</span>"
+            },
+            {
+              "selector": [".space-y-1 > .font-medium"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element",
+              "html": "<p class=\"text-sm font-medium text-muted-foreground\" data-tsd-source=\"/src/components/dibs/RevealScreen.tsx:98:9\">Demo house · £330.00/week</p>"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+            [".space-y-1 > .font-medium"],
+            ["h1"],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .border-dashed.border-primary\\/50.bg-secondary > .leading-tight.text-center.text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .uppercase.tracking-wide.sm\\:text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .bg-accent.text-accent-foreground.h-10"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .truncate.font-semibold"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .sm\\:text-2xl.block.text-xl"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .text-xs.text-muted-foreground"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .text-xs.font-medium > .gap-0\\.5.text-success.inline-flex"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .border-dashed.border-primary\\/50.bg-secondary > .leading-tight.text-center.text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .uppercase.tracking-wide.sm\\:text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .bg-accent.text-accent-foreground.h-10"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .truncate.font-semibold"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .sm\\:text-2xl.block.text-xl"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .text-xs.text-muted-foreground"
+            ],
+            [".text-xs.font-medium > .text-muted-foreground"],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(1) > span > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(2) > span > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(3) > span > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/dibs",
+      "state": "settled reveal after flip timer and transitions",
+      "violations": [
+        {
+          "rule": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodeCount": 3,
+          "examples": [
+            {
+              "selector": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(1) > .flip-inner.is-flipped.h-full"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+              "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Box room: You, £95.0...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 0m...\">"
+            },
+            {
+              "selector": [
+                ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name",
+              "html": "<button type=\"button\" aria-disabled=\"false\" aria-label=\"Middle room: Sam, £1...\" class=\"flip-inner relative ...\" data-tsd-source=\"/src/components/dibs...\" style=\"transition-delay: 18...\">"
+            }
+          ],
+          "selectors": [
+            [".flip-card.h-52.sm\\:h-56:nth-child(1) > .flip-inner.is-flipped.h-full"],
+            [".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full"],
+            [".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full"]
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "rule": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 21,
+          "examples": [
+            {
+              "selector": [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"col-start-1 row-start-1 text-center\" data-tsd-source=\"/src/components/shell/AppShell.tsx:28:7\">Dibs</span>"
+            },
+            {
+              "selector": [".after\\:opacity-100 > .text-\\[11px\\].font-normal.hidden"],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span class=\"hidden text-[11px] font-normal text-muted-foreground sm:block\" data-tsd-source=\"/src/components/shell/AppShell.tsx:89:19\">rent split</span>"
+            }
+          ],
+          "selectors": [
+            [".after\\:opacity-100 > .grid > .col-start-1.row-start-1.text-center"],
+            [".after\\:opacity-100 > .text-\\[11px\\].font-normal.hidden"],
+            [".space-y-1 > .font-medium"],
+            ["h1"],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .border-dashed.border-primary\\/50.bg-secondary > .leading-tight.text-center.text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .uppercase.tracking-wide.sm\\:text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .bg-accent.text-accent-foreground.h-10"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .truncate.font-semibold"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .sm\\:text-2xl.block.text-xl"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .text-xs.text-muted-foreground"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(2) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .text-xs.font-medium > .gap-0\\.5.text-success.inline-flex"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .border-dashed.border-primary\\/50.bg-secondary > .leading-tight.text-center.text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .uppercase.tracking-wide.sm\\:text-sm"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .bg-accent.text-accent-foreground.h-10"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > .gap-1\\.5.items-center.flex > .truncate.font-semibold"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .sm\\:text-2xl.block.text-xl"
+            ],
+            [
+              ".flip-card.h-52.sm\\:h-56:nth-child(3) > .flip-inner.is-flipped.h-full > .flip-back.p-2\\.5.shadow-md > span:nth-child(4) > .text-xs.text-muted-foreground"
+            ],
+            [".text-xs.font-medium > .text-muted-foreground"],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(1) > span > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(2) > span > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".bg-success-soft.py-2\\.5.text-success-strong:nth-child(3) > span > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "keyboard": [
+    {
+      "project": "mobile-375x812",
+      "path": "/",
+      "checked": 16,
+      "unreached": [],
+      "withoutRing": []
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/",
+      "checked": 16,
+      "unreached": [],
+      "withoutRing": []
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/dibs",
+      "checked": 10,
+      "unreached": [],
+      "withoutRing": []
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/dibs",
+      "checked": 10,
+      "unreached": [],
+      "withoutRing": []
+    },
+    {
+      "project": "mobile-375x812",
+      "path": "/selftest",
+      "checked": 5,
+      "unreached": [],
+      "withoutRing": []
+    },
+    {
+      "project": "desktop-1280x900",
+      "path": "/selftest",
+      "checked": 5,
+      "unreached": [],
+      "withoutRing": []
+    }
+  ],
+  "notes": [
+    "Local Chromium on 2a124c3. Transient animation scans removed; settled findings retained.",
+    "Repeated calendar labels reduced to one example per status; node counts and selectors retained."
+  ]
+}
