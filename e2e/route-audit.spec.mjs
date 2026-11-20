@@ -24,7 +24,7 @@ for (const { path, label } of routes) {
       await expect.soft(page.getByTestId("safe-per-day")).toBeVisible();
     }
     if (path === "/selftest") {
-      await expect.soft(page.getByTestId("selftest-total")).toHaveText("25/25 PASS");
+      await expect.soft(page.getByTestId("selftest-total")).toHaveText("28/28 PASS");
     }
     const heading = await page.locator("h1").allTextContents();
     const status = response?.status();
@@ -94,7 +94,8 @@ async function auditTabStops(page, info, label) {
       if (
         !element.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true }) ||
         element.matches(":disabled") ||
-        element.closest("[inert]")
+        element.closest("[inert]") ||
+        (element.matches('[role="tab"], [role="radio"]') && element.tabIndex < 0)
       )
         return [];
       return [
