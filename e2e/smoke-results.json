@@ -1,0 +1,2328 @@
+[
+  {
+    "check": "01-home",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 10 XP\nYOUR RUNWAY\n\n£5.42\na day\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'd dip into your overdraft on Mon 4 Jan, 7 days before loan day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nSpend £1.08 less a day and you'll make it to loan day without touching your overdraft.\n\nNext tip\n(1 of 5)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\nDay by day\n\n45 days on your own money · 7 in your overdraft\n\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\nJan\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n10/100 XP to Lv 2\n\n1/6 done · +10 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\nTap a plan under “Can I say yes?”\n+15 XP\nTo do\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\nOpen “Ask a parent to help” on a big bill\n+15 XP\nTo do\n\nBONUS\n\n🏁\nOn track for loan day\nReach loan day without dipping into your overdraft\n+50 XP\nTo do\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "01-home",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nYOUR RUNWAY\n\n£5.42\na day\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'd dip into your overdraft on Mon 4 Jan, 7 days before loan day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nSpend £1.08 less a day and you'll make it to loan day without touching your overdraft.\n\nNext tip\n(1 of 5)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\nDay by day\n\n45 days on your own money · 7 in your overdraft\n\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\nJan\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n10/100 XP to Lv 2\n\n1/6 done · +10 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\nTap a plan under “Can I say yes?”\n+15 XP\nTo do\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\nOpen “Ask a parent to help” on a big bill\n+15 XP\nTo do\n\nBONUS\n\n🏁\nOn track for loan day\nReach loan day without dipping into your overdraft\n+50 XP\nTo do\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "02-shift",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 60 XP\nYOUR RUNWAY\n\n£14.04\na day\n+£8.62\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'll reach loan day with £424.00 to spare.\n\nSafe to spend is now £14.04 a day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nYou're on track for loan day with £424.00 to spare. Main character energy ✨\n\nNext tip\n(1 of 5)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\nDay by day\n\n52 days on your own money\n\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\nJan\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\nExpected before loan day\n\nSaturday shift\n\n£60.00 every week from Sat 21 Nov\n\n+£480.00 before loan day\n\nExpected money, your own estimate. Only add what you're fairly sure will come in.\n\nAdded Saturday shift, £60.00 every week from Sat 21 Nov.\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n60/100 XP to Lv 2\n\n1/6 done · +60 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\nTap a plan under “Can I say yes?”\n+15 XP\nTo do\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\nOpen “Ask a parent to help” on a big bill\n+15 XP\nTo do\n\nBONUS\n\n🏁\nOn track for loan day\n+50 XP\nDone\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nOn track for loan day! Plus 50 XP.\n\n🏁 On track for loan day! +50 XP\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "02-shift",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.py-0\\.5.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nYOUR RUNWAY\n\n£14.04\na day\n+£8.62\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'll reach loan day with £424.00 to spare.\n\nSafe to spend is now £14.04 a day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nYou're on track for loan day with £424.00 to spare. Main character energy ✨\n\nNext tip\n(1 of 5)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\nDay by day\n\n52 days on your own money\n\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\nJan\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\nExpected before loan day\n\nSaturday shift\n\n£60.00 every week from Sat 21 Nov\n\n+£480.00 before loan day\n\nExpected money, your own estimate. Only add what you're fairly sure will come in.\n\nAdded Saturday shift, £60.00 every week from Sat 21 Nov.\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n60/100 XP to Lv 2\n\n1/6 done · +60 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\nTap a plan under “Can I say yes?”\n+15 XP\nTo do\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\nOpen “Ask a parent to help” on a big bill\n+15 XP\nTo do\n\nBONUS\n\n🏁\nOn track for loan day\n+50 XP\nDone\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nOn track for loan day! Plus 50 XP.\n\n🏁 On track for loan day! +50 XP\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "03-parent",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 4,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.px-3.py-2\\.5 > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "definition-list",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "dl"
+                ],
+                "html": "<dl class=\"divide-y divide-border\">",
+                "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+              }
+            ]
+          },
+          {
+            "id": "dlitem",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Safe to spend</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">−£5.42 a day</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Overdraft from</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">3 days sooner</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Day before loan day</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">−£1140.00</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 40 XP\nYOUR RUNWAY\n\n£5.42\na day\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'd dip into your overdraft on Mon 4 Jan, 7 days before loan day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nThat would wipe out your whole overdraft. Skip it or ask for help? 👀\n\nNext tip\n(1 of 4)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n\nThis would use up your whole overdraft.\nSafe to spend\n−£5.42 a day\n£5.42 → £0.00 a day\nOverdraft from\n3 days sooner\nMon 4 Jan → Fri 1 Jan\nDay before loan day\n−£1140.00\n−£56.00 → −£1,196.00\nmore than your £500 overdraft\nSee it day by day\nWant a hand with this one?\n\nIf a parent or someone else helps with big costs, send them this in the app you already use. You choose whether to send it.\n\nAsk a parent to help\n\nWho's it for? (optional)\n\nMum\nDad\nGran\nOr type their name\nYour message\n\nSend it with\n\nWhatsApp\n(opens in a new tab)\niMessage / SMS\nEmail\nTelegram\n(opens in a new tab)\nCopy\n\nNothing is sent until you press send in that app.\n\nI'm going\nNot now\n\nI'm going adds it to your bills. It's money you still owe, so it never goes in the skip jar.\n\nWith January rent (12 weeks upfront)\n\n42 days on your own money (was 45) · 0 in your overdraft (was 7) · 10 past it (was 0)\n\nPreview\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n✕\n1\nJan\n✕\n2\n✕\n3\n✕\n4\n✕\n5\n✕\n6\n✕\n7\n✕\n8\n✕\n9\n✕\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n40/100 XP to Lv 2\n\n3/6 done · +40 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\n+15 XP\nDone\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\n+15 XP\nDone\n\nBONUS\n\n🏁\nOn track for loan day\nReach loan day without dipping into your overdraft\n+50 XP\nTo do\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nQuest done: Draft an ask-a-parent message. Plus 15 XP.\n\n+15 XP · Draft an ask-a-parent message\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "03-parent",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 4,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(3) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(4) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.px-3.py-2\\.5:nth-child(5) > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.px-3.py-2\\.5 > .items-end.text-right.shrink-0 > .bg-primary\\/10.text-primary.px-2"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "definition-list",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "dl"
+                ],
+                "html": "<dl class=\"divide-y divide-border\">",
+                "failureSummary": "Fix all of the following:\n  dl element has direct children that are not allowed: div > div"
+              }
+            ]
+          },
+          {
+            "id": "dlitem",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Safe to spend</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(1) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">−£5.42 a day</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Overdraft from</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(2) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">3 days sooner</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dt"
+                ],
+                "html": "<dt class=\"text-sm text-muted-foreground\">Day before loan day</dt>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              },
+              {
+                "target": [
+                  ".py-2\\.5:nth-child(3) > .justify-between.items-baseline.gap-3 > dd"
+                ],
+                "html": "<dd class=\"text-right text-xs font-semibold text-muted-foreground\">−£1140.00</dd>",
+                "failureSummary": "Fix any of the following:\n  Description list item does not have a <dl> parent element"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nYOUR RUNWAY\n\n£5.42\na day\n\nsafe to spend until Mon 11 Jan\n\n52 days to loan day\n\nAt your usual £6.50 a day, you'd dip into your overdraft on Mon 4 Jan, 7 days before loan day.\n\nEstimated loan day: NTU's Term Two start. Check your Student Finance England account for your payment date. Change loan day\n\nPENNY'S TIP\n\nThat would wipe out your whole overdraft. Skip it or ask for help? 👀\n\nNext tip\n(1 of 4)\nAsk Penny AI\n\nA quick money check of the numbers on this page.\n\nReview my money\n\nOnly the amounts, dates and item names on this page go to the AI. No bank login, nothing saved.\n\nCan I say yes?\n\nTap a plan to see what it does before you commit.\n\n💃 Winter ball · £55 · Fri 4 Dec\n🎄 Christmas meal · £28 · Thu 10 Dec\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n🎿 Ski trip deposit · £450 · Sat 12 Dec\n+ Something else\nGot an invite? Paste it.\n\nWe'll read the cost and date, then you check them.\n\nGroup chat message\nRead it\nTry an example\n\nWhen you tap Read it, your message goes to an AI model only to read the cost and date. We don't save it, and nothing is sent to anyone else without you.\n\n🏠 January rent (12 weeks upfront) · £1,140 · Fri 1 Jan\n\nThis would use up your whole overdraft.\nSafe to spend\n−£5.42 a day\n£5.42 → £0.00 a day\nOverdraft from\n3 days sooner\nMon 4 Jan → Fri 1 Jan\nDay before loan day\n−£1140.00\n−£56.00 → −£1,196.00\nmore than your £500 overdraft\nSee it day by day\nWant a hand with this one?\n\nIf a parent or someone else helps with big costs, send them this in the app you already use. You choose whether to send it.\n\nAsk a parent to help\n\nWho's it for? (optional)\n\nMum\nDad\nGran\nOr type their name\nYour message\n\nSend it with\n\nWhatsApp\n(opens in a new tab)\niMessage / SMS\nEmail\nTelegram\n(opens in a new tab)\nCopy\n\nNothing is sent until you press send in that app.\n\nI'm going\nNot now\n\nI'm going adds it to your bills. It's money you still owe, so it never goes in the skip jar.\n\nWith January rent (12 weeks upfront)\n\n42 days on your own money (was 45) · 0 in your overdraft (was 7) · 10 past it (was 0)\n\nPreview\nMon\nTue\nWed\nThu\nFri\nSat\nSun\n20\nNov\nToday\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\nDec\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n✕\n1\nJan\n✕\n2\n✕\n3\n✕\n4\n✕\n5\n✕\n6\n✕\n7\n✕\n8\n✕\n9\n✕\n10\n11\n💷\nLoan day\nYour money\nArranged overdraft\n✕\nOverdraft used up\nBill due\n💼 Money coming in\n\nPart-time shifts, paydays, birthday money: add it and your runway updates.\n\n💼\nSaturday shift · £60 weekly\n🎁\nOne-off money\nOther money in\n\n🔁 Subscriptions\n\nMonthly stuff that leaves your account. Each one counts as a bill before loan day.\n\n🎵\nMusic streaming\n📺\nVideo streaming\n🏋️\nGym\n☁️\nCloud storage\n+ Another subscription\n\nYour numbers\n\n£350.00 now · £500 overdraft · £6.50 a day · 3 bills\n\nDaily quests\n\nNice start. Keep the streak going 🔥\n\nLv 1 · Fresh Fresher\n40/100 XP to Lv 2\n\n3/6 done · +40 XP today\n\n👀\nCheck your runway\n+10 XP\nDone\n🔮\nPreview a plan before you say yes\n+15 XP\nDone\n🫙\nSkip something you don't need\nHit “Skip it” on a plan\n+25 XP\nTo do\n🤖\nPaste an invite and let the AI read it\nPaste a group-chat invite under “Can I say yes?”\n+15 XP\nTo do\n🏠\nSplit rent fairly with Dibs\nFinish a fair split on the Dibs tab\n+20 XP\nTo do\n💌\nDraft an ask-a-parent message\n+15 XP\nDone\n\nBONUS\n\n🏁\nOn track for loan day\nReach loan day without dipping into your overdraft\n+50 XP\nTo do\n\nMORE TOOLS\n\n🏠 Signing for next year's house?\n\nDibs splits rooms and rent fairly, so nobody wants to swap and nobody pays more than they can afford.\n\nOpen Dibs\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nQuest done: Draft an ask-a-parent message. Plus 15 XP.\n\n+15 XP · Draft an ask-a-parent message\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "04-bills",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/dibs?tab=bills",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 0 XP\n🏠\nRooms & rent\n🧾\nShared bills\nWho owes who?\n\nLog what each of you paid for the house. It splits each bill equally between the people you tick and works out who pays who to settle up.\n\nHousemates\nPerson 1\nPerson 2\nPerson 3\n\nPerson 1 is you. Names up to 12 characters.\n\nShared bills\n\n£82.05 shared so far\n\n🧻 Loo roll + cleaning stuff\n£9.45\n\nAlex paid · split 3 ways · Thu 19 Nov\n\n🛒 Big Tesco shop\n£42.60\n\nSam paid · split 3 ways · Wed 18 Nov\n\n📶 Wi-Fi\n£30.00\n\nYou paid · split 3 ways · Sun 15 Nov\n\nAdd a shared bill\nWhat was it?\nAmount\n£\nWho paid?\nYou\nSam\nAlex\nDate\nSplit between\nYou\nSam\nAlex\nAdd bill\n\nWhere everyone stands\n+\nYou are owed £2.65\n+\nSam is owed £15.25\n−\nAlex owes £17.90\nSettle up\n\n2 payments and everyone is square:\n\nAlex →\npays\n Sam\n£15.25\nAlex →\npays\n You\n£2.65\nSend settle-up to the house chat\n\nOpens WhatsApp with the message ready. Nothing is sent until you press send.\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "04-bills",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/dibs?tab=bills",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\n🏠\nRooms & rent\n🧾\nShared bills\nWho owes who?\n\nLog what each of you paid for the house. It splits each bill equally between the people you tick and works out who pays who to settle up.\n\nHousemates\nPerson 1\nPerson 2\nPerson 3\n\nPerson 1 is you. Names up to 12 characters.\n\nShared bills\n\n£82.05 shared so far\n\n🧻 Loo roll + cleaning stuff\n£9.45\n\nAlex paid · split 3 ways · Thu 19 Nov\n\n🛒 Big Tesco shop\n£42.60\n\nSam paid · split 3 ways · Wed 18 Nov\n\n📶 Wi-Fi\n£30.00\n\nYou paid · split 3 ways · Sun 15 Nov\n\nAdd a shared bill\nWhat was it?\nAmount\n£\nWho paid?\nYou\nSam\nAlex\nDate\nSplit between\nYou\nSam\nAlex\nAdd bill\n\nWhere everyone stands\n+\nYou are owed £2.65\n+\nSam is owed £15.25\n−\nAlex owes £17.90\nSettle up\n\n2 payments and everyone is square:\n\nAlex →\npays\n Sam\n£15.25\nAlex →\npays\n You\n£2.65\nSend settle-up to the house chat\n\nOpens WhatsApp with the message ready. Nothing is sent until you press send.\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "05-dibs",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/dibs",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".-mx-2 > span"
+                ],
+                "html": "<span>Ask a parent to help</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.42 (foreground color: #ba451c, background color: #e4ede3, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Box room: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Box room: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 0ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Middle room: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Middle room: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 180ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Big double: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Big double: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 360ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 20 XP\n🏠\nRooms & rent\n🧾\nShared bills\nDibs\n· fair rooms and rent\n, back to the house\n\nDemo house · £330.00/week\n\nHere's the fair split\n📦\nBox room\n?\n📦\nBox room\nY\nYou\n£95.00\nper week\nWithin limit\n🌙\nMiddle room\n?\n🌙\nMiddle room\nS\nSam\n£104.00\nper week\nWithin limit\n🪟\nBig double\n?\n🪟\nBig double\nA\nAlex\n£131.00\nper week\nNo limit\n✓ Rents add up to £330.00\n✓ Nobody would rather have another room at its price\n✓ Everyone is within their limit\n\nChecked: nobody gains more than 1p by switching. All by each person's own answers.\n\nSam's £104 limit shaped this split.\n\nCompared with splitting equally (£110.00 each)\nYou\n−£15.00\nSam\n−£6.00\nAlex\n+£21.00\nThink you got a bad deal?\n\nTap the room you'd take instead and see the maths.\n\nMe\nSam\nAlex\n\nChecking as you. Tap another room card above.\n\nSettle up\n\nYour contract probably charges £110.00 each. To make it fair:\n\nAlex sends you £15.00/week\n\n≈ 4 meal deals a week (at about £4 each)\n\nAlex sends Sam £6.00/week\n\n≈ 2 meal deals a week (at about £4 each)\n\n🏡 Signing for this house?\nHolding deposit\nPay rent upfront\n\nIn England a holding deposit is capped at one week's rent per tenancy (Tenant Fees Act 2019), so on a joint tenancy it's at most £330.00 for the whole house. Split the Dibs way, your share is £95.00. See what paying it does to your money before loan day.\n\nWhen would you pay it?\n\nPaying this would put you in your overdraft 14 days sooner.\n\nPreview £95.00 in Til Loan Day\nAsk a parent to help\nSee everyone's answers\n+\nCopy for the group chat\nEdit answers\nStart over\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nQuest done: Split rent fairly with Dibs. Plus 20 XP.\n\n+20 XP · Split rent fairly with Dibs\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "05-dibs",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/dibs",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".-mx-2 > span"
+                ],
+                "html": "<span>Ask a parent to help</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.42 (foreground color: #ba451c, background color: #e4ede3, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Box room: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Box room: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 0ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Middle room: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Middle room: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 180ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              },
+              {
+                "target": [
+                  "button[aria-label=\"Big double: revealing\"]"
+                ],
+                "html": "<button type=\"button\" aria-disabled=\"true\" aria-label=\"Big double: revealing\" class=\"flip-inner relative h-full w-full rounded-2xl text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50 \" style=\"transition-delay: 360ms;\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\n🏠\nRooms & rent\n🧾\nShared bills\nDibs\n· fair rooms and rent\n, back to the house\n\nDemo house · £330.00/week\n\nHere's the fair split\n📦\nBox room\n?\n📦\nBOX ROOM\nY\nYou\n£95.00\nper week\nWithin limit\n🌙\nMiddle room\n?\n🌙\nMIDDLE ROOM\nS\nSam\n£104.00\nper week\nWithin limit\n🪟\nBig double\n?\n🪟\nBIG DOUBLE\nA\nAlex\n£131.00\nper week\nNo limit\n✓ Rents add up to £330.00\n✓ Nobody would rather have another room at its price\n✓ Everyone is within their limit\n\nChecked: nobody gains more than 1p by switching. All by each person's own answers.\n\nSam's £104 limit shaped this split.\n\nCompared with splitting equally (£110.00 each)\nYou\n−£15.00\nSam\n−£6.00\nAlex\n+£21.00\nThink you got a bad deal?\n\nTap the room you'd take instead and see the maths.\n\nMe\nSam\nAlex\n\nChecking as you. Tap another room card above.\n\nSettle up\n\nYour contract probably charges £110.00 each. To make it fair:\n\nAlex sends you £15.00/week\n\n≈ 4 meal deals a week (at about £4 each)\n\nAlex sends Sam £6.00/week\n\n≈ 2 meal deals a week (at about £4 each)\n\n🏡 Signing for this house?\nHolding deposit\nPay rent upfront\n\nIn England a holding deposit is capped at one week's rent per tenancy (Tenant Fees Act 2019), so on a joint tenancy it's at most £330.00 for the whole house. Split the Dibs way, your share is £95.00. See what paying it does to your money before loan day.\n\nWhen would you pay it?\n\nPaying this would put you in your overdraft 14 days sooner.\n\nPreview £95.00 in Til Loan Day\nAsk a parent to help\nSee everyone's answers\n+\nCopy for the group chat\nEdit answers\nStart over\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nQuest done: Split rent fairly with Dibs. Plus 20 XP.\n\n+20 XP · Split rent fairly with Dibs\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "06-blog",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/blog",
+        "url": "https://til-loan-day.lovable.app/blog",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "first-blog-post",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".tracking-\\[0\\.12em\\]"
+                ],
+                "html": "<p class=\"flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-[0.12em] text-primary\"><span aria-hidden=\"true\">💡</span> Quick tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".mt-1\\.5 > .rounded-sm.decoration-primary\\/40.decoration-2"
+                ],
+                "html": "<a href=\"https://www.gov.uk/s...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"rounded-sm font-semi...\">",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "button[aria-haspopup=\"dialog\"]"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 0 XP\nBack to the blog\n📅\nWhen does my January loan actually land?\n\nFri 20 Nov\n·\n2 min read\n\nTL;DR\n\nStudent Finance England pays your Maintenance Loan at the start of each term. For NTU's standard undergrad courses, Term Two starts Mon 11 Jan 2027, but your own payment date lives in your SFE account.\n\nThe overdraft is looking nervous and the group chat has one question: when does the next loan actually hit? Here's the honest answer, with sources.\n\nStart of term, not one national payday\n\nIf you're a full-time undergrad funded by Student Finance England (SFE), your Maintenance Loan comes in instalments. GOV.UK's 2026/27 loan terms\n(opens in a new tab)\n put it simply: “Maintenance Loans are paid directly to you at the start of each term.” If your course started in the autumn, the second instalment normally lands at the start of your second term, which is generally January.\n\nThere's no single January date for everyone, though. Universities tell the Student Loans Company when their students are actually in study, and SLC's guidance for universities\n(opens in a new tab)\n says getting those term dates right “will make sure your students get paid at the right time.”\n\nWhat that means at NTU\n\nNTU's published term dates\n(opens in a new tab)\n list Term Two for standard undergraduate courses as Monday 11 January to Friday 19 March 2027. NTU's further-education timetables for Mansfield and Brackenhurst start on 4 January, and NTU itself warns that “Term dates may vary.”\n\n💡\nQUICK TIP\n\nA term date isn't a payment promise. Sign in to your Student Finance England account\n(opens in a new tab)\n to check when your payments are due, then use that date.\n\nHow Til Loan Day uses it\n\nTil Loan Day starts with Mon 11 Jan 2027 as an estimate for NTU undergrads. Put your own date in Your numbers, and your safe daily spend, the day calendar and every “Can I say yes?” preview recalculate around it. 💷\n\nFacts checked on Fri 20 Nov 2026 against the sources linked above. General information, not financial or legal advice.\n\nTRY IT\n\n🛟 Got your date?\n\nSee what you can safely spend each day until your loan lands.\n\nCheck your runway\nKeep reading 👀\n🔑\nHolding deposits: the one-week cap\n\nFri 20 Nov\n·\n2 min read\n\n⚖️\nHow Dibs splits rent so nobody wants to swap\n\nFri 20 Nov\n·\n2 min read\n\nBack to the blog\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "06-blog",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/blog",
+        "url": "https://til-loan-day.lovable.app/blog",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "first-blog-post",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".tracking-\\[0\\.12em\\]"
+                ],
+                "html": "<p class=\"flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-[0.12em] text-primary\"><span aria-hidden=\"true\">💡</span> Quick tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".mt-1\\.5 > .rounded-sm.decoration-primary\\/40.decoration-2"
+                ],
+                "html": "<a href=\"https://www.gov.uk/s...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"rounded-sm font-semi...\">",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "button[aria-haspopup=\"dialog\"]"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nBack to the blog\n📅\nWhen does my January loan actually land?\n\nFri 20 Nov\n·\n2 min read\n\nTL;DR\n\nStudent Finance England pays your Maintenance Loan at the start of each term. For NTU's standard undergrad courses, Term Two starts Mon 11 Jan 2027, but your own payment date lives in your SFE account.\n\nThe overdraft is looking nervous and the group chat has one question: when does the next loan actually hit? Here's the honest answer, with sources.\n\nStart of term, not one national payday\n\nIf you're a full-time undergrad funded by Student Finance England (SFE), your Maintenance Loan comes in instalments. GOV.UK's 2026/27 loan terms\n(opens in a new tab)\n put it simply: “Maintenance Loans are paid directly to you at the start of each term.” If your course started in the autumn, the second instalment normally lands at the start of your second term, which is generally January.\n\nThere's no single January date for everyone, though. Universities tell the Student Loans Company when their students are actually in study, and SLC's guidance for universities\n(opens in a new tab)\n says getting those term dates right “will make sure your students get paid at the right time.”\n\nWhat that means at NTU\n\nNTU's published term dates\n(opens in a new tab)\n list Term Two for standard undergraduate courses as Monday 11 January to Friday 19 March 2027. NTU's further-education timetables for Mansfield and Brackenhurst start on 4 January, and NTU itself warns that “Term dates may vary.”\n\n💡\nQUICK TIP\n\nA term date isn't a payment promise. Sign in to your Student Finance England account\n(opens in a new tab)\n to check when your payments are due, then use that date.\n\nHow Til Loan Day uses it\n\nTil Loan Day starts with Mon 11 Jan 2027 as an estimate for NTU undergrads. Put your own date in Your numbers, and your safe daily spend, the day calendar and every “Can I say yes?” preview recalculate around it. 💷\n\nFacts checked on Fri 20 Nov 2026 against the sources linked above. General information, not financial or legal advice.\n\nTRY IT\n\n🛟 Got your date?\n\nSee what you can safely spend each day until your loan lands.\n\nCheck your runway\nKeep reading 👀\n🔑\nHolding deposits: the one-week cap\n\nFri 20 Nov\n·\n2 min read\n\n⚖️\nHow Dibs splits rent so nobody wants to swap\n\nFri 20 Nov\n·\n2 min read\n\nBack to the blog\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "07-selftest",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/selftest",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 0 XP\nEngine selftest\n\nBoth engines run here in your browser on fixed inputs and are checked against values pinned by exact reference implementations.\n\n✓\n28/28 PASS\n\nTil Loan Day runway\n\n✓\n14/14 PASS\n\nDemo on Fri 20 Nov 2026: £400 balance, £500 overdraft, £6.50 a day, three bills, loan day Mon 18 Jan. Pairs are [before, after] a plan. Money in pence.\n\nR1Base demo: £400, £6.50 a day, three bills\n\nPASS\nExpected\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\nActual\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\n\nR2+ Winter ball £55 on Fri 4 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\n\nR3+ Christmas meal £28 on Thu 10 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\n\nR4+ Ski trip deposit £450 on Sat 12 Dec\n\nPASS\nExpected\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\nActual\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\n\nR5+ Gig £30 on Wed 20 Jan (after loan day)\n\nPASS\nExpected\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\nActual\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\n\nR6Usual spend £5.62: the safe amount really is safe\n\nPASS\nExpected\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\nActual\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\n\nR7Usual spend £5.63: 1p over safe\n\nPASS\nExpected\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\nActual\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\n\nR8Balance £50, spend £0: bills alone go below £0\n\nPASS\nExpected\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\nActual\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\n\nR9Loan day is today\n\nPASS\nExpected\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\nActual\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\n\nR10Spend £4.00 + Winter ball: still fine\n\nPASS\nExpected\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\nActual\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\n\nR11Spend £5.00 + Winter ball: tips you into your overdraft\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\n\nR12Demo (£350, loan Mon 11 Jan) + £60 every Saturday\n\nPASS\nExpected\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\nActual\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\n\nR13Demo + £50 one-off on Tue 1 Dec\n\nPASS\nExpected\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\nActual\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\n\nR14Demo + £200 on loan day itself: outside the window, no change\n\nPASS\nExpected\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nActual\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nDibs fair split\n\n✓\n14/14 PASS\n\nExpected values were computed independently with exact fractions. Rooms: 0 Box, 1 Middle, 2 Big double. Persons: 0 You, 1 Sam, 2 Alex. Money in pence.\n\nT1Defaults, no limits\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT2Default demo: You £120, Sam £104\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\n\nT3Alex limit £125\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT4Alex limit £122\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT5Alex limit £120: Alex 34p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\n\nT6Sam limit £100: Sam 67p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\n\nT7All limits £100: limits add to £300\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\n\nT8You +40 / +40\n\nPASS\nExpected\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT9You −50 / +110 (extreme)\n\nPASS\nExpected\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT10Everyone identical (0, 0, +1): 1p rounding\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\n\nT2aChallenge You → Big double\n\nPASS\nExpected\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\nActual\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\n\nT2bChallenge You → Middle room\n\nPASS\nExpected\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\nActual\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\n\nT2cSettle-up vs £110 each\n\nPASS\nExpected\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\nActual\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\n\nT2dEqual split: Sam £6 over\n\nPASS\nExpected\n[{\"person\": 1, \"overByPence\": 600}]\nActual\n[{\"person\": 1, \"overByPence\": 600}]\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "07-selftest",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/selftest",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nEngine selftest\n\nBoth engines run here in your browser on fixed inputs and are checked against values pinned by exact reference implementations.\n\n✓\n28/28 PASS\n\nTil Loan Day runway\n\n✓\n14/14 PASS\n\nDemo on Fri 20 Nov 2026: £400 balance, £500 overdraft, £6.50 a day, three bills, loan day Mon 18 Jan. Pairs are [before, after] a plan. Money in pence.\n\nR1Base demo: £400, £6.50 a day, three bills\n\nPASS\nExpected\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\nActual\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\n\nR2+ Winter ball £55 on Fri 4 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\n\nR3+ Christmas meal £28 on Thu 10 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\n\nR4+ Ski trip deposit £450 on Sat 12 Dec\n\nPASS\nExpected\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\nActual\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\n\nR5+ Gig £30 on Wed 20 Jan (after loan day)\n\nPASS\nExpected\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\nActual\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\n\nR6Usual spend £5.62: the safe amount really is safe\n\nPASS\nExpected\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\nActual\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\n\nR7Usual spend £5.63: 1p over safe\n\nPASS\nExpected\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\nActual\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\n\nR8Balance £50, spend £0: bills alone go below £0\n\nPASS\nExpected\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\nActual\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\n\nR9Loan day is today\n\nPASS\nExpected\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\nActual\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\n\nR10Spend £4.00 + Winter ball: still fine\n\nPASS\nExpected\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\nActual\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\n\nR11Spend £5.00 + Winter ball: tips you into your overdraft\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\n\nR12Demo (£350, loan Mon 11 Jan) + £60 every Saturday\n\nPASS\nExpected\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\nActual\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\n\nR13Demo + £50 one-off on Tue 1 Dec\n\nPASS\nExpected\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\nActual\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\n\nR14Demo + £200 on loan day itself: outside the window, no change\n\nPASS\nExpected\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nActual\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nDibs fair split\n\n✓\n14/14 PASS\n\nExpected values were computed independently with exact fractions. Rooms: 0 Box, 1 Middle, 2 Big double. Persons: 0 You, 1 Sam, 2 Alex. Money in pence.\n\nT1Defaults, no limits\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT2Default demo: You £120, Sam £104\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\n\nT3Alex limit £125\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT4Alex limit £122\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT5Alex limit £120: Alex 34p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\n\nT6Sam limit £100: Sam 67p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\n\nT7All limits £100: limits add to £300\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\n\nT8You +40 / +40\n\nPASS\nExpected\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT9You −50 / +110 (extreme)\n\nPASS\nExpected\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT10Everyone identical (0, 0, +1): 1p rounding\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\n\nT2aChallenge You → Big double\n\nPASS\nExpected\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\nActual\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\n\nT2bChallenge You → Middle room\n\nPASS\nExpected\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\nActual\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\n\nT2cSettle-up vs £110 each\n\nPASS\nExpected\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\nActual\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\n\nT2dEqual split: Sam £6 over\n\nPASS\nExpected\n[{\"person\": 1, \"overByPence\": 600}]\nActual\n[{\"person\": 1, \"overByPence\": 600}]\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "08-page-health",
+    "viewport": "1280x900",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/dibs",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/dibs?tab=bills",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/blog",
+        "url": "https://til-loan-day.lovable.app/blog",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "first-blog-post",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".tracking-\\[0\\.12em\\]"
+                ],
+                "html": "<p class=\"flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-[0.12em] text-primary\"><span aria-hidden=\"true\">💡</span> Quick tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".mt-1\\.5 > .rounded-sm.decoration-primary\\/40.decoration-2"
+                ],
+                "html": "<a href=\"https://www.gov.uk/s...\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"rounded-sm font-semi...\">",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.46 (foreground color: #ba451c, background color: #f7e9dc, font size: 12.8pt (17px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "button[aria-haspopup=\"dialog\"]"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/selftest",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\n\nMake your money last till loan day.\n\nRunway\ndaily spend\nDibs\nhousemates\nBlog\nmoney reads\nLv 1 · 10 XP\nEngine selftest\n\nBoth engines run here in your browser on fixed inputs and are checked against values pinned by exact reference implementations.\n\n✓\n28/28 PASS\n\nTil Loan Day runway\n\n✓\n14/14 PASS\n\nDemo on Fri 20 Nov 2026: £400 balance, £500 overdraft, £6.50 a day, three bills, loan day Mon 18 Jan. Pairs are [before, after] a plan. Money in pence.\n\nR1Base demo: £400, £6.50 a day, three bills\n\nPASS\nExpected\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\nActual\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\n\nR2+ Winter ball £55 on Fri 4 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\n\nR3+ Christmas meal £28 on Thu 10 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\n\nR4+ Ski trip deposit £450 on Sat 12 Dec\n\nPASS\nExpected\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\nActual\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\n\nR5+ Gig £30 on Wed 20 Jan (after loan day)\n\nPASS\nExpected\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\nActual\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\n\nR6Usual spend £5.62: the safe amount really is safe\n\nPASS\nExpected\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\nActual\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\n\nR7Usual spend £5.63: 1p over safe\n\nPASS\nExpected\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\nActual\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\n\nR8Balance £50, spend £0: bills alone go below £0\n\nPASS\nExpected\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\nActual\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\n\nR9Loan day is today\n\nPASS\nExpected\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\nActual\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\n\nR10Spend £4.00 + Winter ball: still fine\n\nPASS\nExpected\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\nActual\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\n\nR11Spend £5.00 + Winter ball: tips you into your overdraft\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\n\nR12Demo (£350, loan Mon 11 Jan) + £60 every Saturday\n\nPASS\nExpected\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\nActual\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\n\nR13Demo + £50 one-off on Tue 1 Dec\n\nPASS\nExpected\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\nActual\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\n\nR14Demo + £200 on loan day itself: outside the window, no change\n\nPASS\nExpected\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nActual\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nDibs fair split\n\n✓\n14/14 PASS\n\nExpected values were computed independently with exact fractions. Rooms: 0 Box, 1 Middle, 2 Big double. Persons: 0 You, 1 Sam, 2 Alex. Money in pence.\n\nT1Defaults, no limits\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT2Default demo: You £120, Sam £104\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\n\nT3Alex limit £125\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT4Alex limit £122\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT5Alex limit £120: Alex 34p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\n\nT6Sam limit £100: Sam 67p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\n\nT7All limits £100: limits add to £300\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\n\nT8You +40 / +40\n\nPASS\nExpected\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT9You −50 / +110 (extreme)\n\nPASS\nExpected\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT10Everyone identical (0, 0, +1): 1p rounding\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\n\nT2aChallenge You → Big double\n\nPASS\nExpected\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\nActual\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\n\nT2bChallenge You → Middle room\n\nPASS\nExpected\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\nActual\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\n\nT2cSettle-up vs £110 each\n\nPASS\nExpected\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\nActual\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\n\nT2dEqual split: Sam £6 over\n\nPASS\nExpected\n[{\"person\": 1, \"overByPence\": 600}]\nActual\n[{\"person\": 1, \"overByPence\": 600}]\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  },
+  {
+    "check": "08-page-health",
+    "viewport": "375x812",
+    "audits": [
+      {
+        "label": "/",
+        "url": "https://til-loan-day.lovable.app/",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 2,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  "div[role=\"note\"] > .tracking-\\[0\\.14em\\].uppercase.text-\\[11px\\]"
+                ],
+                "html": "<p class=\"text-[11px] font-bold uppercase tracking-[0.14em] text-primary\">Penny's tip</p>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.24 (foreground color: #ba451c, background color: #f2e4d1, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(2) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(3) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+25 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(4) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(5) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+20 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  ".bg-background\\/60.py-2\\.5.px-3:nth-child(6) > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+15 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              },
+              {
+                "target": [
+                  "ul[aria-label=\"Bonus achievements\"] > .bg-background\\/60.py-2\\.5.px-3 > .text-right.items-end.shrink-0 > .bg-primary\\/10.px-2.text-primary"
+                ],
+                "html": "<span class=\"rounded-full px-2 py-0.5 text-xs font-bold tabular-nums bg-primary/10 text-primary\">+50 XP</span>",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.31 (foreground color: #ba451c, background color: #f5e5d8, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/dibs",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=rooms",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/dibs?tab=bills",
+        "url": "https://til-loan-day.lovable.app/dibs?tab=bills",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/blog",
+        "url": "https://til-loan-day.lovable.app/blog",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "first-blog-post",
+        "url": "https://til-loan-day.lovable.app/blog/when-does-my-january-loan-land",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".hover\\:brightness-105"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "/selftest",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-state",
+        "url": "https://til-loan-day.lovable.app/selftest",
+        "dimensions": {
+          "scrollWidth": 375,
+          "clientWidth": 375
+        },
+        "axe": {
+          "serious": 1,
+          "critical": 0
+        },
+        "violations": [
+          {
+            "id": "label-content-name-mismatch",
+            "impact": "serious",
+            "nodes": [
+              {
+                "target": [
+                  ".group"
+                ],
+                "html": "<button type=\"button\" aria-label=\"Level 1, Fresh Fresh...\" class=\"group inline-flex sh...\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-state=\"closed\">",
+                "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "pageText": "Skip to content\ntil loan day\nRunway\nDibs\nBlog\nLV\n1\nEngine selftest\n\nBoth engines run here in your browser on fixed inputs and are checked against values pinned by exact reference implementations.\n\n✓\n28/28 PASS\n\nTil Loan Day runway\n\n✓\n14/14 PASS\n\nDemo on Fri 20 Nov 2026: £400 balance, £500 overdraft, £6.50 a day, three bills, loan day Mon 18 Jan. Pairs are [before, after] a plan. Money in pence.\n\nR1Base demo: £400, £6.50 a day, three bills\n\nPASS\nExpected\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\nActual\n{\"days\": 59, \"billsInWindowPence\": 6800, \"safeDailyPence\": 562, \"firstOverdraftDate\": \"2027-01-10\", \"firstExhaustedDate\": null, \"endBalancePence\": -5150, \"daysEarly\": 8, \"statusCounts\": {\"own\": 51, \"overdraft\": 8, \"exhausted\": 0}}\n\nR2+ Winter ball £55 on Fri 4 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 469], \"safeDailyDeltaPence\": -93, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-03\"], \"daysEarlierOverdraft\": 7, \"endBalancePence\": [-5150, -10650]}\n\nR3+ Christmas meal £28 on Thu 10 Dec\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": false, \"safeDailyPence\": [562, 515], \"safeDailyDeltaPence\": -47, \"firstOverdraftDate\": [\"2027-01-10\", \"2027-01-05\"], \"daysEarlierOverdraft\": 5, \"endBalancePence\": [-5150, -7950]}\n\nR4+ Ski trip deposit £450 on Sat 12 Dec\n\nPASS\nExpected\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\nActual\n{\"verdict\": \"exhausted\", \"safeDailyPence\": [562, 0], \"firstOverdraftDate\": [\"2027-01-10\", \"2026-12-12\"], \"daysEarlierOverdraft\": 29, \"firstExhaustedDate\": [null, \"2027-01-17\"], \"endBalancePence\": [-5150, -50150]}\n\nR5+ Gig £30 on Wed 20 Jan (after loan day)\n\nPASS\nExpected\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\nActual\n{\"verdict\": \"outside-window\", \"causesOverdraft\": false, \"safeDailyDeltaPence\": 0, \"endBalanceDeltaPence\": 0, \"daysEarlierOverdraft\": 0}\n\nR6Usual spend £5.62: the safe amount really is safe\n\nPASS\nExpected\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\nActual\n{\"safeDailyPence\": 562, \"firstOverdraftDate\": null, \"endBalancePence\": 42}\n\nR7Usual spend £5.63: 1p over safe\n\nPASS\nExpected\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\nActual\n{\"firstOverdraftDate\": \"2027-01-17\", \"endBalancePence\": -17, \"daysEarly\": 1}\n\nR8Balance £50, spend £0: bills alone go below £0\n\nPASS\nExpected\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\nActual\n{\"safeDailyPence\": 0, \"billsAloneOverdraftDate\": \"2026-12-17\", \"firstOverdraftDate\": \"2026-12-17\", \"endBalancePence\": -1800}\n\nR9Loan day is today\n\nPASS\nExpected\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\nActual\n{\"ok\": false, \"reason\": \"loan-date-not-after-today\"}\n\nR10Spend £4.00 + Winter ball: still fine\n\nPASS\nExpected\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\nActual\n{\"verdict\": \"fine\", \"safeDailyPence\": [562, 469], \"endBalancePence\": [9600, 4100]}\n\nR11Spend £5.00 + Winter ball: tips you into your overdraft\n\nPASS\nExpected\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\nActual\n{\"verdict\": \"overdraft\", \"causesOverdraft\": true, \"firstOverdraftDate\": [null, \"2027-01-14\"], \"endBalancePence\": [3700, -1800]}\n\nR12Demo (£350, loan Mon 11 Jan) + £60 every Saturday\n\nPASS\nExpected\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\nActual\n{\"incomeInWindowPence\": 48000, \"safeDailyPence\": 1404, \"firstOverdraftDate\": null, \"endBalancePence\": 42400}\n\nR13Demo + £50 one-off on Tue 1 Dec\n\nPASS\nExpected\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\nActual\n{\"incomeInWindowPence\": 5000, \"safeDailyPence\": 638, \"firstOverdraftDate\": \"2027-01-10\", \"endBalancePence\": -600, \"daysEarly\": 1}\n\nR14Demo + £200 on loan day itself: outside the window, no change\n\nPASS\nExpected\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nActual\n{\"incomeInWindowPence\": 0, \"safeDailyPence\": 542, \"firstOverdraftDate\": \"2027-01-04\", \"endBalancePence\": -5600}\nDibs fair split\n\n✓\n14/14 PASS\n\nExpected values were computed independently with exact fractions. Rooms: 0 Box, 1 Middle, 2 Big double. Persons: 0 You, 1 Sam, 2 Alex. Money in pence.\n\nT1Defaults, no limits\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9200, 11000, 12800], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT2Default demo: You £120, Sam £104\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 10400, 13100], \"maxGainPence\": 0, \"binding\": [1], \"verified\": true}\n\nT3Alex limit £125\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9350, 11150, 12500], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT4Alex limit £122\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [9500, 11300, 12200], \"maxGainPence\": 0, \"binding\": [2], \"verified\": true}\n\nT5Alex limit £120: Alex 34p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 2, \"shortByPence\": 34, \"minLimitPence\": 12034}}\n\nT6Sam limit £100: Sam 67p short\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"person\", \"person\": 1, \"shortByPence\": 67, \"minLimitPence\": 10067}}\n\nT7All limits £100: limits add to £300\n\nPASS\nExpected\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\nActual\n{\"feasible\": false, \"shortfall\": {\"kind\": \"limits-sum\", \"limitsTotalPence\": 30000, \"rentPence\": 33000}}\n\nT8You +40 / +40\n\nPASS\nExpected\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [1, 0, 2], \"pricePence\": [8322, 11856, 12822], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT9You −50 / +110 (extreme)\n\nPASS\nExpected\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [2, 1, 0], \"pricePence\": [6467, 9167, 17366], \"maxGainPence\": 0, \"binding\": [], \"verified\": true}\n\nT10Everyone identical (0, 0, +1): 1p rounding\n\nPASS\nExpected\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\nActual\n{\"roomOf\": [0, 1, 2], \"pricePence\": [10967, 10967, 11066], \"maxGainPence\": 1, \"binding\": [], \"verified\": true}\n\nT2aChallenge You → Big double\n\nPASS\nExpected\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\nActual\n{\"costDiffPence\": 3600, \"worthDiffPence\": 2500, \"betterOffStayingPence\": 1100, \"overLimitPence\": 1100}\n\nT2bChallenge You → Middle room\n\nPASS\nExpected\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\nActual\n{\"costDiffPence\": 900, \"worthDiffPence\": 500, \"betterOffStayingPence\": 400, \"overLimitPence\": 0}\n\nT2cSettle-up vs £110 each\n\nPASS\nExpected\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\nActual\n[{\"from\": 2, \"to\": 0, \"amountPence\": 1500}, {\"from\": 2, \"to\": 1, \"amountPence\": 600}]\n\nT2dEqual split: Sam £6 over\n\nPASS\nExpected\n[{\"person\": 1, \"overByPence\": 600}]\nActual\n[{\"person\": 1, \"overByPence\": 600}]\n\nBuilt for Hack The Trent 2026 · No bank login, no account. Your money numbers aren't saved; only your XP is, on this device. If you paste an invite, its text is sent to an AI model to read the cost and date.\n\nDibs' fair rent maths is inspired by Spliddit (Carnegie Mellon University) and “Fair Rent Division on a Budget” (Procaccia, Velez & Yu, AAAI 2018). Demo house, housemates and money numbers are fictional.\n\nselftest\n\nEdit with",
+    "status": "pass",
+    "failureMessage": ""
+  }
+]
