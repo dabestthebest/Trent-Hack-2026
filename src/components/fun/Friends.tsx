@@ -1,5 +1,5 @@
 import { ClipboardCopy, Download, FileUp, Trash2, Trophy } from "lucide-react";
-import { useId, useRef, useState, type ChangeEvent } from "react";
+import { useEffect, useId, useRef, useState, type ChangeEvent } from "react";
 
 import { pounds } from "@/lib/dibs/format";
 import {
@@ -22,6 +22,8 @@ const CHOICES: { key: keyof ShareChoices; label: string }[] = [
   { key: "quests", label: "Quests done today" },
   { key: "saved", label: "Saved by skipping" },
 ];
+
+export const FRIENDS_KEY = "tld-friends-v1";
 
 interface Row {
   id: string;
@@ -46,6 +48,54 @@ export function Friends() {
   const [paste, setPaste] = useState("");
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  // Friends stay on this device (browser storage, never cookies, so nothing is sent to a server).
+  // Saved cards are re-validated on load, exactly like a freshly imported file.
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(FRIENDS_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as { name?: unknown; choices?: unknown; cards?: unknown };
+        if (typeof saved.name === "string") setName(saved.name.slice(0, 20));
+        if (saved.choices && typeof saved.choices === "object") {
+          const c = saved.choices as Record<string, unknown>;
+          setChoices({
+            level: c["level"] !== false,
+            xp: c["xp"] !== false,
+            quests: c["quests"] !== false,
+            saved: c["saved"] === true,
+          });
+        }
+        if (Array.isArray(saved.cards)) {
+          const rows: Row[] = [];
+          for (const text of saved.cards.slice(0, 50)) {
+            if (typeof text !== "string") continue;
+            const r = parseCard(text);
+            if (r.ok && !rows.some((x) => x.card.name === r.card.name)) {
+              rows.push({ id: `${r.card.name}-${rows.length}`, card: r.card, you: false });
+            }
+          }
+          setFriends(rows);
+        }
+      }
+    } catch {
+      // Storage blocked or junk data: start with no friends.
+    }
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
+    try {
+      window.localStorage.setItem(
+        FRIENDS_KEY,
+        JSON.stringify({ name, choices, cards: friends.map((f) => serializeCard(f.card)) }),
+      );
+    } catch {
+      // Storage blocked: friends just won't persist.
+    }
+  }, [loaded, name, choices, friends]);
 
   const mine = buildCard(name, choices, {
     xp: fun.xp,
@@ -277,8 +327,17 @@ export function Friends() {
       ) : null}
 
       <p className="text-xs text-muted-foreground">
-        Friend cards stay on your device and in whatever chat you send them through. Nothing goes to
-        a server, and friends disappear when you close the page.
+        Friends are saved in this browser on your device, and in whatever chat you send cards
+        through. Nothing goes to a server.{" "}
+        {friends.length > 0 ? (
+          <button
+            type="button"
+            onClick={() => setFriends([])}
+            className="font-semibold underline underline-offset-2 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Forget all friends
+          </button>
+        ) : null}
       </p>
     </section>
   );

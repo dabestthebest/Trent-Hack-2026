@@ -154,8 +154,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         >
           <p>
             Built for Hack The Trent 2026 · No bank login, no account. Your money numbers
-            aren&apos;t saved; only your XP is, on this device. If you paste an invite, its text is
-            sent to an AI model to read the cost and date.
+            aren&apos;t saved; only your XP and friends are, on this device. If you paste an invite,
+            its text is sent to an AI model to read the cost and date.
           </p>
           <p>
             Dibs&apos; fair rent maths is inspired by Spliddit (Carnegie Mellon University) and
