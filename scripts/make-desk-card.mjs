@@ -1,6 +1,6 @@
 // Writes docs/desk-card.html: a self-contained A5 desk card with an inline SVG QR code.
 // Run from the repo root: (cd e2e && npm ci) && node scripts/make-desk-card.mjs
-const APP_URL = "https://dibs-fair-rooms.lovable.app";
+const APP_URL = "https://til-loan-day.lovable.app";
 
 import { createRequire } from "node:module";
 import { writeFile } from "node:fs/promises";
