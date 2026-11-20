@@ -1,5 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 
 import { solveFairSplit } from "@/lib/dibs/fairSplit";
 import { initialHousemates, toSplitInput, type Housemate, type Mode } from "@/lib/dibs/housemates";
@@ -51,7 +50,7 @@ export function DibsApp() {
 
   const firstHuman = humanSeats[0] ?? 0;
 
-  let screen: React.ReactNode;
+  let screen: ReactNode;
   if (step.kind === "house") {
     screen = (
       <HouseScreen
@@ -106,34 +105,25 @@ export function DibsApp() {
     );
   }
 
+  // Page chrome (header, nav, footer, <main>) comes from the AppShell; this is just the tool.
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto w-full max-w-xl px-4 pb-10 pt-4">
-        <nav className="mb-4 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => go({ kind: "house" })}
-            className="font-display text-2xl font-extrabold tracking-tight text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Dibs, back to the house"
-          >
-            dibs<span className="text-foreground">.</span>
-          </button>
-          <span className="text-sm text-muted-foreground">Fair rooms. Rents you can afford.</span>
-        </nav>
-        <main>{screen}</main>
-        <footer className="mt-10 space-y-1 border-t border-border pt-4 text-xs text-muted-foreground">
-          <p>
-            Fair rent maths after Spliddit (CMU) and &ldquo;Fair Rent Division on a Budget&rdquo;
-            (Procaccia, Velez &amp; Yu, AAAI 2018). Demo house and housemates are fictional. Runs
-            entirely in your browser.
-          </p>
-          <p>
-            <Link to="/selftest" className="underline underline-offset-2 hover:text-foreground">
-              selftest
-            </Link>
-          </p>
-        </footer>
+    <div className="space-y-2">
+      <div className="flex items-center">
+        <button
+          type="button"
+          onClick={() => go({ kind: "house" })}
+          className="-mx-1.5 inline-flex min-h-11 items-center gap-1.5 rounded-lg px-1.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="font-display text-xl font-extrabold tracking-tight text-primary">
+            Dibs
+          </span>
+          <span className="text-sm font-medium text-muted-foreground">
+            <span aria-hidden="true">· </span>fair rooms and rent
+          </span>
+          <span className="sr-only">, back to the house</span>
+        </button>
       </div>
+      {screen}
     </div>
   );
 }

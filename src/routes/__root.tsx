@@ -11,11 +11,19 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { AppShell } from "../components/shell/AppShell";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { MoneyProvider } from "../lib/money/store";
 
+const SITE_NAME = "Til Loan Day";
+const SITE_DESCRIPTION =
+  "Til Loan Day is for UK students waiting on their next Student Finance payment: it shows what you can safely spend each day, lets you preview a plan before you say yes, and splits rent fairly with housemates.";
+const SITE_TAGLINE = "Make your money last till loan day.";
+
+// Rendered inside the AppShell (root Outlet), so it centres in the page column rather than the screen.
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-[60vh] items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
@@ -80,17 +88,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dibs" },
-      {
-        name: "description",
-        content:
-          "Dibs splits rooms and rent for student housemates so nobody wants to swap and nobody pays more than they can afford.",
-      },
-      { name: "author", content: "Dibs" },
-      { name: "theme-color", content: "#f6efe3" },
-      { property: "og:title", content: "Dibs" },
-      { property: "og:description", content: "Fair rooms. Rents you can afford." },
+      { title: SITE_NAME },
+      { name: "description", content: SITE_DESCRIPTION },
+      { name: "author", content: SITE_NAME },
+      { name: "application-name", content: SITE_NAME },
+      { name: "apple-mobile-web-app-title", content: SITE_NAME },
+      // Matches --background (oklch(0.965 0.018 80)) so mobile browser chrome blends with the page.
+      { name: "theme-color", content: "#faf2e6" },
+      { name: "color-scheme", content: "light" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:title", content: `${SITE_NAME}: ${SITE_TAGLINE}` },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_GB" },
+      { name: "twitter:title", content: `${SITE_NAME}: ${SITE_TAGLINE}` },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -133,8 +145,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      {/* Shared money state lives here so it survives navigation between Runway and Dibs. */}
+      <MoneyProvider>
+        <AppShell>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </AppShell>
+      </MoneyProvider>
     </QueryClientProvider>
   );
 }

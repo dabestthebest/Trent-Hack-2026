@@ -1,5 +1,5 @@
 import { Minus, Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface StepperProps {
   id: string;
@@ -27,16 +27,20 @@ export function Stepper({
   onChange,
   error,
 }: StepperProps) {
-  const [text, setText] = useState(String(value));
-
-  useEffect(() => {
-    setText(String(value));
-  }, [value]);
+  // While the box is focused it shows what the person is typing (`draft`); otherwise it always
+  // shows the committed value straight from props. No effect-synced copy, so tapping −/+ can never
+  // flash a stale number for a frame.
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState("");
+  const shown = editing ? draft : String(value);
 
   const commit = (raw: string) => {
     const cleaned = raw.replace(/[£\s+]/g, "").replace("−", "-");
     const n = Number(cleaned);
-    if (cleaned !== "" && cleaned !== "-" && Number.isFinite(n)) onChange(Math.trunc(n));
+    if (cleaned !== "" && cleaned !== "-" && Number.isFinite(n)) {
+      const next = Math.trunc(n);
+      if (next !== value) onChange(next);
+    }
   };
 
   const bump = (delta: number) => {
@@ -84,12 +88,22 @@ export function Stepper({
             type="text"
             inputMode="numeric"
             autoComplete="off"
-            value={text}
+            value={shown}
+            onFocus={() => {
+              setDraft(String(value));
+              setEditing(true);
+            }}
             onChange={(e) => {
-              setText(e.target.value);
+              setDraft(e.target.value);
               commit(e.target.value);
             }}
-            onBlur={() => setText(String(value))}
+            onBlur={() => {
+              commit(draft);
+              setEditing(false);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") e.currentTarget.blur();
+            }}
             aria-invalid={error ? true : undefined}
             aria-describedby={
               [hint ? hintId : "", error ? errorId : ""].filter(Boolean).join(" ") || undefined

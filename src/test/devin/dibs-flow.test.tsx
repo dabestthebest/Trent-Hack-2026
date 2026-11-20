@@ -9,6 +9,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { DibsApp } from "@/components/dibs/DibsApp";
+import { MoneyProvider } from "@/lib/money/store";
 
 async function renderDibs() {
   const rootRoute = createRootRoute();
@@ -22,7 +23,12 @@ async function renderDibs() {
     history: createMemoryHistory({ initialEntries: ["/dibs"] }),
   });
   await router.load();
-  render(<RouterProvider router={router} />);
+  // Dibs now hands holding deposits to Til Loan Day, so it needs the shared money store.
+  render(
+    <MoneyProvider>
+      <RouterProvider router={router} />
+    </MoneyProvider>,
+  );
 }
 
 function clickButton(name: string) {

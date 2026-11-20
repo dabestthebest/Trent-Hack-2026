@@ -12,8 +12,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Dibs design system: warm paper background, terracotta primary, soft teal accent.
- * All colors use oklch. New semantic tokens (success, warning-soft) are registered below.
+ * Til Loan Day design system (shared with Dibs): warm paper background, terracotta primary,
+ * soft teal accent. All colors use oklch. Semantic tokens beyond shadcn's set (success,
+ * warning, danger-soft, the runway hatch colours) are registered below.
  */
 
 @theme inline {
@@ -46,6 +47,9 @@
   --color-success-strong: var(--success-strong);
   --color-success-soft: var(--success-soft);
   --color-warning-soft: var(--warning-soft);
+  --color-warning: var(--warning);
+  --color-warning-strong: var(--warning-strong);
+  --color-danger-soft: var(--danger-soft);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -73,7 +77,7 @@
   --card-foreground: oklch(0.24 0.03 260);
   --popover: oklch(0.993 0.006 85);
   --popover-foreground: oklch(0.24 0.03 260);
-  --primary: oklch(0.58 0.16 38);
+  --primary: oklch(0.545 0.16 38);
   --primary-foreground: oklch(0.99 0.008 85);
   --secondary: oklch(0.925 0.03 78);
   --secondary-foreground: oklch(0.3 0.03 260);
@@ -87,9 +91,18 @@
   --success-strong: oklch(0.38 0.1 152);
   --success-soft: oklch(0.93 0.06 152);
   --warning-soft: oklch(0.94 0.045 40);
+  --warning: oklch(0.78 0.14 75);
+  --warning-strong: oklch(0.45 0.1 60);
+  --danger-soft: oklch(0.92 0.05 25);
+  --hatch-overdraft-bg: oklch(0.92 0.085 85);
+  --hatch-overdraft-line: oklch(0.68 0.14 68 / 0.55);
+  --hatch-overdraft-text: oklch(0.36 0.085 58);
+  --hatch-exhausted-bg: oklch(0.89 0.065 25);
+  --hatch-exhausted-line: oklch(0.52 0.19 27 / 0.5);
+  --hatch-exhausted-text: oklch(0.33 0.13 27);
   --border: oklch(0.87 0.03 78);
   --input: oklch(0.87 0.03 78);
-  --ring: oklch(0.58 0.16 38);
+  --ring: oklch(0.545 0.16 38);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -126,6 +139,15 @@
   --success-strong: oklch(0.85 0.1 152);
   --success-soft: oklch(0.32 0.06 152);
   --warning-soft: oklch(0.33 0.06 35);
+  --warning: oklch(0.75 0.13 75);
+  --warning-strong: oklch(0.88 0.1 80);
+  --danger-soft: oklch(0.34 0.08 25);
+  --hatch-overdraft-bg: oklch(0.36 0.06 75);
+  --hatch-overdraft-line: oklch(0.72 0.13 75 / 0.45);
+  --hatch-overdraft-text: oklch(0.92 0.08 85);
+  --hatch-exhausted-bg: oklch(0.34 0.08 25);
+  --hatch-exhausted-line: oklch(0.7 0.17 25 / 0.45);
+  --hatch-exhausted-text: oklch(0.92 0.05 25);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.7 0.15 40);
@@ -151,6 +173,8 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    /* Keeps scrollIntoView / #anchors clear of the sticky AppShell header. */
+    scroll-padding-top: 4.5rem;
   }
 
   body {
@@ -184,8 +208,87 @@
   transform: rotateY(180deg);
 }
 
+/*
+ * One-time celebration when the reveal cards land: a few pieces of confetti burst up and fall
+ * away, then stay invisible (animation-fill-mode: both). Position and colour come from inline
+ * custom properties (--sx start x, --dx/--dy travel, --rot spin, --c colour, --delay).
+ */
+.reveal-confetti > span {
+  position: absolute;
+  top: 58%;
+  left: var(--sx, 50%);
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  background-color: var(--c, var(--primary));
+  opacity: 0;
+  animation: reveal-confetti 1.5s cubic-bezier(0.2, 0.7, 0.3, 1) var(--delay, 0.8s) 1 both;
+}
+
+.reveal-confetti > span:nth-child(3n) {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+@keyframes reveal-confetti {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.3) rotate(0deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--dx, 0px)), var(--dy, -60px)) scale(1)
+      rotate(calc(var(--rot, 180deg) * 0.6));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx, 0px) * 1.25), calc(var(--dy, -60px) + 90px))
+      scale(0.85) rotate(var(--rot, 180deg));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flip-inner {
     transition: none;
   }
+
+  .reveal-confetti {
+    display: none;
+  }
+}
+
+/*
+ * Runway day-status fills (same palette as STATUS_STYLE in src/components/money/styles.ts). Status
+ * must never rely on colour alone, so the overdraft and exhausted fills carry a pattern as well
+ * (single and cross hatching) and set a readable text colour. Use one per element and don't combine
+ * with bg-* or text-* utilities on the same element.
+ *   hatch-own        solid soft green ("Your money")
+ *   hatch-overdraft  amber with diagonal hatching ("Arranged overdraft")
+ *   hatch-exhausted  red with cross-hatching ("Overdraft used up"; pair with a ✕ glyph)
+ */
+@utility hatch-own {
+  background-color: var(--success-soft);
+  color: var(--success-strong);
+}
+
+@utility hatch-overdraft {
+  background-color: var(--hatch-overdraft-bg);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--hatch-overdraft-line) 0 2px,
+    transparent 2px 7px
+  );
+  color: var(--hatch-overdraft-text);
+}
+
+@utility hatch-exhausted {
+  background-color: var(--hatch-exhausted-bg);
+  background-image:
+    repeating-linear-gradient(45deg, var(--hatch-exhausted-line) 0 1.5px, transparent 1.5px 6px),
+    repeating-linear-gradient(-45deg, var(--hatch-exhausted-line) 0 1.5px, transparent 1.5px 6px);
+  color: var(--hatch-exhausted-text);
 }

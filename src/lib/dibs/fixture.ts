@@ -49,5 +49,5 @@ export const LIMIT_MIN = 50;
 export const LIMIT_MAX = 330;
 export const NAME_MAX_LENGTH = 12;
 
-/** Used for the "≈ N meal deals" line on the settle-up card. */
-export const MEAL_DEAL_PENCE = 385;
+/** Used for the "≈ N meal deals" line on the settle-up card. A round £4 (see docs/FACT-CHECK.md). */
+export const MEAL_DEAL_PENCE = 400;

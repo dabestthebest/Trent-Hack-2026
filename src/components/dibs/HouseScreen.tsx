@@ -1,4 +1,14 @@
-import { AlertTriangle, ArrowRight, Bot, Home, Smartphone, Users } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  Bot,
+  ChevronDown,
+  Home,
+  Scale,
+  Smartphone,
+  Users,
+} from "lucide-react";
+import { useId, useState, type ReactNode } from "react";
 
 import { equalSplitOverLimit } from "@/lib/dibs/fairSplit";
 import { HOUSE, RENT_POUNDS, ROOMS } from "@/lib/dibs/fixture";
@@ -91,6 +101,8 @@ export function HouseScreen({ people, mode, humans, onModeChange, onStart }: Hou
           And the box-room person pays the same as the bay window.
         </p>
       </section>
+
+      <FairnessExplainer />
 
       <section aria-labelledby="who-heading" className="space-y-3">
         <h2 id="who-heading" className="font-display text-xl font-semibold">
@@ -189,10 +201,68 @@ export function HouseScreen({ people, mode, humans, onModeChange, onStart }: Hou
   );
 }
 
+const FAIRNESS_POINTS: { title: string; body: string }[] = [
+  {
+    title: "Secret answers.",
+    body: "Each person says how much more a week they'd pay for each room than the Box room. Nobody sees anyone else's answers until the reveal.",
+  },
+  {
+    title: "Nobody wants to swap.",
+    body: "Rooms and rents are picked so the rents add up to the total and, by each person's own answers, nobody would rather have another room at its price.",
+  },
+  {
+    title: "Limits come first.",
+    body: "Weekly limits are shown to the whole house and never broken. If no fair split fits them, Dibs says so instead of guessing.",
+  },
+];
+
+function FairnessExplainer() {
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+  return (
+    <section className="rounded-2xl border border-border bg-card shadow-sm">
+      <h2>
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpen((o) => !o)}
+          className="flex min-h-12 w-full items-center gap-2 rounded-2xl px-4 py-3 text-left font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Scale className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+          <span className="flex-1">How Dibs is fair</span>
+          <ChevronDown
+            className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform motion-reduce:transition-none ${open ? "rotate-180" : ""}`}
+            aria-hidden="true"
+          />
+        </button>
+      </h2>
+      <div id={panelId} hidden={!open} className="px-4 pb-4">
+        <ol className="space-y-2.5">
+          {FAIRNESS_POINTS.map((point, i) => (
+            <li key={point.title} className="flex gap-3 text-sm leading-relaxed">
+              <span
+                aria-hidden="true"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary font-display text-xs font-bold text-secondary-foreground"
+              >
+                {i + 1}
+              </span>
+              <span>
+                <strong className="font-semibold text-foreground">{point.title}</strong>{" "}
+                <span className="text-muted-foreground">{point.body}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 function ModeButton(props: {
   selected: boolean;
   onClick: () => void;
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   subtitle: string;
 }) {

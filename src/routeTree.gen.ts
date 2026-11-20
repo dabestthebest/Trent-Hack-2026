@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DibsRouteImport } from './routes/dibs'
 import { Route as SelftestRouteImport } from './routes/selftest'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DibsRoute = DibsRouteImport.update({
+  id: '/dibs',
+  path: '/dibs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SelftestRoute = SelftestRouteImport.update({
@@ -25,27 +31,31 @@ const SelftestRoute = SelftestRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dibs': typeof DibsRoute
   '/selftest': typeof SelftestRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dibs': typeof DibsRoute
   '/selftest': typeof SelftestRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dibs': typeof DibsRoute
   '/selftest': typeof SelftestRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/selftest'
+  fullPaths: '/' | '/dibs' | '/selftest'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/selftest'
-  id: '__root__' | '/' | '/selftest'
+  to: '/' | '/dibs' | '/selftest'
+  id: '__root__' | '/' | '/dibs' | '/selftest'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DibsRoute: typeof DibsRoute
   SelftestRoute: typeof SelftestRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dibs': {
+      id: '/dibs'
+      path: '/dibs'
+      fullPath: '/dibs'
+      preLoaderRoute: typeof DibsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/selftest': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DibsRoute: DibsRoute,
   SelftestRoute: SelftestRoute,
 }
 export const routeTree = rootRouteImport
