@@ -1,5 +1,7 @@
 import { posts } from "@/content/blog";
 
+import { BreakMyRule } from "@/components/fun/BreakMyRule";
+
 import { HouseAd } from "./HouseAd";
 import { PostCard } from "./PostCard";
 
@@ -37,6 +39,8 @@ export function BlogIndexPage() {
           </li>
         ))}
       </ul>
+
+      <BreakMyRule />
 
       <p className="text-xs leading-relaxed text-muted-foreground">
         General information, not financial or legal advice. The loan and deposit posts are about
