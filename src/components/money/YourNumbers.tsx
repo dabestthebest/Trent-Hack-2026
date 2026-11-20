@@ -2,12 +2,14 @@ import { ChevronDown, Minus, Plus, RotateCcw, Trash2 } from "lucide-react";
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 import { pounds } from "@/lib/dibs/format";
+import { impactPhraseFor, isBigBill } from "@/lib/money/askParent";
 import { addDays, diffDays, formatDay, formatDayLong } from "@/lib/money/dates";
-import { MAX_RUNWAY_DAYS } from "@/lib/money/runway";
+import { MAX_RUNWAY_DAYS, previewPlan } from "@/lib/money/runway";
 import { useMoney, type MoneySettings } from "@/lib/money/store";
-import type { ISODate } from "@/lib/money/types";
+import type { Bill, ISODate, RunwayInput } from "@/lib/money/types";
 import { cn } from "@/lib/utils";
 
+import { AskParent } from "./AskParent";
 import { dayCount, poundsShort, removeBillLabel } from "./copy";
 import { scrollIntoViewGently } from "./dom";
 import { Field } from "./fields";
@@ -304,6 +306,28 @@ interface BillErrors {
   date: string | null;
 }
 
+/** Quick fills for the "Add a bill" form: they set the label and leave the amount to the student. */
+const QUICK_BILLS = [
+  { emoji: "🏠", label: "Rent paid upfront" },
+  { emoji: "🎓", label: "Tuition fee instalment" },
+] as const;
+
+/** What paying this bill does to the runway (compared with the same bills minus this one), as an
+ *  "Ask a parent" phrase. null when it's affordable, outside the runway, or there is no runway. */
+/** What a bill does to the runway the page actually shows (incomes and subscriptions included). */
+function billImpact(runwayInput: RunwayInput | null, bill: Bill): string | null {
+  if (runwayInput === null) return null;
+  try {
+    const preview = previewPlan(
+      { ...runwayInput, bills: runwayInput.bills.filter((b) => b.id !== bill.id) },
+      { label: bill.label, amountPence: bill.amountPence, date: bill.date },
+    );
+    return preview === null ? null : impactPhraseFor(preview, runwayInput.overdraftPence);
+  } catch {
+    return null;
+  }
+}
+
 function BillsEditor({
   today,
   settings,
@@ -313,7 +337,7 @@ function BillsEditor({
   settings: MoneySettings;
   onAnnounce: (text: string) => void;
 }) {
-  const { addBill, removeBill } = useMoney();
+  const { addBill, removeBill, runwayInput } = useMoney();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const labelRef = useRef<HTMLInputElement>(null);
   const amountRef = useRef<HTMLInputElement>(null);
@@ -330,6 +354,22 @@ function BillsEditor({
       ),
     [settings.bills],
   );
+
+  // "Ask a parent" for big bills (rent, tuition, deposits, £100+), with what each one does to the runway.
+  const bigBillImpacts = useMemo(() => {
+    const impacts = new Map<string, string | null>();
+    for (const b of settings.bills) {
+      if (isBigBill(b)) impacts.set(b.id, billImpact(runwayInput, b));
+    }
+    return impacts;
+  }, [settings.bills, runwayInput]);
+  const askLoanDate = settings.loanDate > today ? settings.loanDate : null;
+
+  const quickFill = (text: string) => {
+    setLabel(text);
+    setErrors((e) => ({ ...e, label: null }));
+    amountRef.current?.focus();
+  };
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -377,36 +417,49 @@ function BillsEditor({
             // Only meaningful while there is a runway (loan day after today).
             const outside =
               settings.loanDate > today && (b.date < today || b.date >= settings.loanDate);
+            const big = bigBillImpacts.has(b.id);
             return (
-              <li key={b.id} className="flex items-center gap-3 py-2">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate font-medium">{b.label}</p>
-                  <p className="text-sm tabular-nums text-muted-foreground">
-                    {pounds(b.amountPence)} · {formatDay(b.date)}
-                    {outside ? (
-                      <span className="font-medium">
-                        {b.date < today
-                          ? " · before today, not counted"
-                          : " · after loan day, not counted"}
-                      </span>
-                    ) : null}
-                  </p>
+              <li key={b.id} className="py-2">
+                <div className="flex items-center gap-3">
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-medium">{b.label}</p>
+                    <p className="text-sm tabular-nums text-muted-foreground">
+                      {pounds(b.amountPence)} · {formatDay(b.date)}
+                      {outside ? (
+                        <span className="font-medium">
+                          {b.date < today
+                            ? " · before today, not counted"
+                            : " · after loan day, not counted"}
+                        </span>
+                      ) : null}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    aria-label={removeBillLabel(b.label, b.date)}
+                    onClick={() => {
+                      removeBill(b.id);
+                      onAnnounce(`Removed ${b.label}.`);
+                      headingRef.current?.focus();
+                    }}
+                    className={cn(
+                      "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-muted-foreground hover:bg-warning-soft hover:text-destructive",
+                      FOCUS_RING,
+                    )}
+                  >
+                    <Trash2 className="h-5 w-5" aria-hidden="true" />
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  aria-label={removeBillLabel(b.label, b.date)}
-                  onClick={() => {
-                    removeBill(b.id);
-                    onAnnounce(`Removed ${b.label}.`);
-                    headingRef.current?.focus();
-                  }}
-                  className={cn(
-                    "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-muted-foreground hover:bg-warning-soft hover:text-destructive",
-                    FOCUS_RING,
-                  )}
-                >
-                  <Trash2 className="h-5 w-5" aria-hidden="true" />
-                </button>
+                {big ? (
+                  <AskParent
+                    variant="button"
+                    bill={b}
+                    impact={bigBillImpacts.get(b.id) ?? null}
+                    loanDate={askLoanDate}
+                    toggleLabel="Ask a parent"
+                    toggleAriaLabel={`Ask a parent to help with ${b.label}`}
+                  />
+                ) : null}
               </li>
             );
           })}
@@ -420,6 +473,22 @@ function BillsEditor({
         className="mt-3 space-y-3 rounded-2xl border border-dashed border-border bg-background/60 p-3"
       >
         <p className="text-sm font-semibold">Add a bill</p>
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Quick fill">
+          {QUICK_BILLS.map((q) => (
+            <button
+              key={q.label}
+              type="button"
+              onClick={() => quickFill(q.label)}
+              className={cn(
+                "inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-2 text-left text-sm font-medium transition hover:border-primary/50 hover:bg-secondary/60",
+                FOCUS_RING,
+              )}
+            >
+              <span aria-hidden="true">{q.emoji}</span>
+              {q.label}
+            </button>
+          ))}
+        </div>
         <Field
           label="What"
           inputRef={labelRef}

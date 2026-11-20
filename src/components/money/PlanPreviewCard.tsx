@@ -12,9 +12,12 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 import { pounds } from "@/lib/dibs/format";
+import { impactPhraseFor, isBigBill, isObligation } from "@/lib/money/askParent";
+import { addDays } from "@/lib/money/dates";
 import type { ISODate, PlanPreview, Verdict } from "@/lib/money/types";
 import { cn } from "@/lib/utils";
 
+import { AskParent } from "./AskParent";
 import { chipText, previewRows, verdictHeadline } from "./copy";
 import { copyToClipboard, scrollIntoViewGently } from "./dom";
 import { planKey } from "./plans";
@@ -82,6 +85,12 @@ export function PlanPreviewCard({
   const Icon = style.icon;
   const rows = previewRows(preview, overdraftPence);
   const amount = pounds(preview.plan.amountPence);
+  // Loan day is the day after the last spending day of the runway.
+  const lastDay = preview.before.timeline[preview.before.timeline.length - 1]?.date;
+  const loanDate = lastDay === undefined ? null : addDays(lastDay, 1);
+  const parentImpact = impactPhraseFor(preview, overdraftPence);
+  const askParent = parentImpact !== null && isBigBill(preview.plan);
+  const obligation = isObligation(preview.plan.label);
 
   const onCopy = async () => {
     const ok = await copyToClipboard(reply);
@@ -157,61 +166,76 @@ export function PlanPreviewCard({
           </button>
         ) : null}
 
-        <div>
-          <p id="reply-label" className="text-sm font-semibold">
-            Reply for the group chat
-          </p>
-          <div className="mt-2 flex flex-col gap-2">
-            <blockquote
-              aria-labelledby="reply-label"
-              data-testid="reply-text"
-              className="rounded-2xl rounded-bl-md bg-secondary px-4 py-3 text-[0.95rem] leading-snug text-secondary-foreground"
-            >
-              {reply}
-            </blockquote>
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={onCopy}
-                className={cn(
-                  "flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 text-sm font-semibold transition hover:bg-secondary/60",
-                  FOCUS_RING,
-                )}
-              >
-                {copy === "copied" ? (
-                  <Check className="h-4 w-4 text-success" aria-hidden="true" />
-                ) : (
-                  <ClipboardCopy className="h-4 w-4" aria-hidden="true" />
-                )}
-                {copy === "copied" ? "Copied!" : "Copy reply"}
-              </button>
-              <a
-                href={`https://wa.me/?text=${encodeURIComponent(reply)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 text-sm font-semibold transition hover:bg-secondary/60",
-                  FOCUS_RING,
-                )}
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                Open in WhatsApp
-                <span className="sr-only">(opens WhatsApp; you choose who to send it to)</span>
-              </a>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Nothing is sent until you choose a chat and press send.
-            </p>
-            {copy === "failed" ? (
-              <p className="text-sm text-destructive">
-                Couldn&apos;t copy automatically. Press and hold the reply to copy it.
+        {obligation ? (
+          askParent ? (
+            <AskParent
+              key={key}
+              variant="card"
+              bill={preview.plan}
+              impact={parentImpact}
+              loanDate={loanDate}
+              optional={!obligation}
+            />
+          ) : null
+        ) : (
+          <>
+            <div>
+              <p id="reply-label" className="text-sm font-semibold">
+                Reply for the group chat
               </p>
-            ) : null}
-          </div>
-          <p className="sr-only" aria-live="polite">
-            {copy === "copied" ? "Reply copied to your clipboard." : ""}
-          </p>
-        </div>
+              <div className="mt-2 flex flex-col gap-2">
+                <blockquote
+                  aria-labelledby="reply-label"
+                  data-testid="reply-text"
+                  className="rounded-2xl rounded-bl-md bg-secondary px-4 py-3 text-[0.95rem] leading-snug text-secondary-foreground"
+                >
+                  {reply}
+                </blockquote>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={onCopy}
+                    className={cn(
+                      "flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 text-sm font-semibold transition hover:bg-secondary/60",
+                      FOCUS_RING,
+                    )}
+                  >
+                    {copy === "copied" ? (
+                      <Check className="h-4 w-4 text-success" aria-hidden="true" />
+                    ) : (
+                      <ClipboardCopy className="h-4 w-4" aria-hidden="true" />
+                    )}
+                    {copy === "copied" ? "Copied!" : "Copy reply"}
+                  </button>
+                  <a
+                    href={`https://wa.me/?text=${encodeURIComponent(reply)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 text-sm font-semibold transition hover:bg-secondary/60",
+                      FOCUS_RING,
+                    )}
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Open in WhatsApp
+                    <span className="sr-only">(opens WhatsApp; you choose who to send it to)</span>
+                  </a>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Nothing is sent until you choose a chat and press send.
+                </p>
+                {copy === "failed" ? (
+                  <p className="text-sm text-destructive">
+                    Couldn&apos;t copy automatically. Press and hold the reply to copy it.
+                  </p>
+                ) : null}
+              </div>
+              <p className="sr-only" aria-live="polite">
+                {copy === "copied" ? "Reply copied to your clipboard." : ""}
+              </p>
+            </div>
+          </>
+        )}
 
         <div className="grid grid-cols-2 gap-2">
           <button
@@ -223,21 +247,34 @@ export function PlanPreviewCard({
           </button>
           <button
             type="button"
-            onClick={onSkip}
-            disabled={alreadySkipped}
+            onClick={obligation ? onClose : onSkip}
+            disabled={!obligation && alreadySkipped}
             className={cn(
               "flex h-12 items-center justify-center rounded-xl border border-border bg-card px-3 font-semibold transition hover:bg-secondary/60 disabled:cursor-not-allowed disabled:opacity-60",
               FOCUS_RING,
             )}
           >
-            {alreadySkipped ? "Already skipped" : "Skip it"}
+            {obligation ? "Not now" : alreadySkipped ? "Already skipped" : "Skip it"}
           </button>
         </div>
         <p className="-mt-2 text-xs text-muted-foreground">
-          {alreadySkipped
-            ? `You skipped this. I'm going adds it to your bills and takes ${amount} back out of your jar.`
-            : `I'm going adds it to your bills. Skip it puts ${amount} in your jar.`}
+          {obligation
+            ? "I'm going adds it to your bills. It's money you still owe, so it never goes in the skip jar."
+            : alreadySkipped
+              ? `You skipped this. I'm going adds it to your bills and takes ${amount} back out of your jar.`
+              : `I'm going adds it to your bills. Skip it puts ${amount} in your jar.`}
         </p>
+
+        {askParent && !obligation ? (
+          <AskParent
+            key={key}
+            variant="card"
+            bill={preview.plan}
+            impact={parentImpact}
+            loanDate={loanDate}
+            optional={!obligation}
+          />
+        ) : null}
       </div>
     </article>
   );

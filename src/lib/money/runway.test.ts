@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {
   ACCEPTANCE_BASE,
+  ACCEPTANCE_DEMO_BASE,
   ACCEPTANCE_PLANS,
+  ACCEPTANCE_SATURDAY_SHIFTS,
   ACCEPTANCE_TODAY,
   runRunwayAcceptance,
 } from "./acceptance";
@@ -44,6 +46,7 @@ function timelineProblems(input: RunwayInput, r: RunwayOk): string[] {
   if (timeline.length !== r.days) problems.push(`length ${timeline.length} != days ${r.days}`);
   if (r.days !== diffDays(input.loanDate, input.today)) problems.push("days != loan - today");
   let cumBills = 0;
+  let cumIncome = 0;
   let firstOverdraft: string | null = null;
   let firstExhausted: string | null = null;
   timeline.forEach((cell, i) => {
@@ -54,7 +57,10 @@ function timelineProblems(input: RunwayInput, r: RunwayOk): string[] {
     if (cell.billsPence !== dayTotal) problems.push(`day ${i}: bills ${cell.billsPence}`);
     if (cell.billLabels.length !== dayBills.length) problems.push(`day ${i}: labels`);
     cumBills += dayTotal;
-    const end = input.balancePence - input.dailySpendPence * (i + 1) - cumBills;
+    cumIncome += (input.incomes ?? [])
+      .filter((x) => x.date === cell.date)
+      .reduce((s, x) => s + x.amountPence, 0);
+    const end = input.balancePence - input.dailySpendPence * (i + 1) - cumBills + cumIncome;
     if (cell.endBalancePence !== end) problems.push(`day ${i}: end ${cell.endBalancePence}`);
     const status = end >= 0 ? "own" : end >= -input.overdraftPence ? "overdraft" : "exhausted";
     if (cell.status !== status) problems.push(`day ${i}: status ${cell.status} != ${status}`);
@@ -63,6 +69,7 @@ function timelineProblems(input: RunwayInput, r: RunwayOk): string[] {
     if (!Number.isInteger(cell.endBalancePence)) problems.push(`day ${i}: non-integer`);
   });
   if (cumBills !== r.billsInWindowPence) problems.push("bills sum != billsInWindowPence");
+  if (cumIncome !== r.incomeInWindowPence) problems.push("income sum != incomeInWindowPence");
   if (timeline.at(-1)?.endBalancePence !== r.endBalancePence) problems.push("last end mismatch");
   if (firstOverdraft !== r.firstOverdraftDate) problems.push("firstOverdraftDate mismatch");
   if (firstExhausted !== r.firstExhaustedDate) problems.push("firstExhaustedDate mismatch");
@@ -181,7 +188,47 @@ describe("runway acceptance cases (spec table)", () => {
     expect([p.before.endBalancePence, p.after.endBalancePence]).toEqual([3700, -1800]);
   });
 
-  it("runRunwayAcceptance reports R1–R11, all passing", () => {
+  it("R12 demo + £60 every Saturday: no overdraft, £424 to spare", () => {
+    const r = ok(computeRunway({ ...ACCEPTANCE_DEMO_BASE, incomes: ACCEPTANCE_SATURDAY_SHIFTS }));
+    expect(r.days).toBe(52);
+    expect(r.incomeInWindowPence).toBe(48000);
+    expect(r.safeDailyPence).toBe(1404);
+    expect(r.firstOverdraftDate).toBeNull();
+    expect(r.endBalancePence).toBe(42400);
+  });
+
+  it("R13 demo + £50 one-off on Tue 1 Dec", () => {
+    const r = ok(
+      computeRunway({
+        ...ACCEPTANCE_DEMO_BASE,
+        incomes: [{ id: "g", label: "Birthday money", amountPence: 5000, date: "2026-12-01" }],
+      }),
+    );
+    expect(r.incomeInWindowPence).toBe(5000);
+    expect(r.safeDailyPence).toBe(638);
+    expect(r.firstOverdraftDate).toBe("2027-01-10");
+    expect(r.endBalancePence).toBe(-600);
+    expect(r.daysEarly).toBe(1);
+  });
+
+  it("R14 demo + £200 on loan day changes nothing", () => {
+    const withLate = ok(
+      computeRunway({
+        ...ACCEPTANCE_DEMO_BASE,
+        incomes: [{ id: "p", label: "Prize", amountPence: 20000, date: "2027-01-11" }],
+      }),
+    );
+    const plain = ok(computeRunway(ACCEPTANCE_DEMO_BASE));
+    expect(withLate.incomeInWindowPence).toBe(0);
+    expect([
+      withLate.safeDailyPence,
+      withLate.firstOverdraftDate,
+      withLate.endBalancePence,
+    ]).toEqual([542, "2027-01-04", -5600]);
+    expect(withLate.timeline).toEqual(plain.timeline);
+  });
+
+  it("runRunwayAcceptance reports R1–R14, all passing", () => {
     const rows = runRunwayAcceptance();
     expect(rows.map((r) => r.id)).toEqual([
       "R1",
@@ -195,6 +242,9 @@ describe("runway acceptance cases (spec table)", () => {
       "R9",
       "R10",
       "R11",
+      "R12",
+      "R13",
+      "R14",
     ]);
     for (const row of rows) {
       expect(row.actual, row.id).toBe(row.expected);
@@ -260,6 +310,7 @@ interface RefRunwayOk {
   ok: true;
   days: number;
   billsInWindowPence: number;
+  incomeInWindowPence: number;
   safeDailyPence: number;
   billsAloneOverdraftDate: string | null;
   firstOverdraftDate: string | null;
@@ -290,6 +341,7 @@ interface ReferenceCase {
 const RUNWAY_FIELDS = [
   "days",
   "billsInWindowPence",
+  "incomeInWindowPence",
   "safeDailyPence",
   "billsAloneOverdraftDate",
   "firstOverdraftDate",
@@ -323,9 +375,15 @@ describe("runway matches the exact Python reference", () => {
   const cases = referenceCases as unknown as ReferenceCase[];
 
   it("has the full reference set (runways, previews and errors)", () => {
-    expect(cases).toHaveLength(200);
+    expect(cases).toHaveLength(220);
     expect(cases.filter((c) => c.input.plan).length).toBeGreaterThan(0);
     expect(cases.filter((c) => !c.input.plan).length).toBeGreaterThan(0);
+    // ~40% carry expected income, including some dated outside the window.
+    const withIncome = cases.filter((c) => (c.input.incomes ?? []).length > 0);
+    expect(withIncome.length).toBeGreaterThan(50);
+    expect(
+      withIncome.some((c) => (c.input.incomes ?? []).some((i) => !isInWindow(c.input, i.date))),
+    ).toBe(true);
   });
 
   it(`agrees on every field of all ${cases.length} cases`, () => {
@@ -488,6 +546,19 @@ describe("input validation", () => {
       { bills: [{ id: "x", label: "Phone", amountPence: 100, date: "2030-02-31" }] },
     ],
     ["loan day too far away", { loanDate: addDays(ACCEPTANCE_TODAY, MAX_RUNWAY_DAYS + 1) }],
+    ["incomes not a list", { incomes: "lots" as unknown as NonNullable<RunwayInput["incomes"]> }],
+    [
+      "negative income",
+      { incomes: [{ id: "i", label: "Shift", amountPence: -6000, date: "2026-11-21" }] },
+    ],
+    [
+      "fractional income",
+      { incomes: [{ id: "i", label: "Shift", amountPence: 60.5, date: "2026-11-21" }] },
+    ],
+    [
+      "income with a bad date",
+      { incomes: [{ id: "i", label: "Shift", amountPence: 6000, date: "2026-11-31" }] },
+    ],
   ];
 
   for (const [name, patch] of invalidCases) {
@@ -522,6 +593,79 @@ describe("input validation", () => {
       { label: "Ball", amountPence: 5500, date: "2026-12-32" },
     ];
     for (const plan of bad) expect(previewPlan(base(), plan)).toBeNull();
+  });
+});
+
+// ---------- expected income ----------
+
+describe("expected income", () => {
+  const shift = (date: string, amountPence = 6000) => ({
+    id: `s-${date}`,
+    label: "Shift",
+    amountPence,
+    date,
+  });
+
+  it("arrives at the end of its day and lifts every later day", () => {
+    const plain = ok(computeRunway(base()));
+    const r = ok(computeRunway(base({ incomes: [shift("2026-11-22")] })));
+    expect(r.timeline[1]?.endBalancePence).toBe(plain.timeline[1]?.endBalancePence);
+    expect(r.timeline[2]?.endBalancePence).toBe((plain.timeline[2]?.endBalancePence ?? 0) + 6000);
+    expect(r.endBalancePence).toBe(plain.endBalancePence + 6000);
+    expect(r.billsInWindowPence).toBe(plain.billsInWindowPence);
+  });
+
+  it("only counts from today up to the day before loan day", () => {
+    const r = ok(
+      computeRunway(
+        base({
+          incomes: [shift("2026-11-19"), shift("2026-11-20", 100), shift("2027-01-17", 200)],
+        }),
+      ),
+    );
+    expect(r.incomeInWindowPence).toBe(300);
+    expect(ok(computeRunway(base({ incomes: [shift("2027-01-18")] }))).incomeInWindowPence).toBe(0);
+  });
+
+  it("income late in the window cannot rescue an early dip in the safe amount", () => {
+    // Safe spend is limited by the tightest day: money arriving on the last day can't pay for day 1.
+    const tight = base({ balancePence: 100, dailySpendPence: 0, bills: [] });
+    // £1 over the 58 days before the money lands: 1p a day.
+    const r = ok(computeRunway({ ...tight, incomes: [shift("2027-01-17", 100000)] }));
+    expect(r.safeDailyPence).toBe(1);
+    // The same money tonight: £1,001 over 59 days.
+    const early = ok(computeRunway({ ...tight, incomes: [shift("2026-11-20", 100000)] }));
+    expect(early.safeDailyPence).toBe(1696);
+  });
+
+  it("income can cover a bill on the same day", () => {
+    const input = base({
+      balancePence: 0,
+      dailySpendPence: 0,
+      bills: [{ id: "b", label: "Phone", amountPence: 1500, date: "2026-12-05" }],
+      incomes: [shift("2026-12-05", 1500)],
+    });
+    const r = ok(computeRunway(input));
+    expect(r.billsAloneOverdraftDate).toBeNull();
+    expect(r.firstOverdraftDate).toBeNull();
+    expect(r.endBalancePence).toBe(0);
+  });
+
+  it("an empty or missing incomes list is the same as no income", () => {
+    const plain = ok(computeRunway(base()));
+    const empty = ok(computeRunway(base({ incomes: [] })));
+    expect(empty).toEqual(plain);
+    expect(plain.incomeInWindowPence).toBe(0);
+  });
+
+  it("previewPlan keeps the incomes on both sides", () => {
+    const p = mustPreview(
+      { ...ACCEPTANCE_DEMO_BASE, incomes: ACCEPTANCE_SATURDAY_SHIFTS },
+      ACCEPTANCE_PLANS.winterBall,
+    );
+    expect(p.before.incomeInWindowPence).toBe(48000);
+    expect(p.after.incomeInWindowPence).toBe(48000);
+    expect(p.endBalanceDeltaPence).toBe(-5500);
   });
 });
 

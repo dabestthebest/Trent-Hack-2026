@@ -10,12 +10,13 @@ import {
 import { useId, useState } from "react";
 
 import { parseInviteWithAI } from "@/lib/ai/parse-invite";
+import { useFun } from "@/lib/fun/store";
 import { formatDay } from "@/lib/money/dates";
 import { parseInviteLocal, sanitiseInvite, type ParsedInvite } from "@/lib/money/invite";
 import type { ISODate, Plan } from "@/lib/money/types";
 
 const EXAMPLE = "winter ball tickets are £55, need names by fri, it's on fri 4th dec!!";
-const AI_TIMEOUT_MS = 8000;
+const AI_TIMEOUT_MS = 6000;
 
 type Source = "ai" | "device";
 
@@ -51,6 +52,8 @@ async function readWithAI(
   text: string,
   today: ISODate,
 ): Promise<{ parsed: ParsedInvite; low: boolean } | null> {
+  // On flaky campus Wi-Fi, don't wait for a timeout: read it on the phone straight away.
+  if (typeof navigator !== "undefined" && navigator.onLine === false) return null;
   try {
     const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), AI_TIMEOUT_MS));
     const call = parseInviteWithAI({ data: { text, today } });
@@ -70,6 +73,7 @@ async function readWithAI(
 
 export function InviteReader({ today, onPlanReady }: InviteReaderProps) {
   const id = useId();
+  const { complete } = useFun();
   const [text, setText] = useState("");
   const [reading, setReading] = useState(false);
   const [draft, setDraft] = useState<Draft | null>(null);
@@ -108,6 +112,7 @@ export function InviteReader({ today, onPlanReady }: InviteReaderProps) {
       lowConfidence: ai?.low ?? false,
       note: missing.length > 0 ? `Couldn't find ${missing.join(" or ")}. Add it below.` : null,
     });
+    complete("read-invite");
   };
 
   const amountPence = draft ? fieldToPence(draft.amount) : null;
@@ -179,8 +184,8 @@ export function InviteReader({ today, onPlanReady }: InviteReaderProps) {
       ) : null}
       <p className="flex items-start gap-1.5 text-xs text-muted-foreground">
         <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-        Your message goes to an AI model only to read the cost and date. Nothing is stored, and
-        nothing is sent anywhere without you.
+        When you tap Read it, your message goes to an AI model only to read the cost and date. We
+        don&apos;t save it, and nothing is sent to anyone else without you.
       </p>
 
       {draft ? (

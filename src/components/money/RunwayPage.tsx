@@ -1,17 +1,24 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { DailyQuests } from "@/components/fun/DailyQuests";
+import { PennyAI } from "@/components/fun/PennyAI";
+import { PennyTip } from "@/components/fun/PennyTip";
 import { pounds } from "@/lib/dibs/format";
+import { useFun } from "@/lib/fun/store";
+import { tipsFor } from "@/lib/fun/tips";
 import { computeRunway, previewPlan } from "@/lib/money/runway";
 import { useMoney } from "@/lib/money/store";
 import type { Plan, PlanPreview, RunwayInput, RunwayResult } from "@/lib/money/types";
 
 import { DayCalendar } from "./DayCalendar";
 import { scrollIntoViewGently } from "./dom";
+import { MoneyIn } from "./MoneyIn";
 import { planKey, toPlan, type ActivePlan } from "./plans";
 import { RunwayHero } from "./RunwayHero";
 import { RunwayProblem } from "./RunwayProblem";
 import { RunwaySkeleton } from "./RunwaySkeleton";
 import { SayYes } from "./SayYes";
+import { Subscriptions } from "./Subscriptions";
 import { ToolsCard } from "./ToolsCard";
 import { YourNumbers } from "./YourNumbers";
 
@@ -50,6 +57,7 @@ export function RunwayPage() {
     skippedPence,
     resetDemo,
   } = useMoney();
+  const { complete } = useFun();
 
   const [activePlan, setActivePlan] = useState<ActivePlan | null>(null);
   /** Plans skipped this visit (key -> pence), so the jar can't count the same plan twice. */
@@ -101,6 +109,18 @@ export function RunwayPage() {
     sayYesHeadingRef.current?.focus({ preventScroll: true });
   }, []);
 
+  // XP: opening the runway counts quietly; reaching loan day without the overdraft and previewing a
+  // plan before saying yes get the little victory moment.
+  useEffect(() => {
+    if (result?.ok) complete("check-runway", { celebrate: false });
+  }, [result?.ok, complete]);
+  useEffect(() => {
+    if (result?.ok && result.firstOverdraftDate === null) complete("made-it");
+  }, [result, complete]);
+  useEffect(() => {
+    if (activePlan !== null) complete("preview-plan");
+  }, [activePlan, complete]);
+
   if (today === null || settings === null || runwayInput === null || result === null) {
     return <RunwaySkeleton />;
   }
@@ -140,6 +160,7 @@ export function RunwayPage() {
     setNotice(
       `Skipped ${activePlan.label}. ${pounds(activePlan.amountPence)} stays in your pocket.`,
     );
+    complete("skip-something");
     closePreview();
   };
 
@@ -165,6 +186,18 @@ export function RunwayPage() {
         // the loan day field, so take them straight there.
         <RunwayProblem error={result} onFix={openLoanDay} />
       )}
+
+      {result.ok ? (
+        <PennyTip
+          tips={tipsFor({
+            result,
+            dailySpendPence: settings.dailySpendPence,
+            overdraftPence: settings.overdraftPence,
+            preview,
+          })}
+        />
+      ) : null}
+      {result.ok ? <PennyAI input={runwayInput} result={result} preview={preview} /> : null}
 
       {result.ok ? (
         <>
@@ -197,6 +230,9 @@ export function RunwayPage() {
         </>
       ) : null}
 
+      <MoneyIn />
+      <Subscriptions />
+
       <YourNumbers
         today={today}
         settings={settings}
@@ -205,6 +241,8 @@ export function RunwayPage() {
         focusLoanDateSignal={loanFocusSignal}
         onReset={onReset}
       />
+
+      <DailyQuests />
 
       <ToolsCard />
     </div>

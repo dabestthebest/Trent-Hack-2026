@@ -10,6 +10,14 @@ export interface Bill {
   date: ISODate;
 }
 
+/** Money the student expects to come in (a shift's pay, birthday money). Their own estimate. */
+export interface Income {
+  id: string;
+  label: string;
+  amountPence: number;
+  date: ISODate;
+}
+
 /** A one-off thing the student is thinking of saying yes to. */
 export interface Plan {
   label: string;
@@ -28,6 +36,8 @@ export interface RunwayInput {
   /** Usual spend per day, excluding the dated bills. */
   dailySpendPence: number;
   bills: Bill[];
+  /** Expected money in. Counts only if dated today..loanDate-1, and arrives at the end of its day. */
+  incomes?: Income[];
 }
 
 export type DayStatus = "own" | "overdraft" | "exhausted";
@@ -37,7 +47,7 @@ export interface DayCell {
   /** Bills paid on this day (only bills inside the window). */
   billsPence: number;
   billLabels: string[];
-  /** Balance at the end of this day at the usual daily spend. */
+  /** Balance at the end of this day at the usual daily spend (after that day's bills and income). */
   endBalancePence: number;
   /** own: end >= 0; overdraft: -overdraft <= end < 0; exhausted: end < -overdraft. */
   status: DayStatus;
@@ -49,10 +59,13 @@ export interface RunwayOk {
   days: number;
   /** Bills dated today..loanDate-1. */
   billsInWindowPence: number;
+  /** Expected income dated today..loanDate-1. */
+  incomeInWindowPence: number;
   /** Largest whole-pence daily spend that never takes the balance below 0 on any day, given the bills
-   *  (max(0, floor(min over k of (balance - billsUpTo(k)) / k))). */
+   *  and income (max(0, floor(min over k of (balance - billsUpTo(k) + incomeUpTo(k)) / k))). */
   safeDailyPence: number;
-  /** First day on which the bills alone (with zero spending) take the balance below 0, else null. */
+  /** First day on which the bills alone (with zero spending, after income) take the balance below 0,
+   *  else null. */
   billsAloneOverdraftDate: ISODate | null;
   timeline: DayCell[];
   /** First day whose end balance is below 0 at the usual daily spend, else null. */

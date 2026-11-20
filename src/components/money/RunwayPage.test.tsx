@@ -121,6 +121,110 @@ describe("Runway page", () => {
     expect(screen.getByRole("button", { name: /Winter ball · £55 · Fri 4 Dec/ })).toBeDisabled();
   });
 
+  it("previews January rent paid upfront and drafts a message to Mum", async () => {
+    renderPage();
+    fireEvent.click(
+      await screen.findByRole("button", { name: /^🏠 January rent \(12 weeks upfront\) · / }),
+    );
+
+    expect(
+      screen.getByRole("heading", { level: 3, name: "This would use up your whole overdraft." }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("£5.42 → £0.00 a day")).toBeInTheDocument();
+    expect(screen.getByText("Mon 4 Jan → Fri 1 Jan")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 4, name: "Want a hand with this one?" }),
+    ).toBeInTheDocument();
+
+    const toggle = screen.getByRole("button", { name: "Ask a parent to help" });
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("group", { name: "Ask a parent" })).not.toBeInTheDocument();
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+
+    const panel = screen.getByRole("group", { name: "Ask a parent" });
+    fireEvent.click(within(panel).getByRole("button", { name: "Mum" }));
+    expect(within(panel).getByRole("button", { name: "Mum" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    expect(within(panel).getByLabelText("Your message")).toHaveValue(
+      "Hi Mum! I've got a big bill coming up: January rent (12 weeks upfront), £1,140.00, due Fri 1 Jan. I'm not expecting my next student loan payment until Mon 11 Jan, and paying it from my own money would use up my whole overdraft. Could you help with some or all of it? I can show you the numbers. Thank you 💛",
+    );
+
+    const whatsapp = within(panel).getByRole("link", { name: /WhatsApp/ });
+    const href = whatsapp.getAttribute("href") ?? "";
+    expect(href.startsWith("https://wa.me/?text=")).toBe(true);
+    expect(href).toContain("Hi%20Mum!");
+    expect(href).toContain("%C2%A31%2C140.00");
+    expect(whatsapp).toHaveAttribute("target", "_blank");
+    expect(whatsapp.getAttribute("rel")).toContain("noopener");
+    const sms = within(panel).getByRole("link", { name: "iMessage / SMS" });
+    expect(sms.getAttribute("href")).toMatch(/^sms:\?&body=Hi%20Mum!/);
+    expect(sms).not.toHaveAttribute("target");
+    const email = within(panel).getByRole("link", { name: "Email" });
+    expect(email.getAttribute("href")).toMatch(
+      /^mailto:\?subject=Could%20you%20help%20with%20January%20rent%20\(12%20weeks%20upfront\)%3F&body=Hi%20Mum!/,
+    );
+    expect(email).not.toHaveAttribute("target");
+    expect(
+      within(panel)
+        .getByRole("link", { name: /Telegram/ })
+        .getAttribute("href"),
+    ).toContain(
+      `https://t.me/share/url?url=${encodeURIComponent(window.location.origin)}&text=Hi%20Mum!`,
+    );
+    // jsdom has no share sheet, so "More apps…" stays hidden.
+    expect(within(panel).queryByRole("button", { name: "More apps…" })).not.toBeInTheDocument();
+    expect(
+      within(panel).getByText("Nothing is sent until you press send in that app."),
+    ).toBeInTheDocument();
+
+    fireEvent.click(within(panel).getByRole("button", { name: "Copy" }));
+    expect(await within(panel).findByRole("button", { name: "Copied!" })).toBeInTheDocument();
+    expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/^Hi Mum! I've got a big bill/));
+    expect(screen.getByText("Message copied to your clipboard.")).toBeInTheDocument();
+  });
+
+  it("doesn't offer Ask a parent for a small plan", async () => {
+    renderPage();
+    fireEvent.click(
+      await screen.findByRole("button", { name: "💃 Winter ball · £55 · Fri 4 Dec" }),
+    );
+    expect(
+      screen.getByRole("heading", { level: 3, name: "You'd hit your overdraft 8 days sooner." }),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Ask a parent to help" })).not.toBeInTheDocument();
+  });
+
+  it("quick-fills a rent bill and offers Ask a parent on big bills", async () => {
+    renderPage();
+    fireEvent.click(await screen.findByRole("button", { name: "Your numbers" }));
+    // The demo bills are all small.
+    expect(screen.queryByRole("button", { name: /^Ask a parent/ })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Tuition fee instalment" }));
+    expect(screen.getByLabelText("What")).toHaveValue("Tuition fee instalment");
+    expect(screen.getByLabelText("How much")).toHaveFocus();
+    fireEvent.click(screen.getByRole("button", { name: "Rent paid upfront" }));
+    expect(screen.getByLabelText("What")).toHaveValue("Rent paid upfront");
+    expect(screen.getByLabelText("How much")).toHaveValue("");
+
+    fireEvent.change(screen.getByLabelText("How much"), { target: { value: "1140" } });
+    fireEvent.change(screen.getByLabelText("Date"), { target: { value: "2027-01-01" } });
+    fireEvent.click(screen.getByRole("button", { name: "Add bill" }));
+    await waitFor(() => expect(safeNumber()).toBe("£0.00"));
+
+    const ask = screen.getByRole("button", { name: "Ask a parent to help with Rent paid upfront" });
+    expect(ask).toHaveTextContent("Ask a parent");
+    fireEvent.click(ask);
+    const panel = screen.getByRole("group", { name: "Ask a parent" });
+    // The impact compares the runway with and without this bill.
+    expect(within(panel).getByLabelText("Your message")).toHaveValue(
+      "Hi! I've got a big bill coming up: Rent paid upfront, £1,140.00, due Fri 1 Jan. I'm not expecting my next student loan payment until Mon 11 Jan, and paying it from my own money would use up my whole overdraft. Could you help with some or all of it? I can show you the numbers. Thank you 💛",
+    );
+  });
+
   it("skipping a plan fills the jar once", async () => {
     renderPage();
     const chip = await screen.findByRole("button", {

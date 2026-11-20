@@ -30,7 +30,13 @@ export function demoPlans(today: ISODate): (Plan & { emoji: string })[] {
   return [
     { emoji: "💃", label: "Winter ball", amountPence: 5500, date: addDays(today, 14) },
     { emoji: "🎄", label: "Christmas meal", amountPence: 2800, date: addDays(today, 20) },
-    { emoji: "🎁", label: "Secret Santa", amountPence: 1000, date: addDays(today, 24) },
+    // Some students pay a term's rent upfront in one go; a parent often helps with it.
+    {
+      emoji: "🏠",
+      label: "January rent (12 weeks upfront)",
+      amountPence: 114000,
+      date: addDays(today, 42),
+    },
     { emoji: "🎿", label: "Ski trip deposit", amountPence: 45000, date: addDays(today, 22) },
   ];
 }

@@ -2,7 +2,8 @@
 
 export function pounds(pence: number): string {
   const sign = pence < 0 ? "−" : "";
-  return `${sign}£${(Math.abs(pence) / 100).toFixed(2)}`;
+  const [whole = "0", frac = "00"] = (Math.abs(pence) / 100).toFixed(2).split(".");
+  return `${sign}£${whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.${frac}`;
 }
 
 /** Whole pounds without pence, e.g. "£25". */

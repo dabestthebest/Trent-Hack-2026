@@ -51,3 +51,8 @@ export const NAME_MAX_LENGTH = 12;
 
 /** Used for the "≈ N meal deals" line on the settle-up card. A round £4 (see docs/FACT-CHECK.md). */
 export const MEAL_DEAL_PENCE = 400;
+
+/** "Pay rent upfront" on the reveal: weeks paid in one go (a 12-week term by default). */
+export const UPFRONT_DEFAULT_WEEKS = 12;
+export const UPFRONT_MIN_WEEKS = 1;
+export const UPFRONT_MAX_WEEKS = 52;

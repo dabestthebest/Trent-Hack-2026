@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { AppShell } from "../components/shell/AppShell";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { FunProvider } from "../lib/fun/store";
 import { MoneyProvider } from "../lib/money/store";
 
 const SITE_NAME = "Til Loan Day";
@@ -147,10 +148,12 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Shared money state lives here so it survives navigation between Runway and Dibs. */}
       <MoneyProvider>
-        <AppShell>
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
-        </AppShell>
+        <FunProvider>
+          <AppShell>
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </AppShell>
+        </FunProvider>
       </MoneyProvider>
     </QueryClientProvider>
   );

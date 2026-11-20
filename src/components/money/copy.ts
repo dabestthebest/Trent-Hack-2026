@@ -8,7 +8,7 @@ import type { DayCell, DayStatus, ISODate, Plan, PlanPreview, RunwayOk } from "@
 export function poundsShort(pence: number): string {
   if (pence % 100 !== 0) return pounds(pence);
   const sign = pence < 0 ? "−" : "";
-  return `${sign}£${Math.abs(pence) / 100}`;
+  return `${sign}£${String(Math.abs(pence) / 100).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 }
 
 export function dayCount(n: number): string {

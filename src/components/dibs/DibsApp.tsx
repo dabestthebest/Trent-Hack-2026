@@ -1,6 +1,7 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import { solveFairSplit } from "@/lib/dibs/fairSplit";
+import { useFun } from "@/lib/fun/store";
 import { initialHousemates, toSplitInput, type Housemate, type Mode } from "@/lib/dibs/housemates";
 
 import { AnswersScreen } from "./AnswersScreen";
@@ -29,6 +30,10 @@ export function DibsApp() {
     () => (step.kind === "result" ? solveFairSplit(toSplitInput(people)) : null),
     [step, people],
   );
+  const { complete } = useFun();
+  useEffect(() => {
+    if (result?.feasible) complete("fair-split");
+  }, [result, complete]);
 
   const go = (next: Step) => {
     setStep(next);

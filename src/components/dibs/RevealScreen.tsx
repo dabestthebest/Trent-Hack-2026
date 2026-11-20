@@ -2,24 +2,46 @@ import { useNavigate } from "@tanstack/react-router";
 import {
   ArrowLeftRight,
   ArrowRight,
+  CalendarClock,
   Check,
+  CircleCheck,
   ClipboardCopy,
   Info,
+  Minus,
+  OctagonX,
   Pencil,
+  Plus,
   RotateCcw,
   ShieldCheck,
+  TriangleAlert,
   X,
 } from "lucide-react";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 
+import { AskParent } from "@/components/money/AskParent";
+import { Field } from "@/components/money/fields";
+import { parseDate } from "@/components/money/parse";
+import { TONE_BOX } from "@/components/money/styles";
 import { challenge, pricesByPerson, settleUp } from "@/lib/dibs/fairSplit";
-import { HOUSE, MEAL_DEAL_PENCE, RENT_POUNDS, ROOMS } from "@/lib/dibs/fixture";
+import {
+  HOUSE,
+  MEAL_DEAL_PENCE,
+  RENT_POUNDS,
+  ROOMS,
+  UPFRONT_DEFAULT_WEEKS,
+  UPFRONT_MAX_WEEKS,
+  UPFRONT_MIN_WEEKS,
+} from "@/lib/dibs/fixture";
 import { mealDeals, nameInSentence, pounds, possessive, signedPounds } from "@/lib/dibs/format";
 import { toSplitInput, type Housemate } from "@/lib/dibs/housemates";
 import type { FeasibleSplit } from "@/lib/dibs/types";
+import { impactPhraseFor, poundsWithCommas } from "@/lib/money/askParent";
 import { addDays } from "@/lib/money/dates";
 import { HOLDING_DEPOSIT_DAYS_AHEAD } from "@/lib/money/fixture";
+import { previewPlan } from "@/lib/money/runway";
 import { useMoney } from "@/lib/money/store";
+import type { ISODate, Plan, PlanPreview, Verdict } from "@/lib/money/types";
+import { cn } from "@/lib/utils";
 
 import { Avatar } from "./HouseScreen";
 
@@ -301,7 +323,7 @@ export function RevealScreen({ people, split, onEdit, onRestart }: RevealScreenP
         )}
       </section>
 
-      <HoldingDepositCard weeklyRentPence={personPrices[0] ?? 0} />
+      <SigningCard weeklyRentPence={personPrices[0] ?? 0} />
 
       <section className="rounded-2xl border border-border bg-card">
         <button
@@ -412,51 +434,314 @@ export function RevealScreen({ people, split, onEdit, onRestart }: RevealScreenP
   }
 }
 
-/**
- * Til Loan Day hand-off: preview person 0's holding deposit (capped at one week's rent) on the
- * runway. Hidden until the client knows today's date (null during server rendering).
- */
-function HoldingDepositCard({ weeklyRentPence }: { weeklyRentPence: number }) {
-  const { today, setPendingPlan } = useMoney();
-  const navigate = useNavigate();
-  // The runway engine only accepts whole pence.
-  const amountPence = Math.round(weeklyRentPence);
-  if (today === null || amountPence <= 0) return null;
-  const price = pounds(amountPence);
+type PayMode = "deposit" | "upfront";
 
-  const preview = () => {
-    setPendingPlan({
-      label: "Holding deposit",
-      amountPence,
-      date: addDays(today, HOLDING_DEPOSIT_DAYS_AHEAD),
-    });
+const PAY_MODES: readonly { id: PayMode; label: string }[] = [
+  { id: "deposit", label: "Holding deposit" },
+  { id: "upfront", label: "Pay rent upfront" },
+];
+
+const IMPACT_STYLE: Record<Verdict, { icon: typeof CircleCheck; tone: string }> = {
+  fine: { icon: CircleCheck, tone: TONE_BOX.own },
+  overdraft: { icon: TriangleAlert, tone: TONE_BOX.overdraft },
+  exhausted: { icon: OctagonX, tone: TONE_BOX.exhausted },
+  "outside-window": { icon: CalendarClock, tone: "bg-secondary text-secondary-foreground" },
+};
+
+const SIGNING_FOCUS =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+function weekCount(n: number): string {
+  return `${n} ${n === 1 ? "week" : "weeks"}`;
+}
+
+/** impactPhrase speaks as the student to a parent ("my overdraft"); the card speaks to the student. */
+function toSecondPerson(phrase: string): string {
+  return phrase.replace(/\bmy\b/g, "your").replace(/\bme\b/g, "you");
+}
+
+function impactSentence(preview: PlanPreview, impact: string | null): string {
+  if (preview.verdict === "fine") return "You can afford this before loan day.";
+  if (preview.verdict === "outside-window") return "That's after loan day.";
+  return `Paying this would ${toSecondPerson(impact ?? "take me further into my overdraft")}.`;
+}
+
+/**
+ * Til Loan Day hand-off for person 0: either the holding deposit (capped at one week's rent) or
+ * several weeks of rent paid upfront. Shows what it does to the runway, previews it on "/", and
+ * offers a ready-made message to ask a parent. Hidden until the client knows today's date (null
+ * during server rendering).
+ */
+function SigningCard({ weeklyRentPence }: { weeklyRentPence: number }) {
+  const { today, runwayInput, setPendingPlan } = useMoney();
+  const navigate = useNavigate();
+  const [mode, setMode] = useState<PayMode>("deposit");
+  const [weeks, setWeeks] = useState(UPFRONT_DEFAULT_WEEKS);
+  // null until the student touches the date, so the default can follow `today` once it's known.
+  const [dateInput, setDateInput] = useState<string | null>(null);
+  // The last date that passed validation, so the parent message keeps a real date while the
+  // student is mid-edit.
+  const [lastGoodDate, setLastGoodDate] = useState<ISODate | null>(null);
+  const dateRef = useRef<HTMLInputElement>(null);
+  const radioRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // The runway engine only accepts whole pence.
+  const weeklyPence = Math.round(weeklyRentPence);
+  if (today === null || weeklyPence <= 0) return null;
+
+  const checkDate = (raw: string) =>
+    parseDate(raw, { min: today, minMessage: "Pick today or a later date." });
+  // Upfront rent can only be paid after everyone has signed, so default it a little later.
+  const defaultDate = addDays(today, mode === "upfront" ? 14 : HOLDING_DEPOSIT_DAYS_AHEAD);
+  const dateValue = dateInput ?? defaultDate;
+  const parsedDate = checkDate(dateValue);
+
+  const upfront = mode === "upfront";
+  const amountPence = upfront ? weeklyPence * weeks : weeklyPence;
+  const amountText = poundsWithCommas(amountPence);
+  const weeklyText = poundsWithCommas(weeklyPence);
+  const plan: Plan = {
+    label: upfront ? `Rent upfront (${weekCount(weeks)})` : "Holding deposit",
+    amountPence,
+    date: parsedDate.ok ? parsedDate.value : (lastGoodDate ?? defaultDate),
+  };
+  const preview = parsedDate.ok && runwayInput ? previewPlan(runwayInput, plan) : null;
+  // With no arranged overdraft, "use up my whole overdraft" would be wrong: impactPhraseFor says what happens.
+  const impact =
+    preview === null ? null : impactPhraseFor(preview, runwayInput?.overdraftPence ?? 0);
+  const impactStyle = preview ? IMPACT_STYLE[preview.verdict] : null;
+  const ImpactIcon = impactStyle?.icon;
+
+  const selectMode = (index: number) => {
+    const next = PAY_MODES[(index + PAY_MODES.length) % PAY_MODES.length];
+    if (!next) return;
+    setMode(next.id);
+    radioRefs.current[PAY_MODES.indexOf(next)]?.focus();
+  };
+
+  const onRadioKey = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      selectMode(index + 1);
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      selectMode(index - 1);
+    }
+  };
+
+  const goPreview = () => {
+    if (!parsedDate.ok) {
+      dateRef.current?.focus();
+      return;
+    }
+    setPendingPlan(plan);
     void navigate({ to: "/" });
   };
 
   return (
     <section
       aria-labelledby="deposit-heading"
-      className="space-y-3 rounded-2xl border-2 border-accent bg-accent/25 p-4"
+      className="space-y-4 rounded-2xl border-2 border-accent bg-accent/25 p-4"
     >
       <h2 id="deposit-heading" className="font-display text-xl font-semibold">
         <span aria-hidden="true">🏡</span> Signing for this house?
       </h2>
-      <p className="text-sm leading-relaxed">
-        In England a holding deposit is capped at one week&apos;s rent per tenancy (Tenant Fees Act
-        2019), so on a joint tenancy it&apos;s at most {pounds(RENT_POUNDS * 100)} for the whole
-        house. Split the Dibs way, your share is{" "}
-        <strong className="font-semibold tabular-nums">{price}</strong>. See what paying it next
-        week does to your money before loan day.
-      </p>
+
+      <div
+        role="radiogroup"
+        aria-label="What are you paying?"
+        className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-background/70 p-1"
+      >
+        {PAY_MODES.map((m, i) => {
+          const selected = mode === m.id;
+          return (
+            <button
+              key={m.id}
+              ref={(el) => {
+                radioRefs.current[i] = el;
+              }}
+              type="button"
+              role="radio"
+              aria-checked={selected}
+              tabIndex={selected ? 0 : -1}
+              onClick={() => setMode(m.id)}
+              onKeyDown={(e) => onRadioKey(e, i)}
+              className={cn(
+                "flex min-h-11 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-center text-sm font-semibold leading-tight transition",
+                SIGNING_FOCUS,
+                selected
+                  ? "bg-foreground text-background shadow-sm"
+                  : "text-foreground hover:bg-secondary",
+              )}
+            >
+              {selected ? <Check className="h-4 w-4 shrink-0" aria-hidden="true" /> : null}
+              {m.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {upfront ? (
+        <div className="space-y-3">
+          <p className="text-sm leading-relaxed">
+            Some students prefer to pay housing upfront in one go. Split the Dibs way, your rent is{" "}
+            <strong className="font-semibold tabular-nums">{weeklyText}</strong> a week.
+          </p>
+          <p className="rounded-xl border border-border bg-background/70 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
+            In England, for most private lets agreed from 1 May 2026, a landlord can&apos;t ask for
+            or accept rent before the tenancy is signed, and can ask for at most a month&apos;s rent
+            in advance after that (Renters&apos; Rights Act 2025). Paying more upfront has to be
+            your own choice, after signing. Halls can have different rules. Not legal advice.
+          </p>
+          <WeeksStepper value={weeks} onChange={setWeeks} />
+          <p className="rounded-xl bg-background/70 px-3 py-2.5 text-center font-display text-lg font-semibold tabular-nums">
+            {`${weekCount(weeks)} × ${weeklyText} = ${amountText}`}
+          </p>
+        </div>
+      ) : (
+        <p className="text-sm leading-relaxed">
+          In England a holding deposit is capped at one week&apos;s rent per tenancy (Tenant Fees
+          Act 2019), so on a joint tenancy it&apos;s at most {pounds(RENT_POUNDS * 100)} for the
+          whole house. Split the Dibs way, your share is{" "}
+          <strong className="font-semibold tabular-nums">{amountText}</strong>. See what paying it
+          does to your money before loan day.
+        </p>
+      )}
+
+      <Field
+        label={upfront ? "When would you pay it (after signing)?" : "When would you pay it?"}
+        type="date"
+        inputRef={dateRef}
+        value={dateValue}
+        min={today}
+        error={parsedDate.ok ? null : parsedDate.error}
+        onChange={(e) => {
+          const raw = e.target.value;
+          setDateInput(raw);
+          const checked = checkDate(raw);
+          if (checked.ok) setLastGoodDate(checked.value);
+        }}
+      />
+
+      <div aria-live="polite" aria-atomic="true">
+        {preview && impactStyle && ImpactIcon ? (
+          <p
+            className={cn(
+              "flex items-start gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold",
+              impactStyle.tone,
+            )}
+          >
+            <ImpactIcon className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>{impactSentence(preview, impact)}</span>
+          </p>
+        ) : null}
+      </div>
+
       <button
         type="button"
-        onClick={preview}
+        onClick={goPreview}
         className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-foreground px-4 py-3 text-center font-semibold text-background transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/50"
       >
-        Preview {price} in Til Loan Day
+        {`Preview ${amountText} in Til Loan Day`}
         <ArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
       </button>
+
+      <AskParent
+        variant="button"
+        bill={plan}
+        impact={impact}
+        loanDate={runwayInput?.loanDate ?? null}
+        optional={upfront}
+      />
     </section>
+  );
+}
+
+/** Whole weeks, 1–52, with − / + buttons and a box you can type in. */
+function WeeksStepper({ value, onChange }: { value: number; onChange: (weeks: number) => void }) {
+  const id = useId();
+  const hintId = `${id}-hint`;
+  // What the student is typing while the box has focus; null shows the committed value.
+  const [draft, setDraft] = useState<string | null>(null);
+  const clamp = (n: number) => Math.min(UPFRONT_MAX_WEEKS, Math.max(UPFRONT_MIN_WEEKS, n));
+  const atMin = value <= UPFRONT_MIN_WEEKS;
+  const atMax = value >= UPFRONT_MAX_WEEKS;
+
+  const bump = (delta: number) => {
+    setDraft(null);
+    onChange(clamp(value + delta));
+  };
+
+  const buttonClass = cn(
+    "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-foreground transition hover:bg-secondary aria-disabled:cursor-not-allowed aria-disabled:opacity-40 aria-disabled:hover:bg-card",
+    SIGNING_FOCUS,
+  );
+
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm font-semibold text-foreground">
+        How many weeks?
+      </label>
+      <div className="mt-1.5 flex items-stretch gap-2">
+        <button
+          type="button"
+          aria-label="One week fewer"
+          aria-disabled={atMin}
+          onClick={() => (atMin ? undefined : bump(-1))}
+          className={buttonClass}
+        >
+          <Minus className="h-5 w-5" aria-hidden="true" />
+        </button>
+        <div className="relative min-w-0 flex-1">
+          <input
+            id={id}
+            type="text"
+            inputMode="numeric"
+            autoComplete="off"
+            value={draft ?? String(value)}
+            aria-describedby={hintId}
+            onFocus={() => setDraft(String(value))}
+            onChange={(e) => {
+              const digits = e.target.value.replace(/\D/g, "").slice(0, 2);
+              setDraft(digits);
+              if (digits !== "") onChange(clamp(Number(digits)));
+            }}
+            onBlur={() => setDraft(null)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") e.currentTarget.blur();
+              else if (e.key === "ArrowUp" && !atMax) {
+                e.preventDefault();
+                onChange(clamp(value + 1));
+                setDraft(String(clamp(value + 1)));
+              } else if (e.key === "ArrowDown" && !atMin) {
+                e.preventDefault();
+                onChange(clamp(value - 1));
+                setDraft(String(clamp(value - 1)));
+              }
+            }}
+            className="h-12 w-full min-w-0 rounded-xl border border-input bg-background px-14 text-center text-lg font-semibold tabular-nums text-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-muted-foreground"
+          >
+            {value === 1 ? "week" : "weeks"}
+          </span>
+        </div>
+        <button
+          type="button"
+          aria-label="One week more"
+          aria-disabled={atMax}
+          onClick={() => (atMax ? undefined : bump(1))}
+          className={buttonClass}
+        >
+          <Plus className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
+      <p id={hintId} className="mt-1 text-xs text-muted-foreground">
+        Whole weeks, {UPFRONT_MIN_WEEKS} to {UPFRONT_MAX_WEEKS}.
+      </p>
+    </div>
   );
 }
 

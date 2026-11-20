@@ -1,9 +1,9 @@
 // Til Loan Day runway engine. Pure functions over integer pence and calendar dates.
 // Matches the exact Python reference (check/runway_ref.py) on every field; see runway.test.ts.
 //
-// Window: spending days are today .. loanDate-1 (days = loanDate - today). Bills dated inside the
-// window are paid at the end of their day. End balance of day k (k = 1..days) is
-//   balance - dailySpend * k - (in-window bills dated on or before day k).
+// Window: spending days are today .. loanDate-1 (days = loanDate - today). Bills and expected income
+// dated inside the window land at the end of their day. End balance of day k (k = 1..days) is
+//   balance - dailySpend * k - (in-window bills up to day k) + (in-window income up to day k).
 
 import { dayNumber, diffDays, fromDayNumber, isValidISODate } from "./dates";
 import type {
@@ -62,14 +62,27 @@ function validate(input: RunwayInput): RunwayError | null {
   }
 
   if (!Array.isArray(input.bills)) return invalid("Bills must be a list.");
-  for (const bill of input.bills as unknown[]) {
-    if (typeof bill !== "object" || bill === null) return invalid("Each bill needs details.");
-    const b = bill as Partial<Record<keyof Bill, unknown>>;
-    if (typeof b.label !== "string") return invalid("Each bill needs a name.");
-    const label = b.label.trim() !== "" ? b.label.trim() : "A bill";
-    const problem = moneyProblem(b.amountPence, label);
-    if (problem !== null) return invalid(problem);
-    if (!isISODate(b.date)) return invalid(`${label} doesn't have a valid date.`);
+  const billProblem = datedItemsProblem(input.bills, "bill", "A bill");
+  if (billProblem !== null) return invalid(billProblem);
+
+  if (input.incomes !== undefined) {
+    if (!Array.isArray(input.incomes)) return invalid("Money coming in must be a list.");
+    const incomeProblem = datedItemsProblem(input.incomes, "payment", "Money coming in");
+    if (incomeProblem !== null) return invalid(incomeProblem);
+  }
+  return null;
+}
+
+/** null if every item has a name, valid money and a valid date (bills and incomes alike). */
+function datedItemsProblem(items: unknown[], noun: string, fallback: string): string | null {
+  for (const item of items) {
+    if (typeof item !== "object" || item === null) return `Each ${noun} needs details.`;
+    const it = item as Partial<Record<keyof Bill, unknown>>;
+    if (typeof it.label !== "string") return `Each ${noun} needs a name.`;
+    const label = it.label.trim() !== "" ? it.label.trim() : fallback;
+    const problem = moneyProblem(it.amountPence, label);
+    if (problem !== null) return problem;
+    if (!isISODate(it.date)) return `${label} doesn't have a valid date.`;
   }
   return null;
 }
@@ -109,9 +122,20 @@ export function computeRunway(input: RunwayInput): RunwayResult {
     billsInWindowPence += bill.amountPence;
   }
 
+  // Expected income, bucketed the same way. It arrives at the end of its day.
+  const incomeByDay: number[] = new Array<number>(days).fill(0);
+  let incomeInWindowPence = 0;
+  for (const income of input.incomes ?? []) {
+    const idx = dayNumber(income.date) - start;
+    if (idx < 0 || idx >= days) continue;
+    incomeByDay[idx] = (incomeByDay[idx] ?? 0) + income.amountPence;
+    incomeInWindowPence += income.amountPence;
+  }
+
   const { balancePence, overdraftPence, dailySpendPence } = input;
   const timeline: DayCell[] = [];
   let cumBills = 0;
+  let cumIncome = 0;
   let minCandidate = Number.POSITIVE_INFINITY;
   let firstOverdraftIdx: number | null = null;
   let firstExhaustedIdx: number | null = null;
@@ -121,13 +145,14 @@ export function computeRunway(input: RunwayInput): RunwayResult {
     const k = idx + 1;
     const billsPence = billsByDay[idx] ?? 0;
     cumBills += billsPence;
-    const endBalancePence = balancePence - dailySpendPence * k - cumBills;
+    cumIncome += incomeByDay[idx] ?? 0;
+    const endBalancePence = balancePence - dailySpendPence * k - cumBills + cumIncome;
     const status = statusOf(endBalancePence, overdraftPence);
     if (endBalancePence < 0 && firstOverdraftIdx === null) firstOverdraftIdx = idx;
     if (endBalancePence < -overdraftPence && firstExhaustedIdx === null) firstExhaustedIdx = idx;
 
-    // What is left for spending after the bills so far, shared over the k days so far.
-    const available = balancePence - cumBills;
+    // What is left for spending after the bills (and income) so far, shared over the k days so far.
+    const available = balancePence - cumBills + cumIncome;
     if (available < 0 && billsAloneIdx === null) billsAloneIdx = idx;
     const candidate = available >= 0 ? Math.floor(available / k) : -1;
     if (candidate < minCandidate) minCandidate = candidate;
@@ -149,6 +174,7 @@ export function computeRunway(input: RunwayInput): RunwayResult {
     ok: true,
     days,
     billsInWindowPence,
+    incomeInWindowPence,
     safeDailyPence: Math.max(0, minCandidate),
     billsAloneOverdraftDate: dateAt(billsAloneIdx),
     timeline,

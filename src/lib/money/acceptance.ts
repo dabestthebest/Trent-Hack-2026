@@ -1,10 +1,10 @@
-// Acceptance cases for the Til Loan Day runway engine (R1–R11). Expected values come from the build
+// Acceptance cases for the Til Loan Day runway engine (R1–R14). Expected values come from the build
 // spec, which was pinned by the exact Python reference. Used by the /selftest page and the unit tests.
 // Inputs are fixed literal dates (today = Fri 20 Nov 2026) so the checks read the same on any day.
 
 import type { AcceptanceRow } from "../dibs/acceptance";
 import { countStatuses, computeRunway, previewPlan } from "./runway";
-import type { Plan, PlanPreview, RunwayInput, RunwayResult } from "./types";
+import type { Income, Plan, PlanPreview, RunwayInput, RunwayResult } from "./types";
 
 export const ACCEPTANCE_TODAY = "2026-11-20";
 
@@ -21,6 +21,25 @@ export const ACCEPTANCE_BASE: RunwayInput = {
     { id: "phone-jan", label: "Phone bill", amountPence: 1500, date: "2027-01-05" },
   ],
 };
+
+/** The live demo on Fri 20 Nov 2026 (NTU Term Two start, £350): the base for the income cases R12–R14. */
+export const ACCEPTANCE_DEMO_BASE: RunwayInput = {
+  ...ACCEPTANCE_BASE,
+  loanDate: "2027-01-11",
+  balancePence: 35000,
+};
+
+/** £60 every Saturday before loan day (Sat 21 Nov … Sat 9 Jan): eight shifts, £480. */
+export const ACCEPTANCE_SATURDAY_SHIFTS: Income[] = [
+  "2026-11-21",
+  "2026-11-28",
+  "2026-12-05",
+  "2026-12-12",
+  "2026-12-19",
+  "2026-12-26",
+  "2027-01-02",
+  "2027-01-09",
+].map((date) => ({ id: `shift@${date}`, label: "Saturday shift", amountPence: 6000, date }));
 
 export const ACCEPTANCE_PLANS = {
   winterBall: { label: "Winter ball", amountPence: 5500, date: "2026-12-04" },
@@ -49,6 +68,7 @@ export function summariseRunway(r: RunwayResult): Summary {
     ok: true,
     days: r.days,
     billsInWindowPence: r.billsInWindowPence,
+    incomeInWindowPence: r.incomeInWindowPence,
     safeDailyPence: r.safeDailyPence,
     billsAloneOverdraftDate: r.billsAloneOverdraftDate,
     firstOverdraftDate: r.firstOverdraftDate,
@@ -202,6 +222,55 @@ export const RUNWAY_ACCEPTANCE_CASES: RunwayAcceptanceCase[] = [
       endBalancePence: [3700, -1800],
     },
     run: preview(ACCEPTANCE_PLANS.winterBall, { dailySpendPence: 500 }),
+  },
+  {
+    id: "R12",
+    description: "Demo (£350, loan Mon 11 Jan) + £60 every Saturday",
+    expected: {
+      incomeInWindowPence: 48000,
+      safeDailyPence: 1404,
+      firstOverdraftDate: null,
+      endBalancePence: 42400,
+    },
+    run: () =>
+      summariseRunway(
+        computeRunway({ ...ACCEPTANCE_DEMO_BASE, incomes: ACCEPTANCE_SATURDAY_SHIFTS }),
+      ),
+  },
+  {
+    id: "R13",
+    description: "Demo + £50 one-off on Tue 1 Dec",
+    expected: {
+      incomeInWindowPence: 5000,
+      safeDailyPence: 638,
+      firstOverdraftDate: "2027-01-10",
+      endBalancePence: -600,
+      daysEarly: 1,
+    },
+    run: () =>
+      summariseRunway(
+        computeRunway({
+          ...ACCEPTANCE_DEMO_BASE,
+          incomes: [{ id: "gift", label: "Birthday money", amountPence: 5000, date: "2026-12-01" }],
+        }),
+      ),
+  },
+  {
+    id: "R14",
+    description: "Demo + £200 on loan day itself: outside the window, no change",
+    expected: {
+      incomeInWindowPence: 0,
+      safeDailyPence: 542,
+      firstOverdraftDate: "2027-01-04",
+      endBalancePence: -5600,
+    },
+    run: () =>
+      summariseRunway(
+        computeRunway({
+          ...ACCEPTANCE_DEMO_BASE,
+          incomes: [{ id: "late", label: "Prize", amountPence: 20000, date: "2027-01-11" }],
+        }),
+      ),
   },
 ];
 

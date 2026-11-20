@@ -1,5 +1,8 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Link, useRouter, useRouterState } from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import { Victory } from "@/components/fun/Victory";
+import { XpBadge } from "@/components/fun/XpBadge";
 
 import { LoanDayMark } from "./LoanDayMark";
 
@@ -7,7 +10,7 @@ import { LoanDayMark } from "./LoanDayMark";
 // Purely presentational and SSR-safe: no window/document access.
 
 const TAB_BASE =
-  "relative flex h-full min-h-11 min-w-[4.25rem] flex-col items-center justify-center rounded-t-lg px-2.5 text-sm leading-tight transition-colors hover:bg-secondary/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:px-3.5 after:absolute after:inset-x-2 after:bottom-0 after:h-[3px] after:rounded-full after:bg-primary after:transition-opacity";
+  "relative flex h-full min-h-11 min-w-[3.25rem] flex-col items-center justify-center rounded-t-lg px-2 text-sm sm:min-w-[4.25rem] leading-tight transition-colors hover:bg-secondary/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring sm:px-3.5 after:absolute after:inset-x-2 after:bottom-0 after:h-[3px] after:rounded-full after:bg-primary after:transition-opacity";
 
 // Active state is not colour-only: bold label plus a 3px underline bar. TanStack also sets
 // aria-current="page" and data-status="active" on the active link; we pass aria-current explicitly
@@ -35,6 +38,18 @@ export function AppShell({ children }: { children: ReactNode }) {
   const wide = useRouterState({ select: (s) => s.location.pathname === "/selftest" });
   const column = `mx-auto w-full px-4 ${wide ? "max-w-5xl" : "max-w-xl"}`;
 
+  // Campus Wi-Fi drops out. Once the first page has loaded, quietly fetch the other pages' code so
+  // switching tabs keeps working offline. All the money maths already runs on the phone.
+  const router = useRouter();
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      for (const to of ["/", "/dibs", "/blog", "/selftest"] as const) {
+        router.preloadRoute({ to }).catch(() => {});
+      }
+    }, 1500);
+    return () => window.clearTimeout(t);
+  }, [router]);
+
   return (
     <div className="flex min-h-screen flex-col overflow-x-clip bg-background text-foreground">
       <a
@@ -45,7 +60,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </a>
 
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
-        <div className={`${column} flex min-h-14 items-stretch justify-between gap-3`}>
+        <div className={`${column} flex min-h-14 items-stretch justify-between gap-2 sm:gap-3`}>
           <div className="flex min-w-0 flex-col justify-center py-2">
             <Link
               to="/"
@@ -53,7 +68,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               className="-mx-1 inline-flex items-center gap-2 self-start rounded-lg px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <LoanDayMark className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />
-              <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary sm:text-xl">
+              <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tracking-tight text-primary max-[419px]:sr-only sm:text-xl">
                 til loan day
               </span>
             </Link>
@@ -62,37 +77,55 @@ export function AppShell({ children }: { children: ReactNode }) {
             </p>
           </div>
 
-          <nav aria-label="Tools" className="flex shrink-0 items-stretch">
-            <ul className="flex items-stretch gap-0.5 pt-1.5">
-              <li className="flex">
-                <Link
-                  to="/"
-                  activeOptions={{ exact: true }}
-                  className={TAB_BASE}
-                  activeProps={TAB_ACTIVE}
-                  inactiveProps={TAB_INACTIVE}
-                >
-                  <TabLabel>Runway</TabLabel>
-                  <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
-                    daily spend
-                  </span>
-                </Link>
-              </li>
-              <li className="flex">
-                <Link
-                  to="/dibs"
-                  className={TAB_BASE}
-                  activeProps={TAB_ACTIVE}
-                  inactiveProps={TAB_INACTIVE}
-                >
-                  <TabLabel>Dibs</TabLabel>
-                  <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
-                    rent split
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div className="flex shrink-0 items-stretch gap-1 sm:gap-2">
+            <nav aria-label="Tools" className="flex shrink-0 items-stretch">
+              <ul className="flex items-stretch gap-0.5 pt-1.5">
+                <li className="flex">
+                  <Link
+                    to="/"
+                    activeOptions={{ exact: true }}
+                    className={TAB_BASE}
+                    activeProps={TAB_ACTIVE}
+                    inactiveProps={TAB_INACTIVE}
+                  >
+                    <TabLabel>Runway</TabLabel>
+                    <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
+                      daily spend
+                    </span>
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link
+                    to="/dibs"
+                    className={TAB_BASE}
+                    activeProps={TAB_ACTIVE}
+                    inactiveProps={TAB_INACTIVE}
+                  >
+                    <TabLabel>Dibs</TabLabel>
+                    <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
+                      housemates
+                    </span>
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link
+                    to="/blog"
+                    className={TAB_BASE}
+                    activeProps={TAB_ACTIVE}
+                    inactiveProps={TAB_INACTIVE}
+                  >
+                    <TabLabel>Blog</TabLabel>
+                    <span className="hidden text-[11px] font-normal text-muted-foreground sm:block">
+                      money reads
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="flex items-center">
+              <XpBadge />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -110,8 +143,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           className={`${column} space-y-2 pb-24 pt-5 text-xs leading-relaxed text-muted-foreground`}
         >
           <p>
-            Built for Hack The Trent 2026 · Runs entirely in your browser: no bank login, nothing
-            stored.
+            Built for Hack The Trent 2026 · No bank login, no account. Your money numbers
+            aren&apos;t saved; only your XP is, on this device. If you paste an invite, its text is
+            sent to an AI model to read the cost and date.
           </p>
           <p>
             Dibs&apos; fair rent maths is inspired by Spliddit (Carnegie Mellon University) and
@@ -128,6 +162,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </p>
         </div>
       </footer>
+      <Victory />
     </div>
   );
 }
