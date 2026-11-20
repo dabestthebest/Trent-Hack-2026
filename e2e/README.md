@@ -9,7 +9,8 @@ npx playwright install chromium
 npm test
 ```
 
-The default target is [the published app](https://dibs-fair-rooms.lovable.app).
+The default target is [the published app](https://til-loan-day.lovable.app).
+The former URL, `https://dibs-fair-rooms.lovable.app`, now returns HTTP 404 (Project not found).
 To test a local build, run `bun install && bun run dev` from the repo root in another terminal,
 then run `BASE_URL=http://localhost:8080 npm test` from this folder. Use the port Vite prints if it differs.
 
@@ -38,7 +39,7 @@ and [the raw inventory](../docs/A11Y-V2-RAW.json) for node counts, selectors and
 From this folder, wait for the published HTML title to contain `Til Loan Day`, then run:
 
 ```sh
-node wait-for-publish.mjs https://dibs-fair-rooms.lovable.app 600
+node wait-for-publish.mjs https://til-loan-day.lovable.app 600
 npx playwright test --list
 npm test
 ```

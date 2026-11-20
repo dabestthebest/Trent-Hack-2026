@@ -31,10 +31,10 @@ Discovery: `Total: 12 tests in 2 files`. Final local suite output:
 12 passed (14.9s)
 ```
 
-| Target            |            Passed | Failed | Skipped |
-| ----------------- | ----------------: | -----: | ------: |
-| Local rebuild     |                12 |      0 |       0 |
-| Published rebuild | Pending republish |      — |       — |
+| Target            | Passed | Failed | Skipped |
+| ----------------- | -----: | -----: | ------: |
+| Local rebuild     |     12 |      0 |       0 |
+| Published rebuild |     12 |      0 |       0 |
 
 The suite uses Tab and Enter/Space, never mouse clicks, for:
 
@@ -157,25 +157,39 @@ and documentation.
 
 ## Published app
 
-**Pending republish; no rebuilt-app published suite result yet.** The initial readiness
-checks of [the published URL](https://dibs-fair-rooms.lovable.app) still returned
-`Dibs: fair rooms, rents you can afford`. A later check during report preparation returned
-**HTTP 404, title `Project not found`**, so the public target is currently unavailable rather
-than verified as the rebuild. Do not transfer the local pass result to the published app.
-
-The background title poll was started from `e2e/` with:
+**Verified 20 November 2026** at the new [published URL](https://til-loan-day.lovable.app).
+From `e2e/`, with Node activated, ran the full suite at both 375 × 812 and 1280 × 900:
 
 ```sh
-node wait-for-publish.mjs https://dibs-fair-rooms.lovable.app 2700
+BASE_URL=https://til-loan-day.lovable.app npx playwright test --workers=2
 ```
 
-Once the HTML title contains Til Loan Day, run:
+Observed output:
 
-```sh
-BASE_URL=https://dibs-fair-rooms.lovable.app npx playwright test --workers=2
+```text
+mobile-375x812 invite source: Read by AI. Check it before we run it.
+desktop-1280x900 invite source: Read by AI. Check it before we run it.
+12 passed (18.1s)
 ```
 
-Replace this pending section with the observed published result when available.
+Direct HTTP checks returned 200 for all three routes. Home title:
+`Til Loan Day: make your money last till loan day`; `/dibs` title:
+`Dibs: fair rooms and rent | Til Loan Day`; `/selftest` title: `Selftest · Til Loan Day`.
+The browser route test asserted **25/25 PASS** on `/selftest` in both viewports, and the
+Dibs keyboard flow reached the £95 Runway hand-off preview in both.
+
+**Difference from local:** the published invite used **AI**, not the local on-device
+fallback, in both viewports; both previews arrived within the 12s budget. Initial route
+scans again recorded zero axe violation rules, no browser errors and no horizontal overflow.
+Initial controls checked were 18 / 12 / 7 for Runway / Dibs / selftest (local: 16 / 10 / 5),
+with none missed by Tab or lacking a changed computed ring. Dibs focus-loss annotations were
+also observed on the published flow. The detailed dynamic-state axe findings and screenshots above remain
+local evidence; the published run did not repeat those supplemental scans or a visual audit.
+
+The former URL, `https://dibs-fair-rooms.lovable.app`, now returns **HTTP 404**, title
+`Project not found`. The suite config, README and publish-wait utility now default to
+`https://til-loan-day.lovable.app`. Invite-source text is logged and retained as a test
+annotation so subsequent runs distinguish AI from the fallback.
 
 ## Screenshots and untested scope
 
@@ -205,7 +219,7 @@ JPEG quality 55; every image was opened and checked for the intended state. Each
 
 ![Engine selftest showing 25/25 PASS](a11y-screens/selftest-mobile.jpg)
 
-Not tested: screen-reader speech, native mobile browsers, successful AI responses, clipboard
+Not tested: screen-reader speech, native mobile browsers, exhaustive AI error cases, clipboard
 and WhatsApp delivery, exhaustive validation/error cases, Dibs pass-the-phone and challenge
 flows, all preview verdicts, or every dynamic control's focus indicator. Some decorative emoji
 render as missing-glyph boxes in this local Chromium environment; no cross-platform conclusion

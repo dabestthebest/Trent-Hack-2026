@@ -1,6 +1,6 @@
 import { setTimeout as delay } from "node:timers/promises";
 
-const url = process.argv[2] || process.env.BASE_URL || "https://dibs-fair-rooms.lovable.app";
+const url = process.argv[2] || process.env.BASE_URL || "https://til-loan-day.lovable.app";
 const timeoutSeconds = Number(process.argv[3] ?? 300);
 
 async function main() {

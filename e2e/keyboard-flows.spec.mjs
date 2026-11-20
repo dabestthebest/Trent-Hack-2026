@@ -41,6 +41,12 @@ test("Runway: example invite reaches an AI or on-device preview via keyboard", a
   const deadline = Date.now() + 12000;
   await tabAndActivate(page, button(page, /looks right,? preview it/i), "Enter", 12000);
   await expectPreview(page, Math.max(1, deadline - Date.now()));
+  const source = await page
+    .getByRole("form", { name: "Check what we read" })
+    .getByRole("status")
+    .innerText();
+  test.info().annotations.push({ type: "invite-source", description: source });
+  console.log(`${test.info().project.name} invite source: ${source}`);
 });
 
 test("Dibs: Start, Lock in, reveal and holding-deposit hand-off via keyboard", async ({ page }) => {
