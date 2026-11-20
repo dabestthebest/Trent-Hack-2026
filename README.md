@@ -1,3 +1,5 @@
+Live: https://til-loan-day.lovable.app
+
 # Til Loan Day
 
 **Til Loan Day is for UK students waiting on their next Student Finance payment: it shows what you can safely spend each day, lets you preview a plan before you say yes, and splits rent fairly with housemates.**
