@@ -1,6 +1,7 @@
 // Words for the victory toast and its screen-reader announcement.
 
 import type { Celebration } from "./store";
+import { rankFor } from "./xp";
 
 /** Visible toast text. */
 export function victoryText(c: Celebration): { main: string; sub: string | null } {
@@ -9,11 +10,16 @@ export function victoryText(c: Celebration): { main: string; sub: string | null 
       return { main: `+${c.xp} XP · ${c.title}`, sub: null };
     case "achievement":
       return { main: `${c.emoji} ${c.title}! +${c.xp} XP`, sub: null };
-    case "level-up":
+    case "level-up": {
+      const rank = rankFor(c.level);
+      const newRank = rank.fromLevel === c.level && c.level > 1;
       return {
-        main: `Level ${c.level}: ${c.title}!`,
+        main: newRank
+          ? `Level ${c.level}: ${c.title}! New rank: ${rank.emoji} ${rank.name}`
+          : `Level ${c.level}: ${c.title}!`,
         sub: c.cause ? `+${c.xp} XP · ${c.cause.title}` : `+${c.xp} XP`,
       };
+    }
   }
 }
 

@@ -44,7 +44,7 @@ const SYSTEM =
   `No investing, credit cards, loans, gambling or crypto advice, and no medical, legal or tax advice. ` +
   `Don't shame the student. ` +
   `If a plan is given, one tip should be about that plan. ` +
-  `If firstOverdraftDate is null, celebrate and suggest keeping a buffer.`;
+  `If firstOverdraftDate is null, celebrate and suggest keeping a buffer. Never mention fees, interest, charges or penalties, because you don't know the student's bank terms. Only say the student will hit or use up their overdraft on dates given in the input.`;
 
 /** Pure validation of model output; exported for tests. */
 export function sanitizeTips(raw: unknown): PennyAdviceResult {

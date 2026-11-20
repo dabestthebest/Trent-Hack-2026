@@ -21,7 +21,7 @@ export interface XpBadgeProps {
 function badgeLabel(fun: FunStore): string {
   const { level, title, intoLevel, perLevel } = fun.level;
   const { done, total } = questProgress(fun);
-  return `Level ${level}, ${title}, ${fun.xp} XP. ${perLevel - intoLevel} XP to level ${level + 1}. Today's quests: ${done} of ${total} done.`;
+  return `Level ${level}, ${title}, ${fun.xp} XP, ${fun.level.rank.name} rank. ${perLevel - intoLevel} XP to level ${level + 1}. Today's quests: ${done} of ${total} done.`;
 }
 
 const BadgeButton = forwardRef<
@@ -67,7 +67,7 @@ const BadgeButton = forwardRef<
         <CoinMascot mood="happy" size={24} animate={false} />
         <span className="flex flex-col items-start leading-none">
           <span className="whitespace-nowrap text-xs font-bold tabular-nums">
-            Lv {level} · {fun.xp} XP
+            {fun.level.rank.emoji} Lv {level} · {fun.xp} XP
           </span>
           <span className="mt-1 block h-1 w-full min-w-14 overflow-hidden rounded-full bg-muted">
             <span className="block h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />

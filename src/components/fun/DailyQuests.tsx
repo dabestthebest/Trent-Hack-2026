@@ -123,13 +123,13 @@ export function QuestList({
 
 /** A thin bar showing progress through the current level, with the numbers in text. */
 export function LevelBar({ fun, className }: { fun: FunStore; className?: string | undefined }) {
-  const { level, title, intoLevel, perLevel } = fun.level;
+  const { level, title, intoLevel, perLevel, rank } = fun.level;
   const pct = Math.round((intoLevel / perLevel) * 100);
   return (
     <div className={className}>
       <div className="flex items-baseline justify-between gap-2 text-sm">
         <span className="font-display font-bold">
-          Lv {level} · {title}
+          Lv {level} · {title} · {rank.emoji} {rank.name} rank
         </span>
         <span className="shrink-0 text-xs font-semibold tabular-nums text-muted-foreground">
           {intoLevel}/{perLevel} XP to Lv {level + 1}

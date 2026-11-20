@@ -52,10 +52,33 @@ export const LEVEL_TITLES: readonly string[] = [
   "Loan Day Legend",
 ];
 
+/** Ranks scale with level: a coarser tier on top of the level titles. */
+export interface Rank {
+  name: string;
+  emoji: string;
+  /** First level of this rank. */
+  fromLevel: number;
+}
+
+export const RANKS: readonly Rank[] = [
+  { name: "Bronze", emoji: "🥉", fromLevel: 1 },
+  { name: "Silver", emoji: "🥈", fromLevel: 3 },
+  { name: "Gold", emoji: "🥇", fromLevel: 5 },
+  { name: "Platinum", emoji: "💎", fromLevel: 8 },
+  { name: "Diamond", emoji: "👑", fromLevel: 12 },
+];
+
+export function rankFor(level: number): Rank {
+  let rank = RANKS[0] ?? { name: "Bronze", emoji: "🥉", fromLevel: 1 };
+  for (const r of RANKS) if (level >= r.fromLevel) rank = r;
+  return rank;
+}
+
 export interface LevelInfo {
   /** 1-based. */
   level: number;
   title: string;
+  rank: Rank;
   /** XP earned inside the current level (0 … perLevel-1). */
   intoLevel: number;
   perLevel: number;
@@ -74,6 +97,7 @@ export function levelFor(xp: number): LevelInfo {
   return {
     level,
     title: LEVEL_TITLES[titleIndex] ?? "Loan Day Legend",
+    rank: rankFor(level),
     intoLevel: total - (level - 1) * XP_PER_LEVEL,
     perLevel: XP_PER_LEVEL,
     nextLevelAt: level * XP_PER_LEVEL,

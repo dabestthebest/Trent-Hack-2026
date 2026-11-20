@@ -46,6 +46,7 @@ describe("levelFor", () => {
       intoLevel: 0,
       perLevel: 100,
       nextLevelAt: 100,
+      rank: { name: "Bronze", emoji: "🥉", fromLevel: 1 },
     });
   });
 
@@ -142,5 +143,19 @@ describe("parseXpState", () => {
     expect(
       parseXpState({ xp: 12.7, day: DAY1, done: ["check-runway", "check-runway", 3, "nope"] }),
     ).toEqual({ xp: 12, day: DAY1, done: ["check-runway"] });
+  });
+});
+
+describe("ranks", () => {
+  it("scale with level", async () => {
+    const { rankFor, levelFor } = await import("./xp");
+    expect(rankFor(1).name).toBe("Bronze");
+    expect(rankFor(2).name).toBe("Bronze");
+    expect(rankFor(3).name).toBe("Silver");
+    expect(rankFor(5).name).toBe("Gold");
+    expect(rankFor(8).name).toBe("Platinum");
+    expect(rankFor(12).name).toBe("Diamond");
+    expect(rankFor(40).name).toBe("Diamond");
+    expect(levelFor(250).rank).toMatchObject({ name: "Silver", emoji: "🥈" });
   });
 });
